@@ -1,0 +1,24 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+/* content */
+.content {
+  font-family: monospace;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.content-greeting {
+  justify-content: center;
+  align-items: center;
+}
+
+.about-2 {
+  max-width: 60%;
+  font-size: 18px;
+}
