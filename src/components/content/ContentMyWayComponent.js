@@ -78,7 +78,7 @@ class ContentMyWayComponent extends Component {
         </Paper>
       </div>
     );
-  }
+  };
 }
 
 ContentMyWayComponent.propTypes = {

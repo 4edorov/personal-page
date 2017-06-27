@@ -1,29 +1,32 @@
-import React from 'react'
+import React from 'react';
+import { withStyles, createStyleSheet } from 'material-ui/styles';
 
 
-const MyContentGreetingComponent = () => {
+const styleSheet = createStyleSheet('ContentGreetingComponent', {
+  contentPage: {
+    fontSize: '1.5em',
+    textAlign: 'center',
+    lineHeight: '1.5',
+  },
+});
+
+const ContentGreetingComponent = (props) => {
+  const classes = props.classes;
   return (
     <div id="greeting">
-      <div className="content content-greeting">
-
-        <div className="greeting-1">
+      <div className="content">
+        <div>
           <h1>Hello!</h1>
         </div>
-        <div className="greeting-2">
-          <h2>My Name Is Alexander Fedorov</h2>
-        </div>
-        <div className="greeting-3">
-          <h2>I&#39;m A Junior Web Developer</h2>
-        </div>
-        <div className="greeting-4">
-          <h2>This Site About Me</h2>
-        </div>
-        <div className="greeting-5">
-          <h2>& My Favorite Thing</h2>
+        <div>
+          <p className={classes.contentPage}>My Name Is Alexander Fedorov</p>
+          <p className={classes.contentPage}>I&#39;m A Junior Web Developer</p>
+          <p className={classes.contentPage}>This Site About Me</p>
+          <p className={classes.contentPage}>& My Favorite Thing</p>
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default MyContentGreetingComponent;
+export default withStyles(styleSheet)(ContentGreetingComponent);
