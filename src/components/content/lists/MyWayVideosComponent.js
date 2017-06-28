@@ -1,7 +1,5 @@
 import React from 'react';
 import List, { ListItem, ListItemText } from 'material-ui/List';
-import Avatar from 'material-ui/Avatar';
-import Assistant from 'material-ui-icons/Assistant';
 
 
 const content = [
@@ -15,13 +13,12 @@ const content = [
   },
 ];
 
-const MyWayProgrammsComponent = props => {
+const MyWayVideosComponent = props => {
   return (
     <div>
       {content.map((one, index) =>
         <List key={index}>
           <ListItem>
-            <Avatar><Assistant /></Avatar>
             <ListItemText primary={one.name} secondary={one.properties} />
           </ListItem>
         </List>
@@ -30,4 +27,4 @@ const MyWayProgrammsComponent = props => {
   );
 }
 
-export default MyWayProgrammsComponent;
+export default MyWayVideosComponent;

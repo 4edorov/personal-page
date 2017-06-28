@@ -3,9 +3,11 @@ import PropTypes from 'prop-types';
 import { withStyles, createStyleSheet } from 'material-ui/styles';
 import Paper from 'material-ui/Paper';
 import Tabs, { Tab } from 'material-ui/Tabs';
+import AppBar from 'material-ui/AppBar';
 import MyWayProgrammsComponent from './lists/MyWayProgrammsComponent';
 import MyWayBooksComponent from './lists/MyWayBooksComponent';
 import MyWayArticlesComponent from './lists/MyWayArticlesComponent';
+import MyWayVideosComponent from './lists/MyWayVideosComponent';
 
 
 const directions = [
@@ -15,11 +17,15 @@ const directions = [
   },
   {
     label: 'Books',
-    content: MyWayBooksComponent,
+    content: <MyWayBooksComponent />,
   },
   {
     label: 'Articles',
-    content: MyWayArticlesComponent,
+    content: <MyWayArticlesComponent />,
+  },
+  {
+    label: 'Videos',
+    content: <MyWayVideosComponent />,
   },
 ];
 
@@ -41,6 +47,7 @@ const styleSheet = createStyleSheet('ContentMyWayComponent', theme => ({
   },
   appBar: {
     backgroundColor: theme.palette.primary[500],
+    position: 'relative',
   },
 }));
 
@@ -62,18 +69,18 @@ class ContentMyWayComponent extends Component {
           <h1>My Way</h1>
         </div>
         <Paper className={classes.main}>
-          <div className={classes.appBar}>
+          <AppBar className={classes.appBar}>
             <Tabs
               index={this.state.index}
               onChange={this.handleChange}
               scrollable
-              scrollButtons="auto"
+              scrollButtons="on"
             >
               {directions.map((one, index) =>
                 <Tab label={one.label} key={index} />
               )}
             </Tabs>
-          </div>
+          </AppBar>
           {directions[this.state.index].content}
         </Paper>
       </div>
