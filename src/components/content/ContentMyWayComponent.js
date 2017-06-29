@@ -47,7 +47,7 @@ const styleSheet = createStyleSheet('ContentMyWayComponent', theme => ({
   },
   appBar: {
     backgroundColor: theme.palette.primary[500],
-    position: 'relative',
+    position: 'static',
   },
 }));
 
