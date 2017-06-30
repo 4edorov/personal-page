@@ -25,7 +25,6 @@ const content = [
     link: 'https://github.com/getify/You-Dont-Know-JS',
     icon: 'fa fa-book',
   },
-
 ];
 
 const MyWayBooksComponent = props => {

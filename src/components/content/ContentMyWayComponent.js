@@ -20,11 +20,11 @@ const directions = [
     content: <MyWayBooksComponent />,
   },
   {
-    label: 'Articles',
+    label: 'Articles / Recources',
     content: <MyWayArticlesComponent />,
   },
   {
-    label: 'Videos',
+    label: 'Videos / Channels',
     content: <MyWayVideosComponent />,
   },
 ];
