@@ -1,9 +1,6 @@
 import React from 'react';
-import List, { ListItem, ListItemIcon, ListItemText, ListItemSecondaryAction } from 'material-ui/List';
-import Avatar from 'material-ui/Avatar';
 import Assistant from 'material-ui-icons/Assistant';
-import IconButton from 'material-ui/IconButton';
-import Icon from 'material-ui/Icon';
+import { showResources } from '../../../lib';
 
 
 const content = [
@@ -33,26 +30,12 @@ const content = [
   },
 ];
 
-const MyWayProgrammsComponent = props => {
+const MyWayProgrammsComponent = () => {
   return (
     <div>
-      {content.map((one, index) =>
-        <List key={index}>
-          <ListItem>
-            <ListItemIcon>
-              <Avatar><Assistant /></Avatar>
-            </ListItemIcon>
-            <ListItemText primary={one.name} secondary={one.properties} />
-            <ListItemSecondaryAction>
-              <IconButton color="accent" target="_blank" href={one.link}>
-                <Icon className={one.icon} />
-              </IconButton>
-            </ListItemSecondaryAction>
-          </ListItem>
-        </List>
-      )}
+      {showResources(content, <Assistant />)}
     </div>
   );
-}
+};
 
 export default MyWayProgrammsComponent;

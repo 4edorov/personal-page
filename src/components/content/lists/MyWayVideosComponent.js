@@ -1,9 +1,6 @@
 import React from 'react';
-import List, { ListItem, ListItemIcon, ListItemText, ListItemSecondaryAction } from 'material-ui/List';
-import Avatar from 'material-ui/Avatar';
-import Book from 'material-ui-icons/Book';
-import IconButton from 'material-ui/IconButton';
-import Icon from 'material-ui/Icon';
+import VideoLibrary from 'material-ui-icons/VideoLibrary';
+import { showResources } from '../../../lib';
 
 
 const content = [
@@ -27,26 +24,12 @@ const content = [
   },
 ];
 
-const MyWayBooksComponent = props => {
+const MyWayVideosComponent = () => {
   return (
     <div>
-      {content.map((one, index) =>
-        <List key={index}>
-          <ListItem>
-            <ListItemIcon>
-              <Avatar><Book /></Avatar>
-            </ListItemIcon>
-            <ListItemText primary={one.name} secondary={one.properties} />
-            <ListItemSecondaryAction>
-              <IconButton color="accent" target="_blank" href={one.link}>
-                <Icon className={one.icon} />
-              </IconButton>
-            </ListItemSecondaryAction>
-          </ListItem>
-        </List>
-      )}
+      {showResources(content, <VideoLibrary />)}
     </div>
   );
-}
+};
 
-export default MyWayBooksComponent;
+export default MyWayVideosComponent;

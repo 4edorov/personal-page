@@ -1,9 +1,6 @@
 import React from 'react';
-import List, { ListItem, ListItemIcon, ListItemText, ListItemSecondaryAction } from 'material-ui/List';
-import Avatar from 'material-ui/Avatar';
-import Book from 'material-ui-icons/Book';
-import IconButton from 'material-ui/IconButton';
-import Icon from 'material-ui/Icon';
+import BookmarkBorder from 'material-ui-icons/BookmarkBorder';
+import { showResources } from '../../../lib';
 
 
 const content = [
@@ -21,26 +18,12 @@ const content = [
   },
 ];
 
-const MyWayBooksComponent = props => {
+const MyWayBooksComponent = () => {
   return (
     <div>
-      {content.map((one, index) =>
-        <List key={index}>
-          <ListItem>
-            <ListItemIcon>
-              <Avatar><Book /></Avatar>
-            </ListItemIcon>
-            <ListItemText primary={one.name} secondary={one.properties} />
-            <ListItemSecondaryAction>
-              <IconButton color="accent" target="_blank" href={one.link}>
-                <Icon className={one.icon} />
-              </IconButton>
-            </ListItemSecondaryAction>
-          </ListItem>
-        </List>
-      )}
+      {showResources(content, <BookmarkBorder />)}
     </div>
   );
-}
+};
 
 export default MyWayBooksComponent;
