@@ -1,5 +1,4 @@
 import React from 'react';
-import { withStyles, createStyleSheet } from 'material-ui/styles';
 import jsLogo from '../../../assets/static/images/way_js_logo.png';
 import tsLogo from '../../../assets/static/images/way_ts_logo.png';
 import htmlLogo from '../../../assets/static/images/way_html_logo.png';
@@ -8,40 +7,18 @@ import { showTechnologies } from '../../../lib';
 
 
 const languages = [
-  {
-    name: 'JavaScript',
-    src: jsLogo,
-    link: 'https://www.ecma-international.org',
-  },
-  {
-    name: 'HTML',
-    src: htmlLogo,
-    link: 'https://www.w3.org',
-  },
-  {
-    name: 'CSS',
-    src: cssLogo,
-    link: 'https://www.w3.org/Style',
-  },
-  {
-    name: 'TypeScript',
-    src: tsLogo,
-    link: 'https://www.typescriptlang.org',
-  },
+  {name: 'JavaScript', src: jsLogo, link: 'https://www.ecma-international.org',},
+  {name: 'HTML', src: htmlLogo, link: 'https://www.w3.org',},
+  {name: 'CSS', src: cssLogo, link: 'https://www.w3.org/Style',},
+  {name: 'TypeScript', src: tsLogo, link: 'https://www.typescriptlang.org',},
 ];
 
-const styleSheet = createStyleSheet('MyWayLanguagesComponent', {
-  main: {
-  },
-});
-
-const MyWayLanguagesComponent = (props) => {
-  const classes = props.classes;
+const MyWayLanguagesComponent = () => {
   return (
-    <div className={classes.main}>
+    <div>
       {showTechnologies(languages)}
     </div>
   );
 };
 
-export default withStyles(styleSheet)(MyWayLanguagesComponent);
+export default MyWayLanguagesComponent;

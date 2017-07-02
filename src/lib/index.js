@@ -35,11 +35,11 @@ export const showTechnologies = (content) => {
       {content.map((one, index) =>
         <Card key={index} style={{maxWidth: 120, margin: 15}}>
           <CardMedia>
-            <img src={one.src} alt={one.name} style={{maxWidth: 120}}/>
+            <img src={one.src} alt={one.name} style={{width: 'auto', height: 'auto', maxWidth: '100%'}}/>
             <Divider />
           </CardMedia>
           <CardActions>
-            <Button color="accent" href={one.link}>{one.name}</Button>
+            <Button color="accent" href={one.link} target="_blank">{one.name}</Button>
           </CardActions>
         </Card>
       )}
