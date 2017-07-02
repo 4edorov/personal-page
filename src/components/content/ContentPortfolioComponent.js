@@ -21,6 +21,7 @@ const styleSheet = createStyleSheet('ContentPortfolioComponent', {
     margin: 50,
   },
   caption: {
+    marginTop: 128,
     marginBottom: 50,
   },
   imgView: {

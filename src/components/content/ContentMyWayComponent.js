@@ -3,24 +3,27 @@ import PropTypes from 'prop-types';
 import { withStyles, createStyleSheet } from 'material-ui/styles';
 import Paper from 'material-ui/Paper';
 import Tabs, { Tab } from 'material-ui/Tabs';
+import AppBar from 'material-ui/AppBar';
 import MyWayProgrammsComponent from './lists/MyWayProgrammsComponent';
 import MyWayBooksComponent from './lists/MyWayBooksComponent';
 import MyWayArticlesComponent from './lists/MyWayArticlesComponent';
+import MyWayVideosComponent from './lists/MyWayVideosComponent';
+import MyWayLanguagesComponent from './lists/MyWayLanguagesComponent';
 
 
 const directions = [
-  {
-    label: 'Learning Programms',
-    content: <MyWayProgrammsComponent />,
-  },
-  {
-    label: 'Books',
-    content: MyWayBooksComponent,
-  },
-  {
-    label: 'Articles',
-    content: MyWayArticlesComponent,
-  },
+  {label: 'Learning Programms', content: <MyWayProgrammsComponent />,},
+  {label: 'Books', content: <MyWayBooksComponent />,},
+  {label: 'Articles / Recources', content: <MyWayArticlesComponent />,},
+  {label: 'Videos / Channels', content: <MyWayVideosComponent />,},
+];
+
+const technologies = [
+  {label: 'Languages', content: <MyWayLanguagesComponent />,},
+  {label: 'Frameworks', content: <MyWayLanguagesComponent />,},
+  {label: 'Tools', content: <MyWayLanguagesComponent />,},
+  {label: 'Data', content: <MyWayLanguagesComponent />,},
+  {label: 'Design', content: <MyWayLanguagesComponent />,},
 ];
 
 const styleSheet = createStyleSheet('ContentMyWayComponent', theme => ({
@@ -37,20 +40,27 @@ const styleSheet = createStyleSheet('ContentMyWayComponent', theme => ({
     margin: 50,
   },
   caption: {
+    marginTop: 128,
     marginBottom: 50,
   },
   appBar: {
     backgroundColor: theme.palette.primary[500],
+    position: 'static',
   },
 }));
 
 class ContentMyWayComponent extends Component {
   state = {
-    index: 0,
+    indexTechnologies: 0,
+    indexDirections: 0,
   };
 
-  handleChange = (event, index) => {
-    this.setState({ index });
+  handleChangeTechnologies = (event, indexTechnologies) => {
+    this.setState({ indexTechnologies });
+  };
+
+  handleChangeDirections = (event, indexDirections) => {
+    this.setState({ indexDirections });
   };
 
   render() {
@@ -62,19 +72,36 @@ class ContentMyWayComponent extends Component {
           <h1>My Way</h1>
         </div>
         <Paper className={classes.main}>
-          <div className={classes.appBar}>
+          <AppBar className={classes.appBar}>
             <Tabs
-              index={this.state.index}
-              onChange={this.handleChange}
+              index={this.state.indexTechnologies}
+              onChange={this.handleChangeTechnologies}
               scrollable
-              scrollButtons="auto"
+              scrollButtons="on"
+              centered={true}
+            >
+              {technologies.map((one, index) =>
+                <Tab label={one.label} key={index} />
+              )}
+            </Tabs>
+          </AppBar>
+          {technologies[this.state.indexTechnologies].content}
+        </Paper>
+        <Paper className={classes.main}>
+          <AppBar className={classes.appBar}>
+            <Tabs
+              index={this.state.indexDirections}
+              onChange={this.handleChangeDirections}
+              scrollable
+              scrollButtons="on"
+              centered={true}
             >
               {directions.map((one, index) =>
                 <Tab label={one.label} key={index} />
               )}
             </Tabs>
-          </div>
-          {directions[this.state.index].content}
+          </AppBar>
+          {directions[this.state.indexDirections].content}
         </Paper>
       </div>
     );

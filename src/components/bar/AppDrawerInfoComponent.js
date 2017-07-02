@@ -81,7 +81,7 @@ const AppDrawerInfoComponent = (props) => {
             <ListItemIcon>
               <Face />
             </ListItemIcon>
-            <ListItemText primary="Alexander Fedorov" secondary="Front-End Developer" />
+            <ListItemText primary="Alexander Fedorov" secondary="Web Developer" />
           </ListItem>
           <ListItem button={true}>
             <ListItemIcon>
