@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { withStyles, createStyleSheet } from 'material-ui/styles';
 
 
@@ -27,6 +28,10 @@ const ContentGreetingComponent = (props) => {
       </div>
     </div>
   );
+};
+
+ContentGreetingComponent.propTypes = {
+  classes: PropTypes.object.isRequired,
 };
 
 export default withStyles(styleSheet)(ContentGreetingComponent);
