@@ -36,7 +36,7 @@ const styleSheet = createStyleSheet('ContentMyWayComponent', theme => ({
     magrin: 50,
   },
   main: {
-    width: 'calc(100% - 100px)',
+    width: 'calc(100% - 50px)',
     margin: 50,
   },
   caption: {
