@@ -2,9 +2,9 @@ import React from 'react';
 import List, { ListItem, ListItemIcon, ListItemText, ListItemSecondaryAction } from 'material-ui/List';
 import IconButton from 'material-ui/IconButton';
 import Icon from 'material-ui/Icon';
-import Card, { CardMedia, CardActions } from 'material-ui/Card';
-import Button from 'material-ui/Button';
+import Card, { CardMedia, CardContent } from 'material-ui/Card';
 import Divider from 'material-ui/Divider';
+import Storage from 'material-ui-icons/Storage';
 
 
 export const showResources = (content, iconComponent) => {
@@ -33,14 +33,16 @@ export const showTechnologies = (content) => {
   return (
     <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'space-around'}}>
       {content.map((one, index) =>
-        <Card key={index} style={{maxWidth: 120, margin: 15}}>
+        <Card key={index} style={{maxHeight: 200, maxWidth: 120, margin: 15}}>
           <CardMedia>
             <img src={one.src} alt={one.name} style={{width: 'auto', height: 'auto', maxWidth: '100%'}}/>
-            <Divider />
           </CardMedia>
-          <CardActions>
-            <Button color="accent" href={one.link} target="_blank">{one.name}</Button>
-          </CardActions>
+          <Divider />
+          <CardContent style={{padding: 0, display: 'flex', justifyContent: 'center'}}>
+            <IconButton color="accent" href={one.link} target="_blank">
+              <Storage />
+            </IconButton>
+          </CardContent>
         </Card>
       )}
     </div>
