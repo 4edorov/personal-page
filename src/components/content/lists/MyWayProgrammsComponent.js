@@ -1,5 +1,4 @@
 import React from 'react';
-import Assistant from 'material-ui-icons/Assistant';
 import { showResources } from '../../../lib';
 
 
@@ -33,7 +32,7 @@ const content = [
 const MyWayProgrammsComponent = () => {
   return (
     <div>
-      {showResources(content, <Assistant />)}
+      {showResources(content)}
     </div>
   );
 };

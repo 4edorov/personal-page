@@ -1,5 +1,4 @@
 import React from 'react';
-import BookmarkBorder from 'material-ui-icons/BookmarkBorder';
 import { showResources } from '../../../lib';
 
 
@@ -21,7 +20,7 @@ const content = [
 const MyWayBooksComponent = () => {
   return (
     <div>
-      {showResources(content, <BookmarkBorder />)}
+      {showResources(content)}
     </div>
   );
 };

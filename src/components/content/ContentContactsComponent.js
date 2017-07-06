@@ -29,7 +29,7 @@ const ContentContactsComponent = props => {
       </div>
       <div>
         <p>
-          Under Construction
+          Sorry! Under Construction
         </p>
       </div>
     </div>

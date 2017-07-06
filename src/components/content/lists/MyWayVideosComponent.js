@@ -1,5 +1,4 @@
 import React from 'react';
-import VideoLibrary from 'material-ui-icons/VideoLibrary';
 import { showResources } from '../../../lib';
 
 
@@ -27,7 +26,7 @@ const content = [
 const MyWayVideosComponent = () => {
   return (
     <div>
-      {showResources(content, <VideoLibrary />)}
+      {showResources(content)}
     </div>
   );
 };

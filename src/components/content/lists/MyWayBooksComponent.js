@@ -1,5 +1,4 @@
 import React from 'react';
-import Book from 'material-ui-icons/Book';
 import { showResources } from '../../../lib';
 
 
@@ -27,7 +26,7 @@ const content = [
 const MyWayBooksComponent = () => {
   return (
     <div>
-      {showResources(content, <Book />)}
+      {showResources(content)}
     </div>
   );
 };
