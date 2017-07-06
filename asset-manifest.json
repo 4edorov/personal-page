@@ -1,13 +1,16 @@
 {
   "main.css": "static/css/main.b22eef35.css",
   "main.css.map": "static/css/main.b22eef35.css.map",
-  "main.js": "static/js/main.5d61ae3a.js",
-  "main.js.map": "static/js/main.5d61ae3a.js.map",
+  "main.js": "static/js/main.c8f5249a.js",
+  "main.js.map": "static/js/main.c8f5249a.js.map",
   "static/media/Avatar.jpg": "static/media/Avatar.1b54a8be.jpg",
   "static/media/screen_page.png": "static/media/screen_page.af0f0b21.png",
   "static/media/screen_quote.png": "static/media/screen_quote.e4f32596.png",
   "static/media/screen_search.png": "static/media/screen_search.9b0cdf04.png",
   "static/media/screen_twitch.png": "static/media/screen_twitch.3a798ce9.png",
   "static/media/screen_weather.png": "static/media/screen_weather.0b0dc490.png",
-  "static/media/way_css_logo.png": "static/media/way_css_logo.7180db2b.png"
+  "static/media/way_css_logo.png": "static/media/way_css_logo.7180db2b.png",
+  "static/media/way_ft_logo.png": "static/media/way_ft_logo.7a730786.png",
+  "static/media/way_mdreact_logo.png": "static/media/way_mdreact_logo.48b5a595.png",
+  "static/media/way_mongo_logo.png": "static/media/way_mongo_logo.43f58843.png"
 }
