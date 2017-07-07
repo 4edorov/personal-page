@@ -9,6 +9,10 @@ import MyWayBooksComponent from './lists/MyWayBooksComponent';
 import MyWayArticlesComponent from './lists/MyWayArticlesComponent';
 import MyWayVideosComponent from './lists/MyWayVideosComponent';
 import MyWayLanguagesComponent from './lists/MyWayLanguagesComponent';
+import MyWayFrameworksComponent from './lists/MyWayFrameworksComponent';
+import MyWayToolsComponent from './lists/MyWayToolsComponent';
+import MyWayDataComponent from './lists/MyWayDataComponent';
+import MyWayDesignComponent from './lists/MyWayDesignComponent';
 
 
 const directions = [
@@ -20,10 +24,10 @@ const directions = [
 
 const technologies = [
   {label: 'Languages', content: <MyWayLanguagesComponent />,},
-  {label: 'Frameworks', content: <MyWayLanguagesComponent />,},
-  {label: 'Tools', content: <MyWayLanguagesComponent />,},
-  {label: 'Data', content: <MyWayLanguagesComponent />,},
-  {label: 'Design', content: <MyWayLanguagesComponent />,},
+  {label: 'Frameworks', content: <MyWayFrameworksComponent />,},
+  {label: 'Tools', content: <MyWayToolsComponent />,},
+  {label: 'Data', content: <MyWayDataComponent />,},
+  {label: 'Design', content: <MyWayDesignComponent />,},
 ];
 
 const styleSheet = createStyleSheet('ContentMyWayComponent', theme => ({

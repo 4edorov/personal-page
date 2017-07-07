@@ -83,3 +83,21 @@ export const PORTFOLIO_WORKS = [
     },
   },
 ];
+
+export const CONTACTS = [
+  {
+    title: '@github',
+    link: 'https://github.com/4edorov',
+    icon: 'fa fa-github',
+  },
+  {
+    title: '@facebook',
+    link: 'https://www.facebook.com/alexander.fedorov.948',
+    icon: 'fa fa-facebook',
+  },
+  {
+    title: '@google+',
+    link: 'https://plus.google.com/u/0/115224100303990911021',
+    icon: 'fa fa-google-plus',
+  },
+];

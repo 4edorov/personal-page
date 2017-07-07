@@ -1,27 +1,24 @@
 import React from 'react';
-import List, { ListItem, ListItemIcon, ListItemText, ListItemSecondaryAction } from 'material-ui/List';
+import List, { ListItem, ListItemIcon, ListItemText } from 'material-ui/List';
 import IconButton from 'material-ui/IconButton';
 import Icon from 'material-ui/Icon';
 import Card, { CardMedia, CardContent } from 'material-ui/Card';
 import Divider from 'material-ui/Divider';
-import Storage from 'material-ui-icons/Storage';
+import Typography from 'material-ui/Typography';
 
 
-export const showResources = (content, iconComponent) => {
+export const showResources = content => {
   return (
     <div>
       {content.map((one, index) =>
         <List key={index}>
           <ListItem>
             <ListItemIcon>
-              {iconComponent}
+              <IconButton target="_blank" href={one.link}>
+                <Icon color="accent" className={one.icon} />
+              </IconButton>
             </ListItemIcon>
             <ListItemText primary={one.name} secondary={one.properties} />
-            <ListItemSecondaryAction>
-              <IconButton color="accent" target="_blank" href={one.link}>
-                <Icon className={one.icon} />
-              </IconButton>
-            </ListItemSecondaryAction>
           </ListItem>
         </List>
       )}
@@ -31,17 +28,19 @@ export const showResources = (content, iconComponent) => {
 
 export const showTechnologies = (content) => {
   return (
-    <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'space-around'}}>
+    <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'space-around', flexWrap: 'wrap'}}>
       {content.map((one, index) =>
-        <Card key={index} style={{maxHeight: 200, maxWidth: 120, margin: 15}}>
+        <Card key={index} style={{maxWidth: 100, margin: 15}}>
           <CardMedia>
             <img src={one.src} alt={one.name} style={{width: 'auto', height: 'auto', maxWidth: '100%'}}/>
           </CardMedia>
           <Divider />
-          <CardContent style={{padding: 0, display: 'flex', justifyContent: 'center'}}>
-            <IconButton color="accent" href={one.link} target="_blank">
-              <Storage />
-            </IconButton>
+          <CardContent style={{padding: 5, display: 'flex', justifyContent: 'center'}}>
+            <a style={{textDecoration: 'none'}} href={one.link} target="_blank">
+              <Typography color="accent" >
+                {one.name}
+              </Typography>
+            </a>
           </CardContent>
         </Card>
       )}
