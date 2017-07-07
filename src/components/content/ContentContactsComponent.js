@@ -1,6 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles, createStyleSheet } from 'material-ui/styles';
+import Chip from 'material-ui/Chip';
+import Avatar from 'material-ui/Avatar';
+import Icon from 'material-ui/Icon';
+import { CONTACTS } from '../../config/AppConfig';
 
 
 const styleSheet = createStyleSheet('ContentContactsComponent', {
@@ -17,6 +21,12 @@ const styleSheet = createStyleSheet('ContentContactsComponent', {
   caption: {
     marginBottom: 50,
   },
+  chip: {
+    display: 'flex',
+    justifyContent: 'flex-start',
+    width: 250,
+    margin: '25px 0px',
+  },
 });
 
 const ContentContactsComponent = props => {
@@ -28,9 +38,15 @@ const ContentContactsComponent = props => {
         <h1>Contacts</h1>
       </div>
       <div>
-        <p>
-          Sorry! Under Construction
-        </p>
+        {CONTACTS.map((contact, index) => (
+          <Chip
+            key={index}
+            className={classes.chip}
+            avatar={<Avatar><Icon className={contact.icon} /></Avatar>}
+            label={contact.title}
+            onClick={() => (window.open(contact.link))}
+          />
+        ))}
       </div>
     </div>
   );

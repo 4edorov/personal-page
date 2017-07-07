@@ -28,9 +28,9 @@ export const showResources = content => {
 
 export const showTechnologies = (content) => {
   return (
-    <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'space-around'}}>
+    <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'space-around', flexWrap: 'wrap'}}>
       {content.map((one, index) =>
-        <Card key={index} style={{maxHeight: 200, maxWidth: 120, margin: 15}}>
+        <Card key={index} style={{maxWidth: 100, margin: 15}}>
           <CardMedia>
             <img src={one.src} alt={one.name} style={{width: 'auto', height: 'auto', maxWidth: '100%'}}/>
           </CardMedia>
