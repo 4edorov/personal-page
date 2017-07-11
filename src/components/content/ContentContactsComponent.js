@@ -5,6 +5,7 @@ import Chip from 'material-ui/Chip';
 import Avatar from 'material-ui/Avatar';
 import Icon from 'material-ui/Icon';
 import { CONTACTS } from '../../config/AppConfig';
+import AppSendForm from '../elements/AppSendForm';
 
 
 const styleSheet = createStyleSheet('ContentContactsComponent', {
@@ -47,6 +48,9 @@ const ContentContactsComponent = props => {
             onClick={() => (window.open(contact.link))}
           />
         ))}
+      </div>
+      <div>
+        <AppSendForm />
       </div>
     </div>
   );
