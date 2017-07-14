@@ -1,10 +1,16 @@
-import { TOGGLE_DRAWER, STATE_DRAWER, STATE_APP } from '../actions/index';
+import {
+  TOGGLE_DRAWER,
+  STATE_DRAWER,
+  STATE_APP,
+  TOGGLE_SEND_DRAWER
+} from '../actions/index';
 
 
 const initialState = {
   openDrawer: false,
   dockedDrawer: true,
   stateApp: 'Greeting',
+  openSendDrawer: false,
 };
 
 const toggleDrawer = function(state = initialState, action) {
@@ -20,6 +26,10 @@ const toggleDrawer = function(state = initialState, action) {
     case STATE_APP:
       return Object.assign({}, state, {
         stateApp: action.stateApp,
+      });
+    case TOGGLE_SEND_DRAWER:
+      return Object.assign({}, state, {
+        openSendDrawer: action.open,
       });
     default:
       return state;
