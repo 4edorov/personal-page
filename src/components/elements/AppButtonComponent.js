@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { withStyles, createStyleSheet } from 'material-ui/styles';
 import Button from 'material-ui/Button';
 import Chat from 'material-ui-icons/Chat';
+import { connect } from 'react-redux';
+import { toggleSendDrawer } from '../../actions';
 
 
 const styleSheet = createStyleSheet('AppButtonComponent', theme => ({
@@ -19,19 +21,38 @@ const styleSheet = createStyleSheet('AppButtonComponent', theme => ({
   },
 }));
 
-const AppButtonComponent = (props) => {
-  const classes = props.classes;
-  return (
-    <Button fab={true} color={"accent"} className={classes.appButton}>
-      <a className={classes.mailTo} href="mailto:4edorov@gmail.com">
+const mapStateToProps = (state) => ({
+  open: state.openSendDrawer,
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  toggleSendDrawer(mode) {
+    dispatch(toggleSendDrawer(mode));
+  },
+});
+
+class AppButtonComponent extends Component {
+  classes = this.props.classes;
+  handleDrawerClose = () => {
+    this.props.toggleSendDrawer(!this.props.open)
+  }
+
+  render() {
+    return (
+      <Button
+        fab={true}
+        color={"accent"}
+        className={this.classes.appButton}
+        onClick={this.handleDrawerClose}
+      >
         <Chat />
-      </a>
-    </Button>
-  );
+      </Button>
+    );
+  }
 };
 
 AppButtonComponent.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styleSheet)(AppButtonComponent);
+export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styleSheet)(AppButtonComponent));

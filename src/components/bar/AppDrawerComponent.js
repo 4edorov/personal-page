@@ -19,6 +19,7 @@ class AppDrawerComponent extends React.Component {
   handleDrawerClose = () => {
     this.props.toggleDrawer(false);
   }
+
   render() {
     return (
       <div>
@@ -30,8 +31,8 @@ class AppDrawerComponent extends React.Component {
           <AppDrawerInfoComponent />
         </Drawer>
       </div>
-    )
+    );
   }
-}
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(AppDrawerComponent);

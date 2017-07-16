@@ -1,6 +1,7 @@
 export const TOGGLE_DRAWER = 'TOGGLE_DRAWER';
 export const STATE_DRAWER = 'STATE_DRAWER';
 export const STATE_APP = 'STATE_APP';
+export const TOGGLE_SEND_DRAWER = 'TOGGLE_SEND_DRAWER';
 
 export const toggleDrawer = (open) => {
   return {
@@ -20,5 +21,12 @@ export const changeStateApp = (stateApp) => {
   return {
     type: STATE_APP,
     stateApp
+  };
+};
+
+export const toggleSendDrawer = (open) => {
+  return {
+    type: TOGGLE_SEND_DRAWER,
+    open
   };
 };
