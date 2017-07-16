@@ -13,7 +13,7 @@ const initialState = {
   openSendDrawer: false,
 };
 
-const toggleDrawer = function(state = initialState, action) {
+const toggleAppState = function(state = initialState, action) {
   switch (action.type) {
     case TOGGLE_DRAWER:
       return Object.assign({}, state, {
@@ -36,4 +36,4 @@ const toggleDrawer = function(state = initialState, action) {
   }
 }
 
-export default toggleDrawer;
+export default toggleAppState;

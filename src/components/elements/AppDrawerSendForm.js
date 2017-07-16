@@ -16,14 +16,13 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 class AppDrawerSendForm extends Component {
-  handleDrawerClose = () => {
-    this.props.toggleSendDrawer(false);
-  }
-
   render() {
     return (
       <div>
-        <Drawer>
+        <Drawer
+          anchor="right"
+          open={this.props.open}
+        >
           <AppSendForm />
         </Drawer>
       </div>

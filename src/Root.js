@@ -6,6 +6,7 @@ import { toggleDrawer, stateDrawer } from './actions';
 import AppButtonComponent from './components/elements/AppButtonComponent';
 import AppContentComponent from './components/content/AppContentComponent';
 import { STATE_APP } from './config/AppConfig';
+import AppDrawerSendForm from './components/elements/AppDrawerSendForm';
 
 
 const mapStateToProps = (state) => ({
@@ -46,6 +47,7 @@ class Root extends React.Component {
         />
         {this.props.stateApp === STATE_APP[4] && <AppButtonComponent />}
         <AppContentComponent />
+        <AppDrawerSendForm />
       </div>
     );
   }

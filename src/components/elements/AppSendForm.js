@@ -1,9 +1,13 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { withStyles, createStyleSheet } from 'material-ui/styles';
+import { connect } from 'react-redux';
+import { toggleSendDrawer } from '../../actions';
 import Card, { CardHeader, CardContent, CardActions } from 'material-ui/Card';
 import TextField from 'material-ui/TextField';
 import Button from 'material-ui/Button';
+import IconButton from 'material-ui/IconButton';
+import Close from 'material-ui-icons/Close';
 import { URL_FOR_SEND_EMAIL_FORM } from '../../config/AppConfig';
 
 
@@ -14,7 +18,21 @@ const styleSheet = createStyleSheet('AppSendForm', {
   inputForms: {
     display: 'flex',
     flexDirection: 'column',
-  }
+  },
+  titleHeader: {
+    display: 'flex',
+    justifyContent: 'space-between',
+  },
+});
+
+const mapStateToProps = (state) => ({
+  open: state.toggleSendDrawer,
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  toggleSendDrawer(mode) {
+    dispatch(toggleSendDrawer(mode));
+  },
 });
 
 class AppSendForm extends Component {
@@ -23,13 +41,24 @@ class AppSendForm extends Component {
     email: '',
     message: '',
   };
+  handleDrawerClose = () => {
+    this.props.toggleSendDrawer(false);
+  }
 
   render() {
     const classes = this.props.classes;
+
     return (
       <div className={classes.container}>
         <Card>
-          <CardHeader title="Contact Form" />
+          <CardHeader
+            title={
+              <div className={classes.titleHeader}>
+                <span>Contact Form</span>
+                <IconButton onClick={this.handleDrawerClose}><Close /></IconButton> 
+              </div>
+            }
+          />
           <CardContent className={classes.inputForms}>
             <TextField
               id="name"
@@ -74,4 +103,8 @@ class AppSendForm extends Component {
   }
 };
 
-export default withStyles(styleSheet)(AppSendForm);
+AppSendForm.propTypes = {
+  classes: PropTypes.object.isRequired,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styleSheet)(AppSendForm));
