@@ -43,7 +43,49 @@ class AppSendForm extends Component {
   };
   handleDrawerClose = () => {
     this.props.toggleSendDrawer(false);
-  }
+  };
+
+  getFormData = (elements) => {
+    return elements;
+  };
+
+  handleFormSubmit = () => {
+    console.log('handleSubmit');
+    const data = this.getFormData(this.state);
+    console.log('data', JSON.stringify(data));
+    let url = URL_FOR_SEND_EMAIL_FORM;
+    let xhr = new XMLHttpRequest();
+    xhr.open('POST', url);
+    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    xhr.send(JSON.stringify(data));
+  };
+
+  // function handleFormSubmit(event) {  // handles form submit withtout any jquery
+  //   event.preventDefault();           // we are submitting via xhr below
+  //   var data = getFormData();         // get the values submitted in the form
+  //   if( !validEmail(data.email) ) {   // if email is not valid show error
+  //     document.getElementById('email-invalid').style.display = 'block';
+  //     return false;
+  //   } else {
+  //     var url = event.target.action;  //
+  //     var xhr = new XMLHttpRequest();
+  //     xhr.open('POST', url);
+  //     // xhr.withCredentials = true;
+  //     xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+  //     xhr.onreadystatechange = function() {
+  //         console.log( xhr.status, xhr.statusText )
+  //         console.log(xhr.responseText);
+  //         document.getElementById('gform').style.display = 'none'; // hide form
+  //         document.getElementById('thankyou_message').style.display = 'block';
+  //         return;
+  //     };
+  //     // url encode form data for sending as post data
+  //     var encoded = Object.keys(data).map(function(k) {
+  //         return encodeURIComponent(k) + '=' + encodeURIComponent(data[k])
+  //     }).join('&')
+  //     xhr.send(encoded);
+  //   }
+  // }
 
   render() {
     const classes = this.props.classes;
@@ -55,7 +97,7 @@ class AppSendForm extends Component {
             title={
               <div className={classes.titleHeader}>
                 <span>Contact Form</span>
-                <IconButton onClick={this.handleDrawerClose}><Close /></IconButton> 
+                <IconButton onClick={this.handleDrawerClose}><Close /></IconButton>
               </div>
             }
           />
@@ -88,7 +130,10 @@ class AppSendForm extends Component {
             />
           </CardContent>
           <CardActions>
-            <Button raised>Send</Button>
+            <Button
+              raised
+              onClick={this.handleFormSubmit}
+            >Send</Button>
           </CardActions>
 
           <form
