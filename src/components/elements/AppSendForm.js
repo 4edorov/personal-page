@@ -52,7 +52,7 @@ class AppSendForm extends Component {
   };
 
   validEmail = (email) => {
-    var re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
+    let re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/; // /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i
     return re.test(email);
   }
 
@@ -106,13 +106,12 @@ class AppSendForm extends Component {
                 InputProps={{ placeholder: 'your.name@name.com'}}
                 value={this.state.form.email}
                 onChange={event => {
-                  this.setState({ form: {...this.state.form, email: event.target.value}});
-                  let checkEmail = this.validEmail(this.state.form.email);
-                  if (checkEmail) {
-                    this.setState({ checkEmail: true });
-                  } else {
-                    this.setState({ checkEmail: false });
-                  }
+                  let checkEmail = (email) => {
+                    let isEmailValid = this.validEmail(email);
+                    console.log('email state', email);
+                    isEmailValid ? this.setState({ checkEmail: true }) : this.setState({ checkEmail: false });
+                  };
+                  this.setState({ form: {...this.state.form, email: event.target.value}}, checkEmail(event.target.value));
                 }}
                 marginForm
               />
@@ -134,6 +133,7 @@ class AppSendForm extends Component {
             <Button
               raised
               onClick={this.handleFormSubmit}
+              disabled={this.state.form.name && this.state.form.email && this.state.form.message ? false : true}
             >Send</Button>
           </CardActions>
 
