@@ -11,6 +11,8 @@ import Icon from 'material-ui/Icon';
 import Close from 'material-ui-icons/Close';
 import Cancel from 'material-ui-icons/Cancel';
 import Check from 'material-ui-icons/Check';
+import Send from 'material-ui-icons/Send';
+import Snackbar from 'material-ui/Snackbar';
 import { URL_FOR_SEND_EMAIL_FORM } from '../../config/AppConfig';
 
 
@@ -26,6 +28,9 @@ const styleSheet = createStyleSheet('AppSendForm', {
     display: 'flex',
     justifyContent: 'space-between',
   },
+  sendIcon: {
+    marginLeft: 10,
+  }
 });
 
 const mapStateToProps = (state) => ({
@@ -46,17 +51,16 @@ class AppSendForm extends Component {
       message: '',
     },
     checkEmail: false,
+    thankMessage: true,
   };
-  handleDrawerClose = () => {
+  handleDrawerClose() {
     this.props.toggleSendDrawer(false);
   };
-
-  validEmail = (email) => {
-    let re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/; // /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i
+  validEmail(email) {
+    let re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return re.test(email);
-  }
-
-  getFormData = (messageFields) => {
+  };
+  getFormData(messageFields) {
     let validateMessageFields = {};
     Object.keys(messageFields).forEach(field => {
       if (messageFields[field].length > 0) {
@@ -65,15 +69,32 @@ class AppSendForm extends Component {
     });
     return validateMessageFields;
   };
-
-  handleFormSubmit = () => {
+  handleFormSubmit() {
     const data = this.getFormData(this.state.form);
     let url = URL_FOR_SEND_EMAIL_FORM;
     let xhr = new XMLHttpRequest();
     xhr.open('POST', url);
     xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
     xhr.send(JSON.stringify(data));
-    this.handleDrawerClose();
+    this.setState({thankMessage: true});
+    setTimeout(() => {
+      this.handleDrawerClose()
+    }, 1000);
+  };
+
+  renderThankMessage() {
+    return (
+      <div>
+        <Snackbar
+          anchorOrigin={{
+            vertical: 'top',
+            horizontal: 'right',
+          }}
+          open={this.state.thankMessage}
+          message={'Thank you'}
+        />
+      </div>
+    );
   };
 
   render() {
@@ -81,6 +102,7 @@ class AppSendForm extends Component {
 
     return (
       <div className={classes.container}>
+        {this.renderThankMessage()}
         <Card>
           <CardHeader
             title={
@@ -108,7 +130,6 @@ class AppSendForm extends Component {
                 onChange={event => {
                   let checkEmail = (email) => {
                     let isEmailValid = this.validEmail(email);
-                    console.log('email state', email);
                     isEmailValid ? this.setState({ checkEmail: true }) : this.setState({ checkEmail: false });
                   };
                   this.setState({ form: {...this.state.form, email: event.target.value}}, checkEmail(event.target.value));
@@ -132,21 +153,18 @@ class AppSendForm extends Component {
           <CardActions>
             <Button
               raised
+              color="primary"
               onClick={this.handleFormSubmit}
               disabled={this.state.form.name && this.state.form.email && this.state.form.message ? false : true}
-            >Send</Button>
+            >
+              Send
+              <Send className={classes.sendIcon}/>
+            </Button>
           </CardActions>
-
-          <form
-            id="gform"
-            method="POST"
-            action={URL_FOR_SEND_EMAIL_FORM}
-          >
-          </form>
         </Card>
       </div>
     )
-  }
+  };
 };
 
 AppSendForm.propTypes = {
