@@ -15,14 +15,14 @@ const ContentAboutComponent = () => {
             a Private company.
           </p>
           <p>
-            But a few years ago I felt the need for change, my friend advised me
+            But a few years ago I felt the need for changes, my friend advised me
             to try programming. Well, I recalled myself at high school and at university, it
             was funny to learn programming in Turbo Pascal 7.0 and I was an &#39;A&#39;
             student in mathematics. Why not?!
           </p>
           <p>
             I started to learn HTML, CSS, JavaScript. The key and important point was
-            the joining to freeCodeCamp community at November 2016.
+            the joining to the freeCodeCamp community at November 2016.
           </p>
           <p>
             Currently, I&#39;m working on a real project as a Web Developer.

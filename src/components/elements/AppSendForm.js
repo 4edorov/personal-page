@@ -4,6 +4,7 @@ import { withStyles, createStyleSheet } from 'material-ui/styles';
 import { connect } from 'react-redux';
 import { toggleSendDrawer } from '../../actions';
 import Card, { CardHeader, CardContent, CardActions } from 'material-ui/Card';
+import Typography from 'material-ui/Typography';
 import TextField from 'material-ui/TextField';
 import Button from 'material-ui/Button';
 import IconButton from 'material-ui/IconButton';
@@ -12,13 +13,13 @@ import Close from 'material-ui-icons/Close';
 import Cancel from 'material-ui-icons/Cancel';
 import Check from 'material-ui-icons/Check';
 import Send from 'material-ui-icons/Send';
-import Snackbar from 'material-ui/Snackbar';
 import { URL_FOR_SEND_EMAIL_FORM } from '../../config/AppConfig';
 
 
-const styleSheet = createStyleSheet('AppSendForm', {
+const styleSheet = createStyleSheet('AppSendForm', theme => ({
   container: {
     width: 300,
+    margin: 'auto',
   },
   inputForms: {
     display: 'flex',
@@ -30,8 +31,11 @@ const styleSheet = createStyleSheet('AppSendForm', {
   },
   sendIcon: {
     marginLeft: 10,
-  }
-});
+  },
+  textThank: {
+    color: theme.palette.accent[500],
+  },
+}));
 
 const mapStateToProps = (state) => ({
   open: state.toggleSendDrawer,
@@ -51,7 +55,7 @@ class AppSendForm extends Component {
       message: '',
     },
     checkEmail: false,
-    thankMessage: true,
+    thankMessage: false,
   };
   handleDrawerClose() {
     this.props.toggleSendDrawer(false);
@@ -79,21 +83,87 @@ class AppSendForm extends Component {
     this.setState({thankMessage: true});
     setTimeout(() => {
       this.handleDrawerClose()
-    }, 1000);
+    }, 4000);
   };
 
   renderThankMessage() {
+    const classes = this.props.classes;
     return (
-      <div>
-        <Snackbar
-          anchorOrigin={{
-            vertical: 'top',
-            horizontal: 'right',
-          }}
-          open={this.state.thankMessage}
-          message={'Thank you'}
+      <Card>
+        <CardContent>
+          <Typography align="center" type="headline">
+            Thank you,<br /><br />
+            <span className={classes.textThank}>Dear {this.state.form.name},</span><br />
+            for contacting me!<br /><br />
+            I will get back to you soon!
+          </Typography>
+        </CardContent>
+      </Card>
+    );
+  };
+
+  renderSendForm() {
+    const classes = this.props.classes;
+    return (
+      <Card>
+        <CardHeader
+          title={
+            <div className={classes.titleHeader}>
+              <span>Contact Form</span>
+              <IconButton onClick={() => {this.handleDrawerClose()}}><Close /></IconButton>
+            </div>
+          }
         />
-      </div>
+        <CardContent className={classes.inputForms}>
+          <TextField
+            id="name"
+            label="Name"
+            InputProps={{ placeholder: 'Enter your name'}}
+            value={this.state.form.name}
+            onChange={event => this.setState({ form: {...this.state.form, name: event.target.value}})}
+            marginForm
+          />
+          <div>
+            <TextField
+              id="email"
+              label="Email"
+              InputProps={{ placeholder: 'your.name@name.com'}}
+              value={this.state.form.email}
+              onChange={event => {
+                let checkEmail = (email) => {
+                  let isEmailValid = this.validEmail(email);
+                  isEmailValid ? this.setState({ checkEmail: true }) : this.setState({ checkEmail: false });
+                };
+                this.setState({ form: {...this.state.form, email: event.target.value}}, checkEmail(event.target.value));
+              }}
+              marginForm
+            />
+            {this.state.checkEmail ? <Icon><Check /></Icon> : <Icon><Cancel /></Icon>}
+          </div>
+
+          <TextField
+            id="multiline-static"
+            multiline
+            rows="4"
+            label="Message"
+            InputProps={{ placeholder: 'What\'s on your mind...'}}
+            value={this.state.form.message}
+            onChange={event => this.setState({ form: {...this.state.form, message: event.target.value}})}
+            marginForm
+          />
+        </CardContent>
+        <CardActions>
+          <Button
+            raised
+            color="primary"
+            onClick={() => {this.handleFormSubmit()}}
+            disabled={this.state.form.name && this.state.form.email && this.state.form.message ? false : true}
+          >
+            Send
+            <Send className={classes.sendIcon}/>
+          </Button>
+        </CardActions>
+      </Card>
     );
   };
 
@@ -102,66 +172,7 @@ class AppSendForm extends Component {
 
     return (
       <div className={classes.container}>
-        {this.renderThankMessage()}
-        <Card>
-          <CardHeader
-            title={
-              <div className={classes.titleHeader}>
-                <span>Contact Form</span>
-                <IconButton onClick={this.handleDrawerClose}><Close /></IconButton>
-              </div>
-            }
-          />
-          <CardContent className={classes.inputForms}>
-            <TextField
-              id="name"
-              label="Name"
-              InputProps={{ placeholder: 'Enter your name'}}
-              value={this.state.form.name}
-              onChange={event => this.setState({ form: {...this.state.form, name: event.target.value}})}
-              marginForm
-            />
-            <div>
-              <TextField
-                id="email"
-                label="Email"
-                InputProps={{ placeholder: 'your.name@name.com'}}
-                value={this.state.form.email}
-                onChange={event => {
-                  let checkEmail = (email) => {
-                    let isEmailValid = this.validEmail(email);
-                    isEmailValid ? this.setState({ checkEmail: true }) : this.setState({ checkEmail: false });
-                  };
-                  this.setState({ form: {...this.state.form, email: event.target.value}}, checkEmail(event.target.value));
-                }}
-                marginForm
-              />
-              {this.state.checkEmail ? <Icon><Check /></Icon> : <Icon><Cancel /></Icon>}
-            </div>
-
-            <TextField
-              id="multiline-static"
-              multiline
-              rows="4"
-              label="Message"
-              InputProps={{ placeholder: 'What\'s on your mind...'}}
-              value={this.state.form.message}
-              onChange={event => this.setState({ form: {...this.state.form, message: event.target.value}})}
-              marginForm
-            />
-          </CardContent>
-          <CardActions>
-            <Button
-              raised
-              color="primary"
-              onClick={this.handleFormSubmit}
-              disabled={this.state.form.name && this.state.form.email && this.state.form.message ? false : true}
-            >
-              Send
-              <Send className={classes.sendIcon}/>
-            </Button>
-          </CardActions>
-        </Card>
+        {this.state.thankMessage ? this.renderThankMessage() : this.renderSendForm()}
       </div>
     )
   };
