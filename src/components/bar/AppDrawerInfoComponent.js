@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { withStyles, createStyleSheet } from 'material-ui/styles';
-import { changeStateApp } from '../../actions';
+import { changeStateApp, toggleSendDrawer } from '../../actions';
 import Avatar from 'material-ui/Avatar';
 import weberPhoto from '../../assets/static/images/Avatar.jpg';
 import List, { ListItem, ListItemIcon, ListItemText } from 'material-ui/List';
@@ -19,11 +19,15 @@ import { STATE_APP, COLOR_APP } from '../../config/AppConfig';
 
 const mapStateToProps = (state) => ({
   stateApp: state.stateApp,
+  open: state.openSendDrawer,
 });
 
 const mapDispatchToProps = (dispatch) => ({
   changeStateApp(mode) {
     dispatch(changeStateApp(mode));
+  },
+  toggleSendDrawer(mode) {
+    dispatch(toggleSendDrawer(mode));
   },
 });
 
@@ -36,11 +40,6 @@ const styleSheet = createStyleSheet('AppDrawerInfoComponent', theme => ({
   list: {
     width: '100%',
     background: theme.palette.background.paper,
-  },
-  mailTo: {
-    textDecoration: 'none',
-    color: theme.palette.text.primary,
-    fontFamily: theme.typography.fontFamily,
   },
   begin: {
     marginTop: 64,
@@ -57,6 +56,9 @@ const AppDrawerInfoComponent = (props) => {
   const classes = props.classes;
   const handleAppState = (mode) => {
     props.changeStateApp(mode);
+  };
+  const handleSendForm = (mode) => {
+    props.toggleSendDrawer(mode);
   };
   const icons = [
     <LightbulbOutline />,
@@ -83,11 +85,11 @@ const AppDrawerInfoComponent = (props) => {
             </ListItemIcon>
             <ListItemText primary="Alexander Fedorov" secondary="Web Developer" />
           </ListItem>
-          <ListItem button={true}>
+          <ListItem button={true} onClick={() => handleSendForm(!props.open)}>
             <ListItemIcon>
               <Email />
             </ListItemIcon>
-            <ListItemText primary={<a className={classes.mailTo} href="mailto:4edorov@gmail.com">4edorov@gmail.com</a>} />
+            <ListItemText primary="4edorov@gmail.com" />
           </ListItem>
         </List>
         <Divider />
