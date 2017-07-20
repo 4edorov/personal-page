@@ -121,7 +121,7 @@ class AppSendForm extends Component {
             InputProps={{ placeholder: 'Enter your name'}}
             value={this.state.form.name}
             onChange={event => this.setState({ form: {...this.state.form, name: event.target.value}})}
-            marginForm
+            margin="normal"
           />
           <div>
             <TextField
@@ -136,7 +136,7 @@ class AppSendForm extends Component {
                 };
                 this.setState({ form: {...this.state.form, email: event.target.value}}, checkEmail(event.target.value));
               }}
-              marginForm
+              margin="normal"
             />
             {this.state.checkEmail ? <Icon><Check /></Icon> : <Icon><Cancel /></Icon>}
           </div>
@@ -149,7 +149,7 @@ class AppSendForm extends Component {
             InputProps={{ placeholder: 'What\'s on your mind...'}}
             value={this.state.form.message}
             onChange={event => this.setState({ form: {...this.state.form, message: event.target.value}})}
-            marginForm
+            margin="normal"
           />
         </CardContent>
         <CardActions>
