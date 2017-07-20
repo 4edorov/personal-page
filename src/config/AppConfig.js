@@ -1,4 +1,4 @@
-import { lime, deepOrange } from 'material-ui/styles/colors';
+import { lime, deepOrange } from 'material-ui/colors';
 import screenPage from '../assets/static/images/screen_page.png';
 import screenQuote from '../assets/static/images/screen_quote.png';
 import screenWeather from '../assets/static/images/screen_weather.png';
