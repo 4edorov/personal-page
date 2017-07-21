@@ -25,7 +25,7 @@ export const PORTFOLIO_WORKS = [
     imgSrc: screenPage,
     openLink: {
       git: 'https://github.com/4edorov/onepage',
-      codepen: 'https://codepen.io/4edorov/pen/yVzMLV',
+      codepen: 'https://codepen.io/4edorov/full/yVzMLV',
     },
     iconType: {
       git: 'fa fa-github',
@@ -38,7 +38,7 @@ export const PORTFOLIO_WORKS = [
     imgSrc: screenQuote,
     openLink: {
       git: 'https://github.com/4edorov/my-quote-generator',
-      codepen: 'https://codepen.io/4edorov/pen/bgeOMo',
+      codepen: 'https://codepen.io/4edorov/full/bgeOMo',
     },
     iconType: {
       git: 'fa fa-github',
@@ -51,7 +51,7 @@ export const PORTFOLIO_WORKS = [
     imgSrc: screenWeather,
     openLink: {
       git: 'https://github.com/4edorov/my-local-weather',
-      codepen: 'https://codepen.io/4edorov/pen/PWpwLw',
+      codepen: 'https://codepen.io/4edorov/full/PWpwLw',
     },
     iconType: {
       git: 'fa fa-github',
@@ -64,7 +64,7 @@ export const PORTFOLIO_WORKS = [
     imgSrc: screenSearch,
     openLink: {
       git: 'https://github.com/4edorov/wiki_query',
-      codepen: 'https://codepen.io/4edorov/pen/BpgKyX',
+      codepen: 'https://codepen.io/4edorov/full/BpgKyX',
     },
     iconType: {
       git: 'fa fa-github',
@@ -77,7 +77,7 @@ export const PORTFOLIO_WORKS = [
     imgSrc: screenTwitch,
     openLink: {
       git: 'https://github.com/4edorov/stream_twitchtv',
-      codepen: 'https://codepen.io/4edorov/pen/WpxzaJ',
+      codepen: 'https://codepen.io/4edorov/full/WpxzaJ',
     },
     iconType: {
       git: 'fa fa-github',
