@@ -18,7 +18,14 @@ export const showResources = content => {
                 <Icon color="accent" className={one.icon} />
               </IconButton>
             </ListItemIcon>
-            <ListItemText primary={one.name} secondary={one.properties} />
+            <ListItemText
+              primary={
+                <a style={{textDecoration: 'none', color: 'inherit'}} href={one.link} target="_blank">
+                  {one.name}
+                </a>
+              }
+              secondary={one.properties}
+            />
           </ListItem>
         </List>
       )}
@@ -32,7 +39,9 @@ export const showTechnologies = (content) => {
       {content.map((one, index) =>
         <Card key={index} style={{maxWidth: 100, margin: 15}}>
           <CardMedia>
-            <img src={one.src} alt={one.name} style={{width: 'auto', height: 'auto', maxWidth: '100%'}}/>
+            <a href={one.link} target="_blank">
+              <img src={one.src} alt={one.name} style={{width: 'auto', height: 'auto', maxWidth: '100%'}}/>
+            </a>
           </CardMedia>
           <Divider />
           <CardContent style={{padding: 5, display: 'flex', justifyContent: 'center'}}>
