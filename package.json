@@ -20,7 +20,8 @@
     "eslint-plugin-promise": "^3.5.0",
     "eslint-plugin-standard": "^3.0.1",
     "gh-pages": "^1.0.0",
-    "react-scripts": "0.9.5"
+    "react-scripts": "0.9.5",
+    "shipit-deploy": "^2.5.1"
   },
   "scripts": {
     "start": "react-scripts start",
