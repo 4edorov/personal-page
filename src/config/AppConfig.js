@@ -4,6 +4,7 @@ import screenQuote from '../assets/static/images/screen_quote.png';
 import screenWeather from '../assets/static/images/screen_weather.png';
 import screenSearch from '../assets/static/images/screen_search.png';
 import screenTwitch from '../assets/static/images/screen_twitch.png';
+import screenCalc from '../assets/static/images/screen_calculator.png';
 
 
 export const URL_GIT_HUB = 'https://github.com/4edorov';
@@ -78,6 +79,19 @@ export const PORTFOLIO_WORKS = [
     openLink: {
       git: 'https://github.com/4edorov/stream_twitchtv',
       codepen: 'https://codepen.io/4edorov/full/WpxzaJ',
+    },
+    iconType: {
+      git: 'fa fa-github',
+      codepen: 'fa fa-codepen',
+    },
+  },
+  {
+    title: 'Caclulator',
+    description: 'A freeCodeCamp project',
+    imgSrc: screenCalc,
+    openLink: {
+      git: 'https://github.com/4edorov/jscalculator',
+      codepen: 'https://codepen.io/4edorov/project/full/AkzdLd',
     },
     iconType: {
       git: 'fa fa-github',
