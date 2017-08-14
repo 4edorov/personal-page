@@ -29,7 +29,7 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d build -b build"
   },
-  "homepage": "https://4edorov.github.io/personal-page"
+  "homepage": "http://4edorov.com"
 }
