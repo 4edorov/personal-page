@@ -26,7 +26,7 @@ const mapDispatchToProps = (dispatch) => ({
 
 class Root extends React.Component {
   updateDimension = () => {
-    let mode = window.innerWidth < 1280 ? false : true;
+    let mode = window.innerWidth < 1280 ? 'persistent' : 'permanent';
     this.props.toggleDrawer(mode);
     this.props.stateDrawer(mode);
   }
@@ -40,7 +40,7 @@ class Root extends React.Component {
   render () {
     return (
       <div>
-        <AppBarComponent overlay={!this.props.docked} />
+        <AppBarComponent overlay={!this.props.open} />
         <AppDrawerComponent
           open={this.props.open}
           docked={this.props.docked}

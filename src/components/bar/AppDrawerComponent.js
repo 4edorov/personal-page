@@ -25,7 +25,7 @@ class AppDrawerComponent extends React.Component {
       <div>
         <Drawer
           open={this.props.open}
-          docked={this.props.docked}
+          type={this.props.docked}
           onClick={this.handleDrawerClose}
         >
           <AppDrawerInfoComponent />

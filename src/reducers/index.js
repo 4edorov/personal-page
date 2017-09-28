@@ -8,7 +8,7 @@ import {
 
 const initialState = {
   openDrawer: false,
-  dockedDrawer: true,
+  dockedDrawer: 'persistent',
   stateApp: 'Greeting',
   openSendDrawer: false,
 };

@@ -5,14 +5,14 @@ import { toggleDrawer } from '../../actions';
 import AppBar from 'material-ui/AppBar';
 import Toolbar from 'material-ui/Toolbar';
 import Typography from 'material-ui/Typography';
-import { withStyles, createStyleSheet } from 'material-ui/styles';
+import { withStyles } from 'material-ui/styles';
 import MenuIcon from 'material-ui-icons/Menu';
 import IconButton from 'material-ui/IconButton';
 import Icon from 'material-ui/Icon';
 import { URL_GIT_HUB, URL_FACEBOOK } from '../../config/AppConfig';
 
 
-const styleSheet = createStyleSheet('AppBarComponent', {
+const styleSheet = theme => ({
   appBar: {
     '@media (min-width: 1280px)': {
       width: 'calc(100% - 290px)',
@@ -30,17 +30,17 @@ const styleSheet = createStyleSheet('AppBarComponent', {
   },
 });
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = state => ({
   open: state.openDrawer,
   stateApp: state.stateApp,
 });
-const mapDispatchToProps = (dispatch) => ({
+const mapDispatchToProps = dispatch => ({
   toggleDrawer(mode) {
     dispatch(toggleDrawer(mode));
   },
 });
 
-const AppBarComponent = (props) => {
+const AppBarComponent = props => {
   const classes = props.classes;
 
   const handleDrawerOpen = () => {

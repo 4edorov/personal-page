@@ -38,11 +38,13 @@ export const showTechnologies = (content) => {
     <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'space-around', flexWrap: 'wrap'}}>
       {content.map((one, index) =>
         <Card key={index} style={{maxWidth: 100, margin: 15}}>
-          <CardMedia>
-            <a href={one.link} target="_blank">
-              <img src={one.src} alt={one.name} style={{width: 'auto', height: 'auto', maxWidth: '100%'}}/>
-            </a>
-          </CardMedia>
+          <a href={one.link} target="_blank">
+            <CardMedia
+              image={one.src}
+              title={one.name}
+              style={{width: 'auto', height: 'auto', maxWidth: '100%'}}
+            />
+          </a>
           <Divider />
           <CardContent style={{padding: 5, display: 'flex', justifyContent: 'center'}}>
             <a style={{textDecoration: 'none'}} href={one.link} target="_blank">

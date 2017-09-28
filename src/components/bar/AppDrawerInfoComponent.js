@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { withStyles, createStyleSheet } from 'material-ui/styles';
+import { withStyles } from 'material-ui/styles';
 import { changeStateApp, toggleSendDrawer } from '../../actions';
 import Avatar from 'material-ui/Avatar';
 import weberPhoto from '../../assets/static/images/Avatar.jpg';
@@ -17,12 +17,12 @@ import Contacts from 'material-ui-icons/Contacts';
 import { STATE_APP, COLOR_APP } from '../../config/AppConfig';
 
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = state => ({
   stateApp: state.stateApp,
   open: state.openSendDrawer,
 });
 
-const mapDispatchToProps = (dispatch) => ({
+const mapDispatchToProps = dispatch => ({
   changeStateApp(mode) {
     dispatch(changeStateApp(mode));
   },
@@ -31,7 +31,7 @@ const mapDispatchToProps = (dispatch) => ({
   },
 });
 
-const styleSheet = createStyleSheet('AppDrawerInfoComponent', theme => ({
+const styleSheet = theme => ({
   avatar: {
     width: 250,
     height: 250,
@@ -50,14 +50,14 @@ const styleSheet = createStyleSheet('AppDrawerInfoComponent', theme => ({
   activeBtn: {
     background: COLOR_APP.primary[500],
   },
-}));
+});
 
-const AppDrawerInfoComponent = (props) => {
+const AppDrawerInfoComponent = props => {
   const classes = props.classes;
-  const handleAppState = (mode) => {
+  const handleAppState = mode => {
     props.changeStateApp(mode);
   };
-  const handleSendForm = (mode) => {
+  const handleSendForm = mode => {
     props.toggleSendDrawer(mode);
   };
   const icons = [
