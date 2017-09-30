@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { withStyles, createStyleSheet } from 'material-ui/styles';
+import { withStyles } from 'material-ui/styles';
 import { connect } from 'react-redux';
 import { toggleSendDrawer } from '../../actions';
 import Card, { CardHeader, CardContent, CardActions } from 'material-ui/Card';
@@ -16,7 +16,7 @@ import Send from 'material-ui-icons/Send';
 import { URL_FOR_SEND_EMAIL_FORM } from '../../config/AppConfig';
 
 
-const styleSheet = createStyleSheet('AppSendForm', theme => ({
+const styleSheet = theme => ({
   container: {
     width: 300,
     margin: 'auto',
@@ -33,15 +33,15 @@ const styleSheet = createStyleSheet('AppSendForm', theme => ({
     marginLeft: 10,
   },
   textThank: {
-    color: theme.palette.accent[500],
+    color: theme.palette.secondary[500],
   },
-}));
-
-const mapStateToProps = (state) => ({
-  open: state.toggleSendDrawer,
 });
 
-const mapDispatchToProps = (dispatch) => ({
+const mapStateToProps = state => ({
+  isSendDrawerOpen: state.isSendDrawerOpen,
+});
+
+const mapDispatchToProps = dispatch => ({
   toggleSendDrawer(mode) {
     dispatch(toggleSendDrawer(mode));
   },

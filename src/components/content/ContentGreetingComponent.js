@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { withStyles, createStyleSheet } from 'material-ui/styles';
+import { withStyles } from 'material-ui/styles';
 
 
-const styleSheet = createStyleSheet('ContentGreetingComponent', {
+const styleSheet = theme => ({
   contentPage: {
     fontSize: '1.5em',
     textAlign: 'center',
@@ -11,7 +11,7 @@ const styleSheet = createStyleSheet('ContentGreetingComponent', {
   },
 });
 
-const ContentGreetingComponent = (props) => {
+const ContentGreetingComponent = props => {
   const classes = props.classes;
   return (
     <div id="greeting">

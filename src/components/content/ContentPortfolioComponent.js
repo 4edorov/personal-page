@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { withStyles, createStyleSheet } from 'material-ui/styles';
+import { withStyles } from 'material-ui/styles';
 import Grid from 'material-ui/Grid';
 import Card, { CardMedia, CardContent, CardActions } from 'material-ui/Card';
 import Typography from 'material-ui/Typography';
@@ -9,7 +9,7 @@ import Icon from 'material-ui/Icon';
 import { PORTFOLIO_WORKS, COLOR_APP } from '../../config/AppConfig';
 
 
-const styleSheet = createStyleSheet('ContentPortfolioComponent', {
+const styleSheet = theme => ({
   root: {
     display: 'flex',
     justifyContent: 'center',
@@ -25,8 +25,8 @@ const styleSheet = createStyleSheet('ContentPortfolioComponent', {
     marginBottom: 50,
   },
   imgView: {
+    height: 300,
     width: 'auto',
-    height: 'auto',
     maxWidth: '100%',
   },
   cardContent: {
@@ -43,13 +43,15 @@ const ContentPortfolioComponent = props => {
         <h1>Portfolio</h1>
       </div>
       <div>
-        <Grid container gutter={24}>
+        <Grid container spacing={24}>
           {PORTFOLIO_WORKS.map((work, index) => (
             <Grid item xs={12} md={6} lg={4} key={index}>
               <Card className={classes.cards}>
-                <CardMedia>
-                  <img className={classes.imgView} src={work.imgSrc} alt={work.title} />
-                </CardMedia>
+                <CardMedia
+                  className={classes.imgView}
+                  image={work.imgSrc}
+                  title={work.title}
+                />
                 <CardContent className={classes.cardContent}>
                   <Typography type="headline">
                     {work.title}
@@ -62,9 +64,16 @@ const ContentPortfolioComponent = props => {
                   <IconButton color="accent" target="_blank" href={work.openLink.git}>
                     <Icon className={work.iconType.git} />
                   </IconButton>
-                  <IconButton color="accent" target="_blank" href={work.openLink.codepen}>
-                    <Icon className={work.iconType.codepen} />
-                  </IconButton>
+                  { work.iconType.codepen &&
+                    <IconButton color="accent" target="_blank" href={work.openLink.codepen}>
+                      <Icon className={work.iconType.codepen} />
+                    </IconButton>
+                  }
+                  { work.iconType.link &&
+                    <IconButton color="accent" target="_blank" href={work.openLink.site}>
+                      <Icon className={work.iconType.link} />
+                    </IconButton>
+                  }
                 </CardActions>
               </Card>
             </Grid>

@@ -7,21 +7,21 @@ import {
 
 
 const initialState = {
-  openDrawer: false,
-  dockedDrawer: true,
+  isMainDrawerOpen: false,
+  mainDrawerType: 'persistent',
+  isSendDrawerOpen: false,
   stateApp: 'Greeting',
-  openSendDrawer: false,
 };
 
 const toggleAppState = function(state = initialState, action) {
   switch (action.type) {
     case TOGGLE_DRAWER:
       return Object.assign({}, state, {
-        openDrawer: action.open,
+        isMainDrawerOpen: action.open,
       });
     case STATE_DRAWER:
       return Object.assign({}, state, {
-        dockedDrawer: action.docked,
+        mainDrawerType: action.docked,
       });
     case STATE_APP:
       return Object.assign({}, state, {
@@ -29,7 +29,7 @@ const toggleAppState = function(state = initialState, action) {
       });
     case TOGGLE_SEND_DRAWER:
       return Object.assign({}, state, {
-        openSendDrawer: action.open,
+        isSendDrawerOpen: action.open,
       });
     default:
       return state;

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { withStyles, createStyleSheet } from 'material-ui/styles';
+import { withStyles } from 'material-ui/styles';
 import Paper from 'material-ui/Paper';
 import Tabs, { Tab } from 'material-ui/Tabs';
 import AppBar from 'material-ui/AppBar';
@@ -30,7 +30,7 @@ const technologies = [
   {label: 'Design', content: <MyWayDesignComponent />,},
 ];
 
-const styleSheet = createStyleSheet('ContentMyWayComponent', theme => ({
+const styleSheet = theme => ({
   root: {
     display: 'flex',
     flexDirection: 'column',
@@ -51,7 +51,7 @@ const styleSheet = createStyleSheet('ContentMyWayComponent', theme => ({
     backgroundColor: theme.palette.primary[500],
     position: 'static',
   },
-}));
+});
 
 class ContentMyWayComponent extends Component {
   state = {
@@ -78,7 +78,7 @@ class ContentMyWayComponent extends Component {
         <Paper className={classes.main}>
           <AppBar className={classes.appBar}>
             <Tabs
-              index={this.state.indexTechnologies}
+              value={this.state.indexTechnologies}
               onChange={this.handleChangeTechnologies}
               scrollable
               scrollButtons="on"
@@ -94,7 +94,7 @@ class ContentMyWayComponent extends Component {
         <Paper className={classes.main}>
           <AppBar className={classes.appBar}>
             <Tabs
-              index={this.state.indexDirections}
+              value={this.state.indexDirections}
               onChange={this.handleChangeDirections}
               scrollable
               scrollButtons="on"

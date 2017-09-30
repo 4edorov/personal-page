@@ -5,13 +5,14 @@ import { toggleDrawer } from '../../actions';
 import { connect } from 'react-redux';
 
 
-const mapStateToProps = (state) => ({
-  open: state.openDrawer,
+const mapStateToProps = state => ({
+  isMainDrawerOpen: state.isMainDrawerOpen,
+  mainDrawerType: state.mainDrawerType,
 });
 
-const mapDispatchToProps = (dispatch) => ({
-  toggleDrawer(mode) {
-    dispatch(toggleDrawer(mode));
+const mapDispatchToProps = dispatch => ({
+  toggleDrawer(isOpen) {
+    dispatch(toggleDrawer(isOpen));
   },
 });
 
@@ -24,8 +25,8 @@ class AppDrawerComponent extends React.Component {
     return (
       <div>
         <Drawer
-          open={this.props.open}
-          docked={this.props.docked}
+          open={this.props.isMainDrawerOpen}
+          type={this.props.mainDrawerType}
           onClick={this.handleDrawerClose}
         >
           <AppDrawerInfoComponent />

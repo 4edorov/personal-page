@@ -1,10 +1,12 @@
-import { lime, deepOrange } from 'material-ui/colors';
+import lime from 'material-ui/colors/lime';
+import deepOrange from 'material-ui/colors/deepOrange';
 import screenPage from '../assets/static/images/screen_page.png';
 import screenQuote from '../assets/static/images/screen_quote.png';
 import screenWeather from '../assets/static/images/screen_weather.png';
 import screenSearch from '../assets/static/images/screen_search.png';
 import screenTwitch from '../assets/static/images/screen_twitch.png';
 import screenCalc from '../assets/static/images/screen_calculator.png';
+import screenClock from '../assets/static/images/screen_clock.png';
 
 
 export const URL_GIT_HUB = 'https://github.com/4edorov';
@@ -16,7 +18,7 @@ export const STATE_APP = ['Greeting', 'About Me', 'Portfolio', 'My Way', 'Contac
 
 export const COLOR_APP = {
   primary: lime,
-  accent: deepOrange,
+  secondary: deepOrange,
 };
 
 export const PORTFOLIO_WORKS = [
@@ -96,6 +98,19 @@ export const PORTFOLIO_WORKS = [
     iconType: {
       git: 'fa fa-github',
       codepen: 'fa fa-codepen',
+    },
+  },
+  {
+    title: 'Pomodoro Clock',
+    description: 'A freeCodeCamp project',
+    imgSrc: screenClock,
+    openLink: {
+      git: 'https://github.com/4edorov/pomodoro_clock',
+      site: 'https://4edorov.github.io/pomodoro_clock/',
+    },
+    iconType: {
+      git: 'fa fa-github',
+      link: 'fa fa-link',
     },
   },
 ];

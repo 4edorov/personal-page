@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { withStyles, createStyleSheet } from 'material-ui/styles';
+import { withStyles } from 'material-ui/styles';
 import ContentGreetingComponent from './ContentGreetingComponent';
 import ContentAboutComponent from './ContentAboutComponent';
 import ContentPortfolioComponent from './ContentPortfolioComponent';
@@ -12,7 +12,7 @@ import { STATE_APP } from '../../config/AppConfig';
 import Divider from 'material-ui/Divider';
 
 
-const styleSheet = createStyleSheet('AppContentComponent', {
+const styleSheet = theme => ({
   appContent: {
     '@media (min-width: 1280px)': {
       width: 'calc(100% - 290px)',
@@ -22,18 +22,18 @@ const styleSheet = createStyleSheet('AppContentComponent', {
   },
 });
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = state => ({
   stateApp: state.stateApp
 });
 
-const mapDispatchToProps = (dispatch) => ({
+const mapDispatchToProps = dispatch => ({
   changeStateApp(mode) {
     dispatch(changeStateApp(mode));
   },
 });
 
 class AppContentComponent extends Component {
-  listenEventScroll = (event) => {
+  listenEventScroll = event => {
     let greetingTop = event.target.all['greeting'].getBoundingClientRect().top;
     let greetingHeight = event.target.all['greeting'].clientHeight;
 

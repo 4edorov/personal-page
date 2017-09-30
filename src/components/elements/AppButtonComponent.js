@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { withStyles, createStyleSheet } from 'material-ui/styles';
+import { withStyles } from 'material-ui/styles';
 import Button from 'material-ui/Button';
 import Chat from 'material-ui-icons/Chat';
 import { connect } from 'react-redux';
 import { toggleSendDrawer } from '../../actions';
 
 
-const styleSheet = createStyleSheet('AppButtonComponent', theme => ({
+const styleSheet = theme => ({
   appButton: {
     position: 'fixed',
     right: 40,
@@ -19,13 +19,13 @@ const styleSheet = createStyleSheet('AppButtonComponent', theme => ({
     color: theme.palette.text.primary,
     fontFamily: theme.typography.fontFamily,
   },
-}));
-
-const mapStateToProps = (state) => ({
-  open: state.openSendDrawer,
 });
 
-const mapDispatchToProps = (dispatch) => ({
+const mapStateToProps = state => ({
+  isSendDrawerOpen: state.isSendDrawerOpen,
+});
+
+const mapDispatchToProps = dispatch => ({
   toggleSendDrawer(mode) {
     dispatch(toggleSendDrawer(mode));
   },
@@ -34,14 +34,14 @@ const mapDispatchToProps = (dispatch) => ({
 class AppButtonComponent extends Component {
   classes = this.props.classes;
   handleDrawerClose = () => {
-    this.props.toggleSendDrawer(!this.props.open)
+    this.props.toggleSendDrawer(!this.props.isSendDrawerOpen)
   }
 
   render() {
     return (
       <Button
         fab={true}
-        color={"accent"}
+        color="accent"
         className={this.classes.appButton}
         onClick={this.handleDrawerClose}
       >

@@ -1,13 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { withStyles, createStyleSheet } from 'material-ui/styles';
+import { withStyles } from 'material-ui/styles';
 import Chip from 'material-ui/Chip';
 import Avatar from 'material-ui/Avatar';
 import Icon from 'material-ui/Icon';
 import { CONTACTS } from '../../config/AppConfig';
 
 
-const styleSheet = createStyleSheet('ContentContactsComponent', {
+const styleSheet = theme => ({
   root:  {
     display: 'flex',
     justifyContent: 'center',
