@@ -1,10 +1,11 @@
 {
   "main.css": "static/css/main.b22eef35.css",
   "main.css.map": "static/css/main.b22eef35.css.map",
-  "main.js": "static/js/main.ddb93dc1.js",
-  "main.js.map": "static/js/main.ddb93dc1.js.map",
+  "main.js": "static/js/main.05e8223d.js",
+  "main.js.map": "static/js/main.05e8223d.js.map",
   "static/media/Avatar.jpg": "static/media/Avatar.1b54a8be.jpg",
   "static/media/screen_calculator.png": "static/media/screen_calculator.970a309e.png",
+  "static/media/screen_clock.png": "static/media/screen_clock.b3a23dc3.png",
   "static/media/screen_page.png": "static/media/screen_page.77ed1634.png",
   "static/media/screen_quote.png": "static/media/screen_quote.39704d02.png",
   "static/media/screen_search.png": "static/media/screen_search.9b0cdf04.png",
