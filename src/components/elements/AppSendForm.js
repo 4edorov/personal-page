@@ -33,12 +33,12 @@ const styleSheet = theme => ({
     marginLeft: 10,
   },
   textThank: {
-    color: theme.palette.accent[500],
+    color: theme.palette.secondary[500],
   },
 });
 
 const mapStateToProps = state => ({
-  open: state.toggleSendDrawer,
+  isSendDrawerOpen: state.isSendDrawerOpen,
 });
 
 const mapDispatchToProps = dispatch => ({

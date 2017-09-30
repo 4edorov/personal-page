@@ -22,7 +22,7 @@ const styleSheet = theme => ({
 });
 
 const mapStateToProps = state => ({
-  open: state.openSendDrawer,
+  isSendDrawerOpen: state.isSendDrawerOpen,
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -34,14 +34,14 @@ const mapDispatchToProps = dispatch => ({
 class AppButtonComponent extends Component {
   classes = this.props.classes;
   handleDrawerClose = () => {
-    this.props.toggleSendDrawer(!this.props.open)
+    this.props.toggleSendDrawer(!this.props.isSendDrawerOpen)
   }
 
   render() {
     return (
       <Button
         fab={true}
-        color={"accent"}
+        color="accent"
         className={this.classes.appButton}
         onClick={this.handleDrawerClose}
       >

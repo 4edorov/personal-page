@@ -19,7 +19,7 @@ import { STATE_APP, COLOR_APP } from '../../config/AppConfig';
 
 const mapStateToProps = state => ({
   stateApp: state.stateApp,
-  open: state.openSendDrawer,
+  isSendDrawerOpen: state.isSendDrawerOpen,
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -85,7 +85,7 @@ const AppDrawerInfoComponent = props => {
             </ListItemIcon>
             <ListItemText primary="Alexander Fedorov" secondary="Web Developer" />
           </ListItem>
-          <ListItem button={true} onClick={() => handleSendForm(!props.open)}>
+          <ListItem button={true} onClick={() => handleSendForm(!props.isSendDrawerOpen)}>
             <ListItemIcon>
               <Email />
             </ListItemIcon>

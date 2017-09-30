@@ -9,26 +9,27 @@ import { STATE_APP } from './config/AppConfig';
 import AppDrawerSendForm from './components/elements/AppDrawerSendForm';
 
 
-const mapStateToProps = (state) => ({
-  open: state.openDrawer,
-  docked: state.dockedDrawer,
+const mapStateToProps = state => ({
+  isMainDrawerOpen: state.isMainDrawerOpen,
+  mainDrawerType: state.mainDrawerType,
   stateApp: state.stateApp,
 });
 
-const mapDispatchToProps = (dispatch) => ({
-  toggleDrawer(mode) {
-    dispatch(toggleDrawer(mode));
+const mapDispatchToProps = dispatch => ({
+  toggleDrawer(isOpen) {
+    dispatch(toggleDrawer(isOpen));
   },
-  stateDrawer(mode) {
-    dispatch(stateDrawer(mode));
+  stateDrawer(drawerType) {
+    dispatch(stateDrawer(drawerType));
   },
 });
 
 class Root extends React.Component {
   updateDimension = () => {
-    let mode = window.innerWidth < 1280 ? 'persistent' : 'permanent';
-    this.props.toggleDrawer(mode);
-    this.props.stateDrawer(mode);
+    let drawerType = window.innerWidth < 1280 ? false : 'permanent';
+    let isOpen = drawerType === 'permanent' ? true : false
+    this.props.toggleDrawer(isOpen);
+    this.props.stateDrawer(drawerType);
   }
   componentDidMount() {
     this.updateDimension();
@@ -40,11 +41,8 @@ class Root extends React.Component {
   render () {
     return (
       <div>
-        <AppBarComponent overlay={!this.props.open} />
-        <AppDrawerComponent
-          open={this.props.open}
-          docked={this.props.docked}
-        />
+        <AppBarComponent />
+        <AppDrawerComponent />
         {this.props.stateApp === STATE_APP[4] && <AppButtonComponent />}
         <AppContentComponent />
         <AppDrawerSendForm />

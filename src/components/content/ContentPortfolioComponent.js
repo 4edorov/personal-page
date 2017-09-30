@@ -25,8 +25,8 @@ const styleSheet = theme => ({
     marginBottom: 50,
   },
   imgView: {
+    height: 300,
     width: 'auto',
-    height: 'auto',
     maxWidth: '100%',
   },
   cardContent: {
@@ -64,9 +64,16 @@ const ContentPortfolioComponent = props => {
                   <IconButton color="accent" target="_blank" href={work.openLink.git}>
                     <Icon className={work.iconType.git} />
                   </IconButton>
-                  <IconButton color="accent" target="_blank" href={work.openLink.codepen}>
-                    <Icon className={work.iconType.codepen} />
-                  </IconButton>
+                  { work.iconType.codepen &&
+                    <IconButton color="accent" target="_blank" href={work.openLink.codepen}>
+                      <Icon className={work.iconType.codepen} />
+                    </IconButton>
+                  }
+                  { work.iconType.link &&
+                    <IconButton color="accent" target="_blank" href={work.openLink.site}>
+                      <Icon className={work.iconType.link} />
+                    </IconButton>
+                  }
                 </CardActions>
               </Card>
             </Grid>

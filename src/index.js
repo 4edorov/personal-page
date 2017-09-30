@@ -9,7 +9,7 @@ import { COLOR_APP } from './config/AppConfig';
 const theme = createMuiTheme({
   palette: {
     primary: COLOR_APP.primary,
-    accent: COLOR_APP.accent,
+    secondary: COLOR_APP.secondary,
   },
 });
 

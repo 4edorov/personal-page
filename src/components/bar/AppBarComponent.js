@@ -31,8 +31,9 @@ const styleSheet = theme => ({
 });
 
 const mapStateToProps = state => ({
-  open: state.openDrawer,
+  isMainDrawerOpen: state.isMainDrawerOpen,
   stateApp: state.stateApp,
+  mainDrawerType: state.mainDrawerType
 });
 const mapDispatchToProps = dispatch => ({
   toggleDrawer(mode) {
@@ -44,14 +45,14 @@ const AppBarComponent = props => {
   const classes = props.classes;
 
   const handleDrawerOpen = () => {
-    props.toggleDrawer(!props.open);
+    props.toggleDrawer(!props.isMainDrawerOpen);
   };
 
   return (
     <AppBar className={classes.appBar}>
       <Toolbar>
         {
-          props.overlay &&
+          !props.mainDrawerType &&
           <IconButton onClick={handleDrawerOpen}>
             <MenuIcon />
           </IconButton>

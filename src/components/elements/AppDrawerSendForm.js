@@ -5,11 +5,11 @@ import { toggleSendDrawer } from '../../actions';
 import { connect } from 'react-redux';
 
 
-const mapStateToProps = (state) => ({
-  open: state.openSendDrawer,
+const mapStateToProps = state => ({
+  isSendDrawerOpen: state.isSendDrawerOpen,
 })
 
-const mapDispatchToProps = (dispatch) => ({
+const mapDispatchToProps = dispatch => ({
   toggleSendDrawer(mode) {
     dispatch(toggleSendDrawer(mode));
   },
@@ -21,7 +21,7 @@ class AppDrawerSendForm extends Component {
       <div>
         <Drawer
           anchor="right"
-          open={this.props.open}
+          open={this.props.isSendDrawerOpen}
         >
           <AppSendForm />
         </Drawer>
