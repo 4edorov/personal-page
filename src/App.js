@@ -4,7 +4,7 @@ import { createStore } from 'redux';
 import toggleAppState from './reducers';
 import './App.css';
 import Root from './Root';
-import injectTapEventPlugin from 'react-tap-event-plugin';
+const injectTapEventPlugin = require('react-tap-event-plugin');
 injectTapEventPlugin();
 
 
