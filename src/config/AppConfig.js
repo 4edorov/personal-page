@@ -7,6 +7,7 @@ import screenSearch from '../assets/static/images/screen_search.png';
 import screenTwitch from '../assets/static/images/screen_twitch.png';
 import screenCalc from '../assets/static/images/screen_calculator.png';
 import screenClock from '../assets/static/images/screen_clock.png';
+import screenTicTac from '../assets/static/images/screenTicTac.png';
 
 
 export const URL_GIT_HUB = 'https://github.com/4edorov';
@@ -107,6 +108,19 @@ export const PORTFOLIO_WORKS = [
     openLink: {
       git: 'https://github.com/4edorov/pomodoro_clock',
       site: 'https://4edorov.github.io/pomodoro_clock/',
+    },
+    iconType: {
+      git: 'fa fa-github',
+      link: 'fa fa-link',
+    },
+  },
+  {
+    title: 'Tic Tac Toe Game',
+    description: 'A freeCodeCamp project',
+    imgSrc: screenTicTac,
+    openLink: {
+      git: 'https://github.com/4edorov/tic-tac-game',
+      site: 'https://4edorov.github.io/tic-tac-game/#/',
     },
     iconType: {
       git: 'fa fa-github',
