@@ -8,6 +8,7 @@ import screenTwitch from '../assets/static/images/screen_twitch.png';
 import screenCalc from '../assets/static/images/screen_calculator.png';
 import screenClock from '../assets/static/images/screen_clock.png';
 import screenTicTac from '../assets/static/images/screenTicTac.png';
+import screenSimon from '../assets/static/images/screenSimon.png';
 
 
 export const URL_GIT_HUB = 'https://github.com/4edorov';
@@ -121,6 +122,19 @@ export const PORTFOLIO_WORKS = [
     openLink: {
       git: 'https://github.com/4edorov/tic-tac-game',
       site: 'https://4edorov.github.io/tic-tac-game/#/',
+    },
+    iconType: {
+      git: 'fa fa-github',
+      link: 'fa fa-link',
+    },
+  },
+  {
+    title: 'Simon Game',
+    description: 'A freeCodeCamp project',
+    imgSrc: screenSimon,
+    openLink: {
+      git: 'https://github.com/4edorov/simon-game',
+      site: 'https://4edorov.github.io/simon-game/',
     },
     iconType: {
       git: 'fa fa-github',
