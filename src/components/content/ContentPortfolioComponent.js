@@ -86,7 +86,7 @@ const ContentPortfolioComponent = props => {
                   { work.iconType.link &&
                     <IconButton color="accent" target="_blank" href={work.openLink.site}>
                       <Icon className={work.iconType.link} />
-  -                  </IconButton>
+                    </IconButton>
                   }
                 </CardActions>
               </Card>
