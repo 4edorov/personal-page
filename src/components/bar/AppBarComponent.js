@@ -52,7 +52,7 @@ const AppBarComponent = props => {
     <AppBar className={classes.appBar}>
       <Toolbar>
         {
-          !props.mainDrawerType &&
+          props.mainDrawerType === 'temporary' &&
           <IconButton onClick={handleDrawerOpen}>
             <MenuIcon />
           </IconButton>

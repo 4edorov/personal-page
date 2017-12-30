@@ -35,6 +35,20 @@ const styleSheet = theme => ({
 });
 
 const ContentPortfolioComponent = props => {
+  const checkForSymbols = string => {
+    const pattern = /(&{1}\w{1,7};{1})/g;
+    if (pattern.test(string)) {
+      const replacer = match => {
+        return `<span>${match}</span>`;
+      };
+      return (
+        <span dangerouslySetInnerHTML={{ __html: string.replace(pattern, replacer) }} />
+      );
+    } else {
+      return string;
+    }
+  }
+
   const classes = props.classes;
 
   return (
@@ -54,7 +68,7 @@ const ContentPortfolioComponent = props => {
                 />
                 <CardContent className={classes.cardContent}>
                   <Typography type="headline">
-                    {work.title}
+                    {checkForSymbols(work.title)}
                   </Typography>
                   <Typography component="p">
                     {work.description}
@@ -72,7 +86,7 @@ const ContentPortfolioComponent = props => {
                   { work.iconType.link &&
                     <IconButton color="accent" target="_blank" href={work.openLink.site}>
                       <Icon className={work.iconType.link} />
-                    </IconButton>
+  -                  </IconButton>
                   }
                 </CardActions>
               </Card>

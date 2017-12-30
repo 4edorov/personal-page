@@ -26,7 +26,7 @@ const mapDispatchToProps = dispatch => ({
 
 class Root extends React.Component {
   updateDimension = () => {
-    let drawerType = window.innerWidth < 1280 ? false : 'permanent';
+    let drawerType = window.innerWidth < 1280 ? 'temporary' : 'permanent';
     let isOpen = drawerType === 'permanent' ? true : false
     this.props.toggleDrawer(isOpen);
     this.props.stateDrawer(drawerType);

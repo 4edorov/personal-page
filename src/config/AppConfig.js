@@ -129,7 +129,7 @@ export const PORTFOLIO_WORKS = [
     },
   },
   {
-    title: 'Simon Game',
+    title: 'Simon&reg; Game',
     description: 'A freeCodeCamp project',
     imgSrc: screenSimon,
     openLink: {
