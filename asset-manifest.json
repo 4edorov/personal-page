@@ -1,8 +1,8 @@
 {
   "main.css": "static/css/main.b22eef35.css",
   "main.css.map": "static/css/main.b22eef35.css.map",
-  "main.js": "static/js/main.f3a60965.js",
-  "main.js.map": "static/js/main.f3a60965.js.map",
+  "main.js": "static/js/main.4e862d6c.js",
+  "main.js.map": "static/js/main.4e862d6c.js.map",
   "static/media/Avatar.jpg": "static/media/Avatar.091e9b06.jpg",
   "static/media/screenSimon.png": "static/media/screenSimon.a8e39416.png",
   "static/media/screenTicTac.png": "static/media/screenTicTac.032a4a66.png",
@@ -13,6 +13,7 @@
   "static/media/screen_search.png": "static/media/screen_search.9b0cdf04.png",
   "static/media/screen_twitch.png": "static/media/screen_twitch.990f27c9.png",
   "static/media/screen_weather.png": "static/media/screen_weather.8365e595.png",
+  "static/media/way_cert_fcc.png": "static/media/way_cert_fcc.01bd2eb0.png",
   "static/media/way_css_logo.png": "static/media/way_css_logo.7180db2b.png",
   "static/media/way_ft_logo.png": "static/media/way_ft_logo.7a730786.png",
   "static/media/way_mdreact_logo.png": "static/media/way_mdreact_logo.48b5a595.png",
