@@ -13,6 +13,7 @@ import MyWayFrameworksComponent from './lists/MyWayFrameworksComponent';
 import MyWayToolsComponent from './lists/MyWayToolsComponent';
 import MyWayDataComponent from './lists/MyWayDataComponent';
 import MyWayDesignComponent from './lists/MyWayDesignComponent';
+import MyWayCertificatesComponent from './lists/MyWayCertificatesComponent';
 
 
 const directions = [
@@ -28,6 +29,7 @@ const technologies = [
   {label: 'Tools', content: <MyWayToolsComponent />,},
   {label: 'Data', content: <MyWayDataComponent />,},
   {label: 'Design', content: <MyWayDesignComponent />,},
+  {label: 'My Certificates', content: <MyWayCertificatesComponent />,},
 ];
 
 const styleSheet = theme => ({
