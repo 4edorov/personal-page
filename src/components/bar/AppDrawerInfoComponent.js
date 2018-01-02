@@ -15,7 +15,22 @@ import Business from 'material-ui-icons/Business';
 import Directions from 'material-ui-icons/Directions';
 import Contacts from 'material-ui-icons/Contacts';
 import { STATE_APP, COLOR_APP } from '../../config/AppConfig';
+import { GraphQLClient } from 'graphql-request';
+import { GIT_HUB_GRAPHQL_AUTH_KEY } from '../../config/AppKeysConfig';
 
+const endpoint = 'https://api.github.com/graphql';
+const client = new GraphQLClient(endpoint, {
+  headers: {
+    Authorization: `bearer ${GIT_HUB_GRAPHQL_AUTH_KEY}`,
+  }
+});
+const query = `
+  {
+    user(login: "4edorov") {
+      location
+    }
+  }
+`;
 
 const mapStateToProps = state => ({
   stateApp: state.stateApp,
@@ -52,66 +67,78 @@ const styleSheet = theme => ({
   },
 });
 
-const AppDrawerInfoComponent = props => {
-  const classes = props.classes;
-  const handleAppState = mode => {
-    props.changeStateApp(mode);
-  };
-  const handleSendForm = mode => {
-    props.toggleSendDrawer(mode);
-  };
-  const icons = [
-    <LightbulbOutline />,
-    <ArtTrack />,
-    <Business />,
-    <Directions />,
-    <Contacts />,
-  ];
-  return (
-    <div>
-      <div className={classes.begin}>
-        <Divider />
+const icons = [
+  <LightbulbOutline />,
+  <ArtTrack />,
+  <Business />,
+  <Directions />,
+  <Contacts />,
+];
+
+class AppDrawerInfoComponent extends React.Component {
+  componentDidMount() {
+    client.request(query).then(result => {
+      console.log('result', result);
+    });
+  }
+
+  handleAppState = mode => {
+    this.props.changeStateApp(mode);
+  }
+
+  handleSendForm = mode => {
+    this.props.toggleSendDrawer(mode);
+  }
+
+  render() {
+    const classes = this.props.classes;
+
+    return (
+      <div>
+        <div className={classes.begin}>
+          <Divider />
+        </div>
+        <Avatar
+          alt="Alexander Fedorov"
+          src={weberPhoto}
+          className={classes.avatar}
+        />
+        <div className={classes.list}>
+          <List>
+            <ListItem>
+              <ListItemIcon>
+                <Face />
+              </ListItemIcon>
+              <ListItemText primary="Alexander Fedorov" secondary="Web Developer" />
+            </ListItem>
+            <ListItem button={true} onClick={() => this.handleSendForm(!this.props.isSendDrawerOpen)}>
+              <ListItemIcon>
+                <Email />
+              </ListItemIcon>
+              <ListItemText primary="4edorov@gmail.com" />
+            </ListItem>
+          </List>
+          <Divider />
+          {STATE_APP.map((list, index) => {
+            let activeStateApp = list === this.props.stateApp ? classes.activeBtn : '';
+            return (
+              <a href={`#${list.replace(' ', '-').toLowerCase()}`} key={index} className={classes.navLink}>
+                <List >
+                  <ListItem button={true} className={activeStateApp} onClick={() => this.handleAppState(list)}>
+                    <ListItemIcon>
+                      {icons[index]}
+                    </ListItemIcon>
+                    <ListItemText primary={list} />
+                  </ListItem>
+                </List>
+              </a>
+            );
+          })}
+          <Divider />
+        </div>
       </div>
-      <Avatar
-        alt="Alexander Fedorov"
-        src={weberPhoto}
-        className={classes.avatar}
-      />
-      <div className={classes.list}>
-        <List>
-          <ListItem>
-            <ListItemIcon>
-              <Face />
-            </ListItemIcon>
-            <ListItemText primary="Alexander Fedorov" secondary="Web Developer" />
-          </ListItem>
-          <ListItem button={true} onClick={() => handleSendForm(!props.isSendDrawerOpen)}>
-            <ListItemIcon>
-              <Email />
-            </ListItemIcon>
-            <ListItemText primary="4edorov@gmail.com" />
-          </ListItem>
-        </List>
-        <Divider />
-        {STATE_APP.map((list, index) => {
-          let activeStateApp = list === props.stateApp ? classes.activeBtn : '';
-          return (
-            <a href={`#${list.replace(' ', '-').toLowerCase()}`} key={index} className={classes.navLink}>
-              <List >
-                <ListItem button={true} className={activeStateApp} onClick={() => handleAppState(list)}>
-                  <ListItemIcon>
-                    {icons[index]}
-                  </ListItemIcon>
-                  <ListItemText primary={list} />
-                </ListItem>
-              </List>
-            </a>
-          );
-        })}
-        <Divider />
-      </div>
-    </div>
-  )
+    );
+  }
 }
 
 AppDrawerInfoComponent.propTypes = {
