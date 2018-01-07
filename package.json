@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "graphql-request": "^1.4.1",
     "material-components-web": "^0.9.1",
     "material-design-lite": "^1.3.0",
     "material-ui": "^1.0.0-alpha.20",
