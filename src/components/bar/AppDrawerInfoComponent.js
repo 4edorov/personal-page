@@ -15,22 +15,8 @@ import Business from 'material-ui-icons/Business';
 import Directions from 'material-ui-icons/Directions';
 import Contacts from 'material-ui-icons/Contacts';
 import { STATE_APP, COLOR_APP } from '../../config/AppConfig';
-import { GraphQLClient } from 'graphql-request';
-import { GIT_HUB_GRAPHQL_AUTH_KEY } from '../../config/AppKeysConfig';
+import { GIT_HUB_REQUEST_URL } from '../../config/AppKeysConfig';
 
-const endpoint = 'https://api.github.com/graphql';
-const client = new GraphQLClient(endpoint, {
-  headers: {
-    Authorization: `bearer ${GIT_HUB_GRAPHQL_AUTH_KEY}`,
-  }
-});
-const query = `
-  {
-    user(login: "4edorov") {
-      location
-    }
-  }
-`;
 
 const mapStateToProps = state => ({
   stateApp: state.stateApp,
@@ -77,9 +63,18 @@ const icons = [
 
 class AppDrawerInfoComponent extends React.Component {
   componentDidMount() {
-    client.request(query).then(result => {
-      console.log('result', result);
-    });
+    fetch(GIT_HUB_REQUEST_URL)
+      .then(response => {
+        if (response.error) {
+          console.error('request error:', response.error);
+          return;
+        }
+        console.log('graph result', response.json());
+      })
+      .catch(error => {
+        console.error('webtask error:', error);
+        return;
+      });
   }
 
   handleAppState = mode => {
