@@ -14,23 +14,9 @@ import ArtTrack from 'material-ui-icons/ArtTrack';
 import Business from 'material-ui-icons/Business';
 import Directions from 'material-ui-icons/Directions';
 import Contacts from 'material-ui-icons/Contacts';
-import { STATE_APP, COLOR_APP } from '../../config/AppConfig';
-import { GraphQLClient } from 'graphql-request';
-import { GIT_HUB_GRAPHQL_AUTH_KEY } from '../../config/AppKeysConfig';
+import { STATE_APP, COLOR_APP, GIT_HUB_QUERY } from '../../config/AppConfig';
+import { GIT_HUB_REQUEST_URL } from '../../config/AppKeysConfig';
 
-const endpoint = 'https://api.github.com/graphql';
-const client = new GraphQLClient(endpoint, {
-  headers: {
-    Authorization: `bearer ${GIT_HUB_GRAPHQL_AUTH_KEY}`,
-  }
-});
-const query = `
-  {
-    user(login: "4edorov") {
-      location
-    }
-  }
-`;
 
 const mapStateToProps = state => ({
   stateApp: state.stateApp,
@@ -77,9 +63,23 @@ const icons = [
 
 class AppDrawerInfoComponent extends React.Component {
   componentDidMount() {
-    client.request(query).then(result => {
-      console.log('result', result);
-    });
+    const requestInit = {
+      data: GIT_HUB_QUERY
+    };
+    fetch(GIT_HUB_REQUEST_URL, requestInit)
+      .then(response => {
+        if (!response.ok) {
+          throw new Error(response.statusText);
+        }
+        return response.json();
+      })
+      .then(result => {
+        console.log('gh-graphql result', result.result);
+      })
+      .catch(error => {
+        console.error('webtask error:', error);
+        return;
+      });
   }
 
   handleAppState = mode => {
