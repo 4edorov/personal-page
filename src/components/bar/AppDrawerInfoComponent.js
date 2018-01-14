@@ -14,7 +14,7 @@ import ArtTrack from 'material-ui-icons/ArtTrack';
 import Business from 'material-ui-icons/Business';
 import Directions from 'material-ui-icons/Directions';
 import Contacts from 'material-ui-icons/Contacts';
-import { STATE_APP, COLOR_APP } from '../../config/AppConfig';
+import { STATE_APP, COLOR_APP, GIT_HUB_QUERY } from '../../config/AppConfig';
 import { GIT_HUB_REQUEST_URL } from '../../config/AppKeysConfig';
 
 
@@ -63,13 +63,18 @@ const icons = [
 
 class AppDrawerInfoComponent extends React.Component {
   componentDidMount() {
-    fetch(GIT_HUB_REQUEST_URL)
+    const requestInit = {
+      data: GIT_HUB_QUERY
+    };
+    fetch(GIT_HUB_REQUEST_URL, requestInit)
       .then(response => {
-        if (response.error) {
-          console.error('request error:', response.error);
-          return;
+        if (!response.ok) {
+          throw new Error(response.statusText);
         }
-        console.log('graph result', response.json());
+        return response.json();
+      })
+      .then(result => {
+        console.log('gh-graphql result', result.result);
       })
       .catch(error => {
         console.error('webtask error:', error);
