@@ -15,6 +15,7 @@ export const GIT_HUB_QUERY = `
 {
   user(login: "4edorov") {
     location
+    name
   }
 }
 `;

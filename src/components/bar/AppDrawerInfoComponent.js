@@ -64,7 +64,8 @@ const icons = [
 class AppDrawerInfoComponent extends React.Component {
   componentDidMount() {
     const requestInit = {
-      data: GIT_HUB_QUERY
+      method: 'POST',
+      body: GIT_HUB_QUERY
     };
     fetch(GIT_HUB_REQUEST_URL, requestInit)
       .then(response => {
