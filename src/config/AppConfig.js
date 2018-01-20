@@ -11,10 +11,25 @@ import screenTicTac from '../assets/static/images/screenTicTac.png';
 import screenSimon from '../assets/static/images/screenSimon.png';
 
 
+/* {
+  user(login: "4edorov") {
+    location
+    name
+  }
+} */
+
 export const GIT_HUB_QUERY = `
 {
   user(login: "4edorov") {
-    location
+    issues() {
+      totalCount
+    }
+    issueComments() {
+      totalCount
+    }
+    contributedRepositories() {
+      totalCount
+    }
   }
 }
 `;
