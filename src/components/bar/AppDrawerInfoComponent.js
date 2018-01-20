@@ -16,6 +16,7 @@ import Directions from 'material-ui-icons/Directions';
 import Contacts from 'material-ui-icons/Contacts';
 import { STATE_APP, COLOR_APP, GIT_HUB_QUERY } from '../../config/AppConfig';
 import { GIT_HUB_REQUEST_URL } from '../../config/AppKeysConfig';
+import AppDrawerGitHubStat from './AppDrawerGitHubStat';
 
 
 const mapStateToProps = state => ({
@@ -119,6 +120,10 @@ class AppDrawerInfoComponent extends React.Component {
               <ListItemText primary="4edorov@gmail.com" />
             </ListItem>
           </List>
+          <Divider />
+
+          <AppDrawerGitHubStat />
+
           <Divider />
           {STATE_APP.map((list, index) => {
             let activeStateApp = list === this.props.stateApp ? classes.activeBtn : '';
