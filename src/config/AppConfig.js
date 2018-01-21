@@ -21,13 +21,25 @@ import screenSimon from '../assets/static/images/screenSimon.png';
 export const GIT_HUB_QUERY = `
 {
   user(login: "4edorov") {
-    issues() {
+    commitComments() {
+      totalCount
+    }
+    issues(states: [OPEN]) {
       totalCount
     }
     issueComments() {
       totalCount
     }
-    contributedRepositories() {
+    contributedRepositories(privacy: PUBLIC) {
+      totalCount
+    }
+    repositoriesContributedTo() {
+      totalCount
+    }
+    pinnedRepositories() {
+      totalCount
+    }
+    pullRequests() {
       totalCount
     }
   }

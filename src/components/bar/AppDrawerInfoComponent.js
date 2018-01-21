@@ -113,6 +113,9 @@ class AppDrawerInfoComponent extends React.Component {
               </ListItemIcon>
               <ListItemText primary="Alexander Fedorov" secondary="Web Developer" />
             </ListItem>
+
+            <AppDrawerGitHubStat />
+
             <ListItem button={true} onClick={() => this.handleSendForm(!this.props.isSendDrawerOpen)}>
               <ListItemIcon>
                 <Email />
@@ -120,10 +123,6 @@ class AppDrawerInfoComponent extends React.Component {
               <ListItemText primary="4edorov@gmail.com" />
             </ListItem>
           </List>
-          <Divider />
-
-          <AppDrawerGitHubStat />
-
           <Divider />
           {STATE_APP.map((list, index) => {
             let activeStateApp = list === this.props.stateApp ? classes.activeBtn : '';
