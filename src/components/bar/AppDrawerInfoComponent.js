@@ -52,6 +52,9 @@ const styleSheet = theme => ({
   activeBtn: {
     background: COLOR_APP.primary[500],
   },
+  infoPanel: {
+    maxWidth: 290,
+  }
 });
 
 const icons = [
@@ -113,9 +116,6 @@ class AppDrawerInfoComponent extends React.Component {
               </ListItemIcon>
               <ListItemText primary="Alexander Fedorov" secondary="Web Developer" />
             </ListItem>
-
-            <AppDrawerGitHubStat />
-
             <ListItem button={true} onClick={() => this.handleSendForm(!this.props.isSendDrawerOpen)}>
               <ListItemIcon>
                 <Email />
@@ -140,6 +140,9 @@ class AppDrawerInfoComponent extends React.Component {
             );
           })}
           <Divider />
+          <div className={classes.infoPanel}>
+            <AppDrawerGitHubStat />
+          </div>
         </div>
       </div>
     );

@@ -1,37 +1,48 @@
 import React from 'react';
-import ExpansionPanel, {
-  ExpansionPanelSummary,
-  ExpansionPanelDetails,
-} from 'material-ui/ExpansionPanel';
-import Typography from 'material-ui/Typography';
-import ExpandMoreIcon from 'material-ui-icons/ExpandMore';
 import Chip from 'material-ui/Chip';
 import Avatar from 'material-ui/Avatar';
+import { withStyles } from 'material-ui/styles';
 
+
+const styles = {
+  panel: {
+    display: 'flex',
+    flexWrap: 'wrap',
+  },
+  element: {
+    margin: '5px 5px 0px 0px',
+  },
+};
 
 class AppDrawerGitHubStat extends React.Component {
-  onHandleClick = event => {
-    event.stopPropagation();
-  }
   render() {
+    const {classes} = this.props;
     return (
-      <div>
-        <ExpansionPanel onClick={this.onHandleClick}>
-          <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
-          <Typography>
-              GitHub stat
-            </Typography>
-          </ExpansionPanelSummary>
-          <ExpansionPanelDetails>
-            <Chip
-              avatar={<Avatar>996</Avatar>}
-              label={'contributions'}
-            />
-          </ExpansionPanelDetails>
-        </ExpansionPanel>
+      <div className={classes.panel}>
+        <Chip
+          className={classes.element}
+          avatar={<Avatar>996</Avatar>}
+          label={'contributions'}
+        />
+        <Chip
+          avatar={<Avatar>996</Avatar>}
+          label={'repositories'}
+        />
+        <Chip
+          avatar={<Avatar>996</Avatar>}
+          label={'stars'}
+        />
+        <Chip
+          avatar={<Avatar>996</Avatar>}
+          label={'pull requests'}
+        />
+        <Chip
+          avatar={<Avatar>996</Avatar>}
+          label={'issues'}
+        />
       </div>
     );
   }
 };
 
-export default AppDrawerGitHubStat;
+export default withStyles(styles)(AppDrawerGitHubStat);
