@@ -21,7 +21,16 @@ import screenSimon from '../assets/static/images/screenSimon.png';
 export const GIT_HUB_QUERY = `
 {
   user(login: "4edorov") {
-    commitComments() {
+    repositories(first: 50) {
+      nodes {
+        name
+      }
+      totalCount
+    }
+    contributedRepositories(first: 36) {
+      nodes {
+        name
+      }
       totalCount
     }
     issues(states: [OPEN]) {
@@ -30,17 +39,17 @@ export const GIT_HUB_QUERY = `
     issueComments() {
       totalCount
     }
-    contributedRepositories(privacy: PUBLIC) {
-      totalCount
-    }
-    repositoriesContributedTo() {
-      totalCount
-    }
-    pinnedRepositories() {
-      totalCount
-    }
     pullRequests() {
       totalCount
+    }
+  }
+  search (query: "4edorov", type: USER, first: 1) {
+    edges {
+      node {
+        ... on User {
+          login
+        }
+      }
     }
   }
 }

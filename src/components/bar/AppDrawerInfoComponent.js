@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { withStyles } from 'material-ui/styles';
-import { changeStateApp, toggleSendDrawer } from '../../actions';
+import { changeStateApp, toggleSendDrawer, updateGitHubStat } from '../../actions';
 import Avatar from 'material-ui/Avatar';
 import weberPhoto from '../../assets/static/images/Avatar.jpg';
 import List, { ListItem, ListItemIcon, ListItemText } from 'material-ui/List';
@@ -30,6 +30,9 @@ const mapDispatchToProps = dispatch => ({
   },
   toggleSendDrawer(mode) {
     dispatch(toggleSendDrawer(mode));
+  },
+  updateGitHubStat(data) {
+    dispatch(updateGitHubStat(data));
   },
 });
 
@@ -65,6 +68,16 @@ const icons = [
   <Contacts />,
 ];
 
+const formGitHubStat = object => {
+  return {
+    contributions: 1020,
+    repositories: 36,
+    stars: 8,
+    'pull requests': 273,
+    issues: 24,
+  };
+};
+
 class AppDrawerInfoComponent extends React.Component {
   componentDidMount() {
     const requestInit = {
@@ -80,6 +93,8 @@ class AppDrawerInfoComponent extends React.Component {
       })
       .then(result => {
         console.log('gh-graphql result', result.result);
+        const gitHubStat = formGitHubStat(result.result);
+        this.props.updateGitHubStat(gitHubStat);
       })
       .catch(error => {
         console.error('webtask error:', error);

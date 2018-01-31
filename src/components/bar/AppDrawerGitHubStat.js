@@ -2,47 +2,49 @@ import React from 'react';
 import Chip from 'material-ui/Chip';
 import Avatar from 'material-ui/Avatar';
 import { withStyles } from 'material-ui/styles';
+import { connect } from 'react-redux';
 
+
+const mapStateToProps = state => ({
+  gitHubStat: state.gitHubStat,
+});
 
 const styles = {
   panel: {
     display: 'flex',
     flexWrap: 'wrap',
+    justifyContent: 'center',
+    marginTop: 8,
+  },
+  avatar: {
+    fontSize: 12, 
   },
   element: {
-    margin: '5px 5px 0px 0px',
+    margin: '0px 5px 5px 0px',
   },
 };
 
 class AppDrawerGitHubStat extends React.Component {
   render() {
     const {classes} = this.props;
+    const gitHubStat = this.props.gitHubStat;
     return (
       <div className={classes.panel}>
-        <Chip
-          className={classes.element}
-          avatar={<Avatar>996</Avatar>}
-          label={'contributions'}
-        />
-        <Chip
-          avatar={<Avatar>996</Avatar>}
-          label={'repositories'}
-        />
-        <Chip
-          avatar={<Avatar>996</Avatar>}
-          label={'stars'}
-        />
-        <Chip
-          avatar={<Avatar>996</Avatar>}
-          label={'pull requests'}
-        />
-        <Chip
-          avatar={<Avatar>996</Avatar>}
-          label={'issues'}
-        />
+        {
+          Object.keys(gitHubStat).map((key, index) => {
+            return (
+              <Chip
+                className={classes.element}
+                avatar={<Avatar className={classes.avatar}>{`${gitHubStat[key]}`}</Avatar>}
+                label={`${key}`}
+                key={index}
+              />
+            );
+          })
+        }
       </div>
     );
   }
 };
 
-export default withStyles(styles)(AppDrawerGitHubStat);
+export default connect(mapStateToProps)(withStyles(styles)(AppDrawerGitHubStat));
