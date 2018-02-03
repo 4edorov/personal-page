@@ -2,7 +2,8 @@ import {
   TOGGLE_DRAWER,
   STATE_DRAWER,
   STATE_APP,
-  TOGGLE_SEND_DRAWER
+  TOGGLE_SEND_DRAWER,
+  GET_GIT_HUB_STAT,
 } from '../actions/index';
 
 
@@ -11,6 +12,7 @@ const initialState = {
   mainDrawerType: 'persistent',
   isSendDrawerOpen: false,
   stateApp: 'Greeting',
+  gitHubStat: {},
 };
 
 const toggleAppState = function(state = initialState, action) {
@@ -31,6 +33,10 @@ const toggleAppState = function(state = initialState, action) {
       return Object.assign({}, state, {
         isSendDrawerOpen: action.open,
       });
+    case GET_GIT_HUB_STAT:
+      return Object.assign({}, state, {
+        gitHubStat: action.stat 
+      })
     default:
       return state;
   }
