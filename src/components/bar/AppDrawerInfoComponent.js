@@ -70,11 +70,11 @@ const icons = [
 
 const formGitHubStat = object => {
   return {
-    contributions: 1020,
-    repositories: 36,
-    stars: 8,
-    'pull requests': 273,
-    issues: 24,
+    contributions: '-',
+    repositories: object.viewer.repositories.totalCount || '-',
+    stars: object.viewer.starredRepositories.totalCount || '-',
+    'pull requests': object.viewer.pullRequests.totalCount || '-',
+    'issue comments': object.viewer.issueComments.totalCount || '-',
   };
 };
 
@@ -92,7 +92,6 @@ class AppDrawerInfoComponent extends React.Component {
         return response.json();
       })
       .then(result => {
-        console.log('gh-graphql result', result.result);
         const gitHubStat = formGitHubStat(result.result);
         this.props.updateGitHubStat(gitHubStat);
       })

@@ -11,45 +11,20 @@ import screenTicTac from '../assets/static/images/screenTicTac.png';
 import screenSimon from '../assets/static/images/screenSimon.png';
 
 
-/* {
-  user(login: "4edorov") {
-    location
-    name
-  }
-} */
-
 export const GIT_HUB_QUERY = `
 {
-  user(login: "4edorov") {
-    repositories(first: 50) {
-      nodes {
-        name
-      }
+  viewer {
+    repositories(first: 100) {
       totalCount
     }
-    contributedRepositories(first: 36) {
-      nodes {
-        name
-      }
+    issueComments(first: 100) {
       totalCount
     }
-    issues(states: [OPEN]) {
+    pullRequests(first: 100) {
       totalCount
     }
-    issueComments() {
+    starredRepositories(first: 100) {
       totalCount
-    }
-    pullRequests() {
-      totalCount
-    }
-  }
-  search (query: "4edorov", type: USER, first: 1) {
-    edges {
-      node {
-        ... on User {
-          login
-        }
-      }
     }
   }
 }
