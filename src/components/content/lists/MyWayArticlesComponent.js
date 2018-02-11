@@ -15,6 +15,12 @@ const content = [
     link: 'https://alligator.io',
     icon: 'fa fa-star-o',
   },
+  {
+    name: 'The Twelve-Factor App',
+    properties: 'About app architecture',
+    link: 'https://12factor.net',
+    icon: 'fa fa-sticky-note',
+  },
 ];
 
 const MyWayBooksComponent = () => {
