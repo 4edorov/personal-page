@@ -20,9 +20,12 @@ const styleSheet = theme => ({
     justifyContent: 'center',
     alignItems: 'center',
     width: '100%',
-    backgroundSize: '100% 100%',
+    backgroundSize: 'cover',
     backgroundImage: 'url(' + bgGreeting + ')',
     backgroundAttachment: 'fixed',
+    '-webkit-background-size': 'cover',
+    '-moz-background-size': 'cover',
+    '-o-background-size': 'cover',
     backgroundPosition: 'center center',
   },
   contentHeader: {
