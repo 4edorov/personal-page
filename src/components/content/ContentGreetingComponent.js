@@ -9,10 +9,12 @@ const styleSheet = theme => ({
     fontSize: '1.5em',
     textAlign: 'center',
     lineHeight: '1.5',
-    color: theme.palette.secondary['500'],
+    color: theme.palette.common.black,
   },
   baseLayout: {
     width: '100%',
+    backgroundColor: theme.palette.common.white,
+    opacity: '0.8',
   },
   basePage: {
     display: 'flex',
@@ -29,7 +31,8 @@ const styleSheet = theme => ({
     backgroundPosition: 'center center',
   },
   contentHeader: {
-    color: theme.palette.secondary['500'],
+    textAlign: 'center',
+    color: theme.palette.common.black,
   },
 });
 
@@ -37,9 +40,9 @@ const ContentGreetingComponent = props => {
   const classes = props.classes;
   return (
     <div id='greeting'>
-      <div className='content'>
-        <div className={classes.baseLayout}>
-          <div className={classes.basePage}>
+      <div className={classes.basePage}>
+        <div className='content'>
+          <div className={classes.baseLayout}>
             <div>
               <h1 className={classes.contentHeader}>Hello!</h1>
             </div>
