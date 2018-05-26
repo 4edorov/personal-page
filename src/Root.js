@@ -1,5 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import {
+  BrowserRouter as Router,
+  Route
+} from 'react-router-dom';
 import AppBarComponent from './components/bar/AppBarComponent';
 import AppDrawerComponent from './components/bar/AppDrawerComponent';
 import { toggleDrawer, stateDrawer } from './actions';
@@ -40,13 +44,16 @@ class Root extends React.Component {
   }
   render () {
     return (
-      <div>
-        <AppBarComponent />
-        <AppDrawerComponent />
-        {this.props.stateApp === STATE_APP[4] && <AppButtonComponent />}
-        <AppContentComponent />
-        <AppDrawerSendForm />
-      </div>
+      <Router>
+        <div>
+          <AppBarComponent />
+          <AppDrawerComponent />
+          {this.props.stateApp === STATE_APP[4] && <AppButtonComponent />}
+          <Route exact path='/' component={AppContentComponent} />
+          <Route path='/articles' render={() => <div>Articles</div>} />
+          <AppDrawerSendForm />
+        </div>
+      </Router>
     );
   }
 };
