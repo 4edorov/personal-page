@@ -1,13 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { withStyles } from 'material-ui/styles';
-import Grid from 'material-ui/Grid';
-import Card, { CardMedia, CardContent, CardActions } from 'material-ui/Card';
-import Typography from 'material-ui/Typography';
-import IconButton from 'material-ui/IconButton';
-import Icon from 'material-ui/Icon';
+import { withStyles } from '@material-ui/core/styles';
+import Grid from '@material-ui/core/Grid';
+import Card from '@material-ui/core/Card';
+import CardMedia from '@material-ui/core/CardMedia';
+import CardContent from '@material-ui/core/CardContent';
+import CardActions from '@material-ui/core/CardActions';
+import Typography from '@material-ui/core/Typography';
+import IconButton from '@material-ui/core/IconButton';
+import Icon from '@material-ui/core/Icon';
 import { PORTFOLIO_WORKS, COLOR_APP } from '../../config/AppConfig';
-
 
 const styleSheet = theme => ({
   root: {
@@ -52,7 +54,7 @@ const ContentPortfolioComponent = props => {
   const classes = props.classes;
 
   return (
-    <div id="portfolio" className={classes.root}>
+    <div id='portfolio' className={classes.root}>
       <div className={classes.caption}>
         <h1>Portfolio</h1>
       </div>
@@ -67,24 +69,24 @@ const ContentPortfolioComponent = props => {
                   title={work.title}
                 />
                 <CardContent className={classes.cardContent}>
-                  <Typography type="headline">
+                  <Typography type='headline'>
                     {checkForSymbols(work.title)}
                   </Typography>
-                  <Typography component="p">
+                  <Typography component='p'>
                     {work.description}
                   </Typography>
                 </CardContent>
                 <CardActions>
-                  <IconButton color="accent" target="_blank" href={work.openLink.git}>
+                  <IconButton color='secondary' target='_blank' href={work.openLink.git}>
                     <Icon className={work.iconType.git} />
                   </IconButton>
                   { work.iconType.codepen &&
-                    <IconButton color="accent" target="_blank" href={work.openLink.codepen}>
+                    <IconButton color='secondary' target='_blank' href={work.openLink.codepen}>
                       <Icon className={work.iconType.codepen} />
                     </IconButton>
                   }
                   { work.iconType.link &&
-                    <IconButton color="accent" target="_blank" href={work.openLink.site}>
+                    <IconButton color='secondary' target='_blank' href={work.openLink.site}>
                       <Icon className={work.iconType.link} />
                     </IconButton>
                   }

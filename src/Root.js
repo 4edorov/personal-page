@@ -8,7 +8,6 @@ import AppContentComponent from './components/content/AppContentComponent';
 import { STATE_APP } from './config/AppConfig';
 import AppDrawerSendForm from './components/elements/AppDrawerSendForm';
 
-
 const mapStateToProps = state => ({
   isMainDrawerOpen: state.isMainDrawerOpen,
   mainDrawerType: state.mainDrawerType,
@@ -16,28 +15,31 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  toggleDrawer(isOpen) {
+  toggleDrawer (isOpen) {
     dispatch(toggleDrawer(isOpen));
   },
-  stateDrawer(drawerType) {
+  stateDrawer (drawerType) {
     dispatch(stateDrawer(drawerType));
   },
 });
 
 class Root extends React.Component {
-  updateDimension = () => {
+  updateDimension () {
     let drawerType = window.innerWidth < 1280 ? 'temporary' : 'permanent';
-    let isOpen = drawerType === 'permanent' ? true : false
+    let isOpen = drawerType === 'permanent'
     this.props.toggleDrawer(isOpen);
     this.props.stateDrawer(drawerType);
   }
-  componentDidMount() {
+
+  componentDidMount () {
     this.updateDimension();
-    window.addEventListener("resize", this.updateDimension);
+    window.addEventListener('resize', this.updateDimension);
   }
-  componentWillUnmount() {
-    window.removeEventListener("resize", this.updateDimension);
+
+  componentWillUnmount () {
+    window.removeEventListener('resize', this.updateDimension);
   }
+
   render () {
     return (
       <div>

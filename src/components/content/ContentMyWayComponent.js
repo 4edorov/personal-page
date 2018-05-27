@@ -1,9 +1,10 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-import { withStyles } from 'material-ui/styles';
-import Paper from 'material-ui/Paper';
-import Tabs, { Tab } from 'material-ui/Tabs';
-import AppBar from 'material-ui/AppBar';
+import { withStyles } from '@material-ui/core/styles';
+import Paper from '@material-ui/core/Paper';
+import Tabs from '@material-ui/core/Tabs';
+import Tab from '@material-ui/core/Tab';
+import AppBar from '@material-ui/core/AppBar';
 import MyWayProgrammsComponent from './lists/MyWayProgrammsComponent';
 import MyWayBooksComponent from './lists/MyWayBooksComponent';
 import MyWayArticlesComponent from './lists/MyWayArticlesComponent';
@@ -14,7 +15,6 @@ import MyWayToolsComponent from './lists/MyWayToolsComponent';
 import MyWayDataComponent from './lists/MyWayDataComponent';
 import MyWayDesignComponent from './lists/MyWayDesignComponent';
 import MyWayCertificatesComponent from './lists/MyWayCertificatesComponent';
-
 
 const directions = [
   {label: 'Learning Programms', content: <MyWayProgrammsComponent />,},
@@ -55,7 +55,7 @@ const styleSheet = theme => ({
   },
 });
 
-class ContentMyWayComponent extends Component {
+class ContentMyWayComponent extends React.Component {
   state = {
     indexTechnologies: 0,
     indexDirections: 0,
@@ -82,9 +82,8 @@ class ContentMyWayComponent extends Component {
             <Tabs
               value={this.state.indexTechnologies}
               onChange={this.handleChangeTechnologies}
-              scrollable
+              scrollable={true}
               scrollButtons="on"
-              centered={true}
             >
               {technologies.map((one, index) =>
                 <Tab label={one.label} key={index} />
@@ -98,9 +97,8 @@ class ContentMyWayComponent extends Component {
             <Tabs
               value={this.state.indexDirections}
               onChange={this.handleChangeDirections}
-              scrollable
+              scrollable={true}
               scrollButtons="on"
-              centered={true}
             >
               {directions.map((one, index) =>
                 <Tab label={one.label} key={index} />

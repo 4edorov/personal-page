@@ -1,9 +1,9 @@
 import React from 'react';
-import Drawer from 'material-ui/Drawer';
+import PropTypes from 'prop-types';
+import Drawer from '@material-ui/core/Drawer';
 import AppDrawerInfoComponent from './AppDrawerInfoComponent';
 import { toggleDrawer } from '../../actions';
 import { connect } from 'react-redux';
-
 
 const mapStateToProps = state => ({
   isMainDrawerOpen: state.isMainDrawerOpen,
@@ -21,7 +21,7 @@ class AppDrawerComponent extends React.Component {
     this.props.toggleDrawer(false);
   }
 
-  render() {
+  render () {
     return (
       <div>
         <Drawer
@@ -34,6 +34,11 @@ class AppDrawerComponent extends React.Component {
       </div>
     );
   }
+};
+
+AppDrawerComponent.propTypes = {
+  isMainDrawerOpen: PropTypes.bool,
+  mainDrawerType: PropTypes.string,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(AppDrawerComponent);

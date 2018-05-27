@@ -1,11 +1,15 @@
 import React from 'react';
-import List, { ListItem, ListItemIcon, ListItemText } from 'material-ui/List';
-import IconButton from 'material-ui/IconButton';
-import Icon from 'material-ui/Icon';
-import Card, { CardMedia, CardContent } from 'material-ui/Card';
-import Divider from 'material-ui/Divider';
-import Typography from 'material-ui/Typography';
-
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemIcon from '@material-ui/core/ListItemIcon';
+import ListItemText from '@material-ui/core/ListItemText';
+import IconButton from '@material-ui/core/IconButton';
+import Icon from '@material-ui/core/Icon';
+import Card from '@material-ui/core/Card';
+import CardMedia from '@material-ui/core/CardMedia';
+import CardContent from '@material-ui/core/CardContent';
+import Divider from '@material-ui/core/Divider';
+import Typography from '@material-ui/core/Typography';
 
 export const showResources = content => {
   return (
@@ -14,8 +18,8 @@ export const showResources = content => {
         <List key={index}>
           <ListItem>
             <ListItemIcon>
-              <IconButton target="_blank" href={one.link}>
-                <Icon color="accent" className={one.icon} />
+              <IconButton target='_blank' href={one.link}>
+                <Icon color='secondary' className={one.icon} />
               </IconButton>
             </ListItemIcon>
             <ListItemText
@@ -38,7 +42,7 @@ export const showTechnologies = (content) => {
     <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'space-around', flexWrap: 'wrap'}}>
       {content.map((one, index) =>
         <Card key={index} style={{minWidth: 100, margin: 15}}>
-          <a href={one.link} target="_blank">
+          <a href={one.link} target='_blank'>
             <CardMedia
               image={one.src}
               title={one.name}
@@ -48,7 +52,7 @@ export const showTechnologies = (content) => {
           <Divider />
           <CardContent style={{padding: 5, display: 'flex', justifyContent: 'center'}}>
             <a style={{textDecoration: 'none'}} href={one.link} target="_blank">
-              <Typography color="accent" >
+              <Typography color='secondary' >
                 {one.name}
               </Typography>
             </a>

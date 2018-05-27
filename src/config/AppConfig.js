@@ -1,5 +1,5 @@
-import lime from 'material-ui/colors/lime';
-import deepOrange from 'material-ui/colors/deepOrange';
+import lime from '@material-ui/core/colors/lime';
+import deepOrange from '@material-ui/core/colors/deepOrange';
 import screenPage from '../assets/static/images/screen_page.png';
 import screenQuote from '../assets/static/images/screen_quote.png';
 import screenWeather from '../assets/static/images/screen_weather.png';
@@ -9,7 +9,6 @@ import screenCalc from '../assets/static/images/screen_calculator.png';
 import screenClock from '../assets/static/images/screen_clock.png';
 import screenTicTac from '../assets/static/images/screenTicTac.png';
 import screenSimon from '../assets/static/images/screenSimon.png';
-
 
 export const GIT_HUB_QUERY = `
 {

@@ -6,7 +6,6 @@ import {
   GET_GIT_HUB_STAT,
 } from '../actions/index';
 
-
 const initialState = {
   isMainDrawerOpen: false,
   mainDrawerType: 'persistent',
@@ -15,7 +14,7 @@ const initialState = {
   gitHubStat: {},
 };
 
-const toggleAppState = function(state = initialState, action) {
+const toggleAppState = function (state = initialState, action) {
   switch (action.type) {
     case TOGGLE_DRAWER:
       return Object.assign({}, state, {
@@ -35,7 +34,7 @@ const toggleAppState = function(state = initialState, action) {
       });
     case GET_GIT_HUB_STAT:
       return Object.assign({}, state, {
-        gitHubStat: action.stat 
+        gitHubStat: action.stat,
       })
     default:
       return state;

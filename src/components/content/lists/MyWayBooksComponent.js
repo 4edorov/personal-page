@@ -1,7 +1,6 @@
 import React from 'react';
 import { showResources } from '../../../lib';
 
-
 const content = [
   {
     name: 'JavaScript The Definitive Guide (6 ed.) David Flanagan',

@@ -1,26 +1,25 @@
 import React, { Component } from 'react';
-import Drawer from 'material-ui/Drawer';
+import Drawer from '@material-ui/core/Drawer';
 import AppSendForm from './AppSendForm';
 import { toggleSendDrawer } from '../../actions';
 import { connect } from 'react-redux';
-
 
 const mapStateToProps = state => ({
   isSendDrawerOpen: state.isSendDrawerOpen,
 })
 
 const mapDispatchToProps = dispatch => ({
-  toggleSendDrawer(mode) {
+  toggleSendDrawer (mode) {
     dispatch(toggleSendDrawer(mode));
   },
 });
 
 class AppDrawerSendForm extends Component {
-  render() {
+  render () {
     return (
       <div>
         <Drawer
-          anchor="right"
+          anchor='right'
           open={this.props.isSendDrawerOpen}
         >
           <AppSendForm />
