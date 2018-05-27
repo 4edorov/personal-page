@@ -5,8 +5,8 @@ import toggleAppState from './reducers';
 import './App.css';
 import Root from './Root';
 const injectTapEventPlugin = require('react-tap-event-plugin');
-injectTapEventPlugin();
 
+injectTapEventPlugin();
 
 let store = createStore(toggleAppState);
 

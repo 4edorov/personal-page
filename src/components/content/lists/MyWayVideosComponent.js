@@ -1,7 +1,6 @@
 import React from 'react';
 import { showResources } from '../../../lib';
 
-
 const content = [
   {
     name: 'freeCodeCamp',

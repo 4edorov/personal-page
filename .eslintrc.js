@@ -5,6 +5,7 @@ module.exports = {
       "promise"
   ],
   "rules": {
-    "semi": 1,
+    "semi": 0,
+    "comma-dangle": 0
   },
 };

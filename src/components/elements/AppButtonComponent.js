@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { withStyles } from 'material-ui/styles';
-import Button from 'material-ui/Button';
-import Chat from 'material-ui-icons/Chat';
+import { withStyles } from '@material-ui/core/styles';
+import Button from '@material-ui/core/Button';
+import Chat from '@material-ui/icons/Chat';
 import { connect } from 'react-redux';
 import { toggleSendDrawer } from '../../actions';
-
 
 const styleSheet = theme => ({
   appButton: {
@@ -40,8 +39,8 @@ class AppButtonComponent extends Component {
   render() {
     return (
       <Button
-        fab={true}
-        color="accent"
+        variant='fab'
+        color='secondary'
         className={this.classes.appButton}
         onClick={this.handleDrawerClose}
       >

@@ -1,8 +1,7 @@
 import React from 'react';
-import { withStyles } from 'material-ui/styles';
+import { withStyles } from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
 import bgAbout from '../../assets/static/images/bg_about.jpg';
-
 
 const styleSheet = theme => ({
   basePage: {
@@ -73,7 +72,7 @@ const ContentAboutComponent = props => {
   );
 }
 
-ContentAboutComponent.propTypes =  {
+ContentAboutComponent.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 

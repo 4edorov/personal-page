@@ -2,15 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { toggleDrawer } from '../../actions';
-import AppBar from 'material-ui/AppBar';
-import Toolbar from 'material-ui/Toolbar';
-import Typography from 'material-ui/Typography';
-import { withStyles } from 'material-ui/styles';
-import MenuIcon from 'material-ui-icons/Menu';
-import IconButton from 'material-ui/IconButton';
-import Icon from 'material-ui/Icon';
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
+import Typography from '@material-ui/core/Typography';
+import { withStyles } from '@material-ui/core/styles';
+import MenuIcon from '@material-ui/icons/Menu';
+import IconButton from '@material-ui/core/IconButton';
+import Icon from '@material-ui/core/Icon';
 import { URL_GIT_HUB, URL_FACEBOOK } from '../../config/AppConfig';
-
 
 const styleSheet = theme => ({
   appBar: {
@@ -36,7 +35,7 @@ const mapStateToProps = state => ({
   mainDrawerType: state.mainDrawerType
 });
 const mapDispatchToProps = dispatch => ({
-  toggleDrawer(mode) {
+  toggleDrawer (mode) {
     dispatch(toggleDrawer(mode));
   },
 });
@@ -57,15 +56,15 @@ const AppBarComponent = props => {
             <MenuIcon />
           </IconButton>
         }
-        <Typography type="title" className={classes.flex}>
+        <Typography type='title' className={classes.flex}>
           {props.stateApp}
         </Typography>
         <div className={classes.barToolIcons}>
           <IconButton href={URL_GIT_HUB}>
-            <Icon className="fa fa-github" />
+            <Icon className='fa fa-github' />
           </IconButton>
           <IconButton href={URL_FACEBOOK}>
-            <Icon className="fa fa-facebook-official" />
+            <Icon className='fa fa-facebook-official' />
           </IconButton>
         </div>
       </Toolbar>
@@ -75,6 +74,7 @@ const AppBarComponent = props => {
 
 AppBarComponent.propTypes = {
   classes: PropTypes.object.isRequired,
+  toggleDrawer: PropTypes.func,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styleSheet)(AppBarComponent));

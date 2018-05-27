@@ -6,13 +6,12 @@ import cssLogo from '../../../assets/static/images/way_css_logo.png';
 import bashLogo from '../../../assets/static/images/way_bash_logo.png';
 import { showTechnologies } from '../../../lib';
 
-
 const languages = [
-  {name: 'JavaScript', src: jsLogo, link: 'https://www.ecma-international.org',},
-  {name: 'HTML', src: htmlLogo, link: 'https://www.w3.org',},
-  {name: 'CSS', src: cssLogo, link: 'https://www.w3.org/Style',},
-  {name: 'TypeScript', src: tsLogo, link: 'https://www.typescriptlang.org',},
-  {name: 'Bash', src: bashLogo, link: 'https://www.gnu.org/software/bash/'},
+  { name: 'JavaScript', src: jsLogo, link: 'https://www.ecma-international.org', },
+  { name: 'HTML', src: htmlLogo, link: 'https://www.w3.org', },
+  { name: 'CSS', src: cssLogo, link: 'https://www.w3.org/Style', },
+  { name: 'TypeScript', src: tsLogo, link: 'https://www.typescriptlang.org', },
+  { name: 'Bash', src: bashLogo, link: 'https://www.gnu.org/software/bash/', },
 ];
 
 const MyWayLanguagesComponent = () => {

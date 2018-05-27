@@ -1,12 +1,12 @@
 import React from 'react';
-import Chip from 'material-ui/Chip';
-import Avatar from 'material-ui/Avatar';
-import IconButton from 'material-ui/IconButton';
-import Icon from 'material-ui/Icon';
-import { withStyles } from 'material-ui/styles';
+import PropTypes from 'prop-types';
+import Chip from '@material-ui/core/Chip';
+import Avatar from '@material-ui/core/Avatar';
+import IconButton from '@material-ui/core/IconButton';
+import Icon from '@material-ui/core/Icon';
+import { withStyles } from '@material-ui/core/styles';
 import { connect } from 'react-redux';
 import { URL_GIT_HUB } from '../../config/AppConfig';
-
 
 const mapStateToProps = state => ({
   gitHubStat: state.gitHubStat,
@@ -25,7 +25,7 @@ const styles = theme => ({
     marginTop: 8,
   },
   avatar: {
-    fontSize: 12, 
+    fontSize: 12,
     backgroundColor: theme.palette.secondary['500'],
   },
   element: {
@@ -36,9 +36,9 @@ const styles = theme => ({
 });
 
 class AppDrawerGitHubStat extends React.Component {
-  render() {
-    const {classes} = this.props;
-    const gitHubStat = this.props.gitHubStat;
+  render () {
+    const {classes, gitHubStat} = this.props;
+
     return (
       <div className={classes.panel}>
         <div className={classes.chips}>
@@ -61,6 +61,10 @@ class AppDrawerGitHubStat extends React.Component {
       </div>
     );
   }
+};
+
+AppDrawerGitHubStat.propTypes = {
+  gitHubStat: PropTypes.object,
 };
 
 export default connect(mapStateToProps)(withStyles(styles)(AppDrawerGitHubStat));

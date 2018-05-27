@@ -5,12 +5,11 @@ import gitLogo from '../../../assets/static/images/way_git_logo.png';
 import reduxLogo from '../../../assets/static/images/way_redux_logo.png';
 import { showTechnologies } from '../../../lib';
 
-
 const tools = [
-  {name: 'NodeJS', src: nodeLogo, link: 'https://nodejs.org',},
-  {name: 'Webpack', src: wpLogo, link: 'https://webpack.github.io',},
-  {name: 'Git', src: gitLogo, link: 'https://git-scm.com',},
-  {name: 'Redux', src: reduxLogo, link: 'https://http://redux.js.org',},
+  { name: 'NodeJS', src: nodeLogo, link: 'https://nodejs.org', },
+  { name: 'Webpack', src: wpLogo, link: 'https://webpack.github.io', },
+  { name: 'Git', src: gitLogo, link: 'https://git-scm.com', },
+  { name: 'Redux', src: reduxLogo, link: 'https://http://redux.js.org', },
 ];
 
 const MyWayToolsComponent = () => {

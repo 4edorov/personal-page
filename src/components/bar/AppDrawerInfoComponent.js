@@ -1,23 +1,25 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { withStyles } from 'material-ui/styles';
+import { withStyles } from '@material-ui/core/styles';
 import { changeStateApp, toggleSendDrawer, updateGitHubStat } from '../../actions';
-import Avatar from 'material-ui/Avatar';
+import Avatar from '@material-ui/core/Avatar';
 import weberPhoto from '../../assets/static/images/Avatar.jpg';
-import List, { ListItem, ListItemIcon, ListItemText } from 'material-ui/List';
-import Divider from 'material-ui/Divider';
-import Face from 'material-ui-icons/Face';
-import Email from 'material-ui-icons/Email';
-import LightbulbOutline from 'material-ui-icons/LightbulbOutline';
-import ArtTrack from 'material-ui-icons/ArtTrack';
-import Business from 'material-ui-icons/Business';
-import Directions from 'material-ui-icons/Directions';
-import Contacts from 'material-ui-icons/Contacts';
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemIcon from '@material-ui/core/ListItemIcon';
+import ListItemText from '@material-ui/core/ListItemText';
+import Divider from '@material-ui/core/Divider';
+import Face from '@material-ui/icons/Face';
+import Email from '@material-ui/icons/Email';
+import LightbulbOutline from '@material-ui/icons/LightbulbOutline';
+import ArtTrack from '@material-ui/icons/ArtTrack';
+import Business from '@material-ui/icons/Business';
+import Directions from '@material-ui/icons/Directions';
+import Contacts from '@material-ui/icons/Contacts';
 import { STATE_APP, COLOR_APP, GIT_HUB_QUERY } from '../../config/AppConfig';
 import { GIT_HUB_REQUEST_URL } from '../../config/AppKeysConfig';
 import AppDrawerGitHubStat from './AppDrawerGitHubStat';
-
 
 const mapStateToProps = state => ({
   stateApp: state.stateApp,
@@ -118,7 +120,7 @@ class AppDrawerInfoComponent extends React.Component {
           <Divider />
         </div>
         <Avatar
-          alt="Alexander Fedorov"
+          alt='Alexander Fedorov'
           src={weberPhoto}
           className={classes.avatar}
         />
@@ -128,13 +130,13 @@ class AppDrawerInfoComponent extends React.Component {
               <ListItemIcon>
                 <Face />
               </ListItemIcon>
-              <ListItemText primary="Alexander Fedorov" secondary="Web Developer" />
+              <ListItemText primary='Alexander Fedorov' secondary='Web Developer' />
             </ListItem>
             <ListItem button={true} onClick={() => this.handleSendForm(!this.props.isSendDrawerOpen)}>
               <ListItemIcon>
                 <Email />
               </ListItemIcon>
-              <ListItemText primary="4edorov@gmail.com" />
+              <ListItemText primary='4edorov@gmail.com' />
             </ListItem>
           </List>
           <Divider />

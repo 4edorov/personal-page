@@ -1,14 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { withStyles } from 'material-ui/styles';
-import Chip from 'material-ui/Chip';
-import Avatar from 'material-ui/Avatar';
-import Icon from 'material-ui/Icon';
+import { withStyles } from '@material-ui/core/styles';
+import Chip from '@material-ui/core/Chip';
+import Avatar from '@material-ui/core/Avatar';
+import Icon from '@material-ui/core/Icon';
 import { CONTACTS } from '../../config/AppConfig';
 
-
 const styleSheet = theme => ({
-  root:  {
+  root: {
     display: 'flex',
     justifyContent: 'center',
     flexGrow: 1,
