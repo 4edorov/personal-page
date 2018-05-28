@@ -74,7 +74,10 @@ const AppBarComponent = props => {
 
 AppBarComponent.propTypes = {
   classes: PropTypes.object.isRequired,
-  toggleDrawer: PropTypes.func,
+  toggleDrawer: PropTypes.func.isRequired,
+  stateApp: PropTypes.string.isRequired,
+  mainDrawerType: PropTypes.string,
+  isMainDrawerOpen: PropTypes.bool,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styleSheet)(AppBarComponent));

@@ -1,8 +1,13 @@
 module.exports = {
-  "extends": "standard",
+  "extends": [
+    "standard",
+    "eslint:recommended",
+    "plugin:react/recommended",
+  ],
   "plugins": [
       "standard",
-      "promise"
+      "promise",
+      "react",
   ],
   "rules": {
     "semi": 0,

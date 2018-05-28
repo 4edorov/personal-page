@@ -32,6 +32,8 @@ const mapDispatchToProps = dispatch => ({
 });
 
 class AppContentComponent extends React.Component {
+  state = {}
+
   listenEventScroll = event => {
     let greetingTop = event.target.all['greeting'].getBoundingClientRect().top;
     let greetingHeight = event.target.all['greeting'].clientHeight;
@@ -74,10 +76,12 @@ class AppContentComponent extends React.Component {
       }
     }
   }
-  componentDidMount() {
+
+  componentDidMount () {
     window.addEventListener('scroll', this.listenEventScroll);
   }
-  componentWillUnmount() {
+
+  componentWillUnmount () {
     window.removeEventListener('scroll', this.listenEventScroll);
   }
 

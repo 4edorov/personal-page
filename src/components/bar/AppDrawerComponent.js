@@ -37,8 +37,9 @@ class AppDrawerComponent extends React.Component {
 };
 
 AppDrawerComponent.propTypes = {
-  isMainDrawerOpen: PropTypes.bool,
-  mainDrawerType: PropTypes.string,
+  isMainDrawerOpen: PropTypes.bool.isRequired,
+  mainDrawerType: PropTypes.string.isRequired,
+  toggleDrawer: PropTypes.func.isRequired,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(AppDrawerComponent);
