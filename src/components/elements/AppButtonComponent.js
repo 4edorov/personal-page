@@ -48,10 +48,12 @@ class AppButtonComponent extends Component {
       </Button>
     );
   }
-};
+}
 
 AppButtonComponent.propTypes = {
   classes: PropTypes.object.isRequired,
+  toggleSendDrawer: PropTypes.func.isRequired,
+  isSendDrawerOpen: PropTypes.bool.isRequired,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styleSheet)(AppButtonComponent));

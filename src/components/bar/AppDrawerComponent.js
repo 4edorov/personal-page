@@ -34,7 +34,7 @@ class AppDrawerComponent extends React.Component {
       </div>
     );
   }
-};
+}
 
 AppDrawerComponent.propTypes = {
   isMainDrawerOpen: PropTypes.bool.isRequired,

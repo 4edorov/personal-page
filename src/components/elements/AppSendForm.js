@@ -58,14 +58,17 @@ class AppSendForm extends Component {
     },
     checkEmail: false,
     thankMessage: false,
-  };
+  }
+
   handleDrawerClose() {
     this.props.toggleSendDrawer(false);
-  };
+  }
+
   validEmail(email) {
     let re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return re.test(email);
-  };
+  }
+
   getFormData(messageFields) {
     let validateMessageFields = {};
     Object.keys(messageFields).forEach(field => {
@@ -74,7 +77,8 @@ class AppSendForm extends Component {
       }
     });
     return validateMessageFields;
-  };
+  }
+
   handleFormSubmit() {
     const data = this.getFormData(this.state.form);
     let url = URL_FOR_SEND_EMAIL_FORM;
@@ -86,7 +90,7 @@ class AppSendForm extends Component {
     setTimeout(() => {
       this.handleDrawerClose()
     }, 4000);
-  };
+  }
 
   renderThankMessage() {
     const classes = this.props.classes;
@@ -102,7 +106,7 @@ class AppSendForm extends Component {
         </CardContent>
       </Card>
     );
-  };
+  }
 
   renderSendForm() {
     const classes = this.props.classes;
@@ -120,23 +124,23 @@ class AppSendForm extends Component {
           <TextField
             id="name"
             label="Name"
-            InputProps={{ placeholder: 'Enter your name'}}
+            InputProps={{ placeholder: 'Enter your name' }}
             value={this.state.form.name}
-            onChange={event => this.setState({ form: {...this.state.form, name: event.target.value}})}
+            onChange={event => this.setState({ form: {...this.state.form, name: event.target.value} })}
             margin="normal"
           />
           <div>
             <TextField
               id="email"
               label="Email"
-              InputProps={{ placeholder: 'your.name@name.com'}}
+              InputProps={{ placeholder: 'your.name@name.com' }}
               value={this.state.form.email}
               onChange={event => {
                 let checkEmail = (email) => {
                   let isEmailValid = this.validEmail(email);
                   isEmailValid ? this.setState({ checkEmail: true }) : this.setState({ checkEmail: false });
                 };
-                this.setState({ form: {...this.state.form, email: event.target.value}}, checkEmail(event.target.value));
+                this.setState({ form: {...this.state.form, email: event.target.value} }, checkEmail(event.target.value));
               }}
               margin="normal"
             />
@@ -148,9 +152,9 @@ class AppSendForm extends Component {
             multiline
             rows="4"
             label="Message"
-            InputProps={{ placeholder: 'What\'s on your mind...'}}
+            InputProps={{ placeholder: 'What\'s on your mind...' }}
             value={this.state.form.message}
-            onChange={event => this.setState({ form: {...this.state.form, message: event.target.value}})}
+            onChange={event => this.setState({ form: {...this.state.form, message: event.target.value} })}
             margin="normal"
           />
         </CardContent>
@@ -167,7 +171,7 @@ class AppSendForm extends Component {
         </CardActions>
       </Card>
     );
-  };
+  }
 
   render() {
     const classes = this.props.classes;
@@ -177,11 +181,12 @@ class AppSendForm extends Component {
         {this.state.thankMessage ? this.renderThankMessage() : this.renderSendForm()}
       </div>
     )
-  };
-};
+  }
+}
 
 AppSendForm.propTypes = {
   classes: PropTypes.object.isRequired,
+  toggleSendDrawer: PropTypes.func.isRequired,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styleSheet)(AppSendForm));
