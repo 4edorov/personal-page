@@ -32,7 +32,7 @@ export const GIT_HUB_QUERY = `
 export const URL_GIT_HUB = 'https://github.com/4edorov';
 export const URL_FACEBOOK = 'https://www.facebook.com/alexander.fedorov.948';
 
-export const URL_FOR_SEND_EMAIL_FORM = 'https://script.google.com/macros/s/AKfycbxXeObTdqaWxzNzvupybmT5MCU_PLg5z9btscr4uKfYkcBW5JQ/exec';
+export const URL_FOR_SEND_EMAIL_FORM = 'https://script.google.com/macros/s/AKfycbwnSz8PAky2rAy-elcSz0qnESnj3qCdgRMYcaZ-/exec';
 
 export const STATE_APP = ['Greeting', 'About Me', 'Portfolio', 'My Way', 'Contacts'];
 
