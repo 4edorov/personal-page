@@ -26,7 +26,7 @@ class AppDrawerComponent extends React.Component {
       <div>
         <Drawer
           open={this.props.isMainDrawerOpen}
-          type={this.props.mainDrawerType}
+          variant={this.props.mainDrawerType}
           onClick={this.handleDrawerClose}
         >
           <AppDrawerInfoComponent />
