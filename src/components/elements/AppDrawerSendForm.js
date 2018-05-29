@@ -1,4 +1,5 @@
-import React, { Component } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import Drawer from '@material-ui/core/Drawer';
 import AppSendForm from './AppSendForm';
 import { toggleSendDrawer } from '../../actions';
@@ -14,7 +15,7 @@ const mapDispatchToProps = dispatch => ({
   },
 });
 
-class AppDrawerSendForm extends Component {
+class AppDrawerSendForm extends React.Component {
   render () {
     return (
       <div>
@@ -27,6 +28,10 @@ class AppDrawerSendForm extends Component {
       </div>
     );
   }
+}
+
+AppDrawerSendForm.propTypes = {
+  isSendDrawerOpen: PropTypes.bool.isRequired,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(AppDrawerSendForm);

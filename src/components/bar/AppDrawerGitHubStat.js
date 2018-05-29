@@ -61,9 +61,10 @@ class AppDrawerGitHubStat extends React.Component {
       </div>
     );
   }
-};
+}
 
 AppDrawerGitHubStat.propTypes = {
+  classes: PropTypes.object.isRequired,
   gitHubStat: PropTypes.object,
 };
 

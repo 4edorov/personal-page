@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import AppBarComponent from './components/bar/AppBarComponent';
 import AppDrawerComponent from './components/bar/AppDrawerComponent';
@@ -24,7 +25,7 @@ const mapDispatchToProps = dispatch => ({
 });
 
 class Root extends React.Component {
-  updateDimension () {
+  updateDimension = () => {
     let drawerType = window.innerWidth < 1280 ? 'temporary' : 'permanent';
     let isOpen = drawerType === 'permanent'
     this.props.toggleDrawer(isOpen);
@@ -51,6 +52,12 @@ class Root extends React.Component {
       </div>
     );
   }
+}
+
+Root.propTypes = {
+  stateApp: PropTypes.string,
+  toggleDrawer: PropTypes.func,
+  stateDrawer: PropTypes.func,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Root);

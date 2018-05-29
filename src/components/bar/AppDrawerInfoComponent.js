@@ -63,11 +63,11 @@ const styleSheet = theme => ({
 });
 
 const icons = [
-  <LightbulbOutline />,
-  <ArtTrack />,
-  <Business />,
-  <Directions />,
-  <Contacts />,
+  <LightbulbOutline key={1} />,
+  <ArtTrack key={2} />,
+  <Business key={3} />,
+  <Directions key={4} />,
+  <Contacts key={5} />,
 ];
 
 const formGitHubStat = object => {
@@ -167,6 +167,11 @@ class AppDrawerInfoComponent extends React.Component {
 
 AppDrawerInfoComponent.propTypes = {
   classes: PropTypes.object.isRequired,
+  updateGitHubStat: PropTypes.func.isRequired,
+  changeStateApp: PropTypes.func.isRequired,
+  toggleSendDrawer: PropTypes.func.isRequired,
+  isSendDrawerOpen: PropTypes.bool.isRequired,
+  stateApp: PropTypes.string.isRequired,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styleSheet)(AppDrawerInfoComponent));

@@ -32,6 +32,8 @@ const mapDispatchToProps = dispatch => ({
 });
 
 class AppContentComponent extends React.Component {
+  state = {}
+
   listenEventScroll = event => {
     let greetingTop = event.target.all['greeting'].getBoundingClientRect().top;
     let greetingHeight = event.target.all['greeting'].clientHeight;
@@ -74,16 +76,18 @@ class AppContentComponent extends React.Component {
       }
     }
   }
-  componentDidMount() {
+
+  componentDidMount () {
     window.addEventListener('scroll', this.listenEventScroll);
   }
-  componentWillUnmount() {
+
+  componentWillUnmount () {
     window.removeEventListener('scroll', this.listenEventScroll);
   }
 
   render () {
     return (
-      <div className={this.props.classes.appContent} ref='content'>
+      <div className={this.props.classes.appContent}>
         <ContentGreetingComponent />
         <Divider />
         <ContentAboutComponent />
@@ -100,6 +104,8 @@ class AppContentComponent extends React.Component {
 
 AppContentComponent.propTypes = {
   classes: PropTypes.object.isRequired,
+  stateApp: PropTypes.string.isRequired,
+  changeStateApp: PropTypes.func.isRequired,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styleSheet)(AppContentComponent));
