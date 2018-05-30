@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import * as Scroll from 'react-scroll';
 import { withStyles } from '@material-ui/core/styles';
 import ContentGreetingComponent from './ContentGreetingComponent';
 import ContentAboutComponent from './ContentAboutComponent';
@@ -30,6 +31,8 @@ const mapDispatchToProps = dispatch => ({
     dispatch(changeStateApp(mode));
   },
 });
+
+const Element = Scroll.Element;
 
 class AppContentComponent extends React.Component {
   state = {}
@@ -88,15 +91,33 @@ class AppContentComponent extends React.Component {
   render () {
     return (
       <div className={this.props.classes.appContent}>
-        <ContentGreetingComponent />
+        <Element name='greetingElement' id='greeting'>
+          <ContentGreetingComponent />
+        </Element>
+
         <Divider />
-        <ContentAboutComponent />
+
+        <Element name='aboutmeElement' id='about-me'>
+          <ContentAboutComponent />
+        </Element>
+
         <Divider />
-        <ContentPortfolioComponent />
+
+        <Element name='portfolioElement' id='portfolio'>
+          <ContentPortfolioComponent />
+        </Element>
+
         <Divider />
-        <ContentMyWayComponent />
+
+        <Element name='mywayElement' id='my-way'>
+          <ContentMyWayComponent />
+        </Element>
+
         <Divider />
-        <ContentContactsComponent />
+
+        <Element name='contactsElement' id='contacts'>
+          <ContentContactsComponent />
+        </Element>
       </div>
     );
   }

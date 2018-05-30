@@ -32,7 +32,7 @@ const ContentContactsComponent = props => {
   const classes = props.classes
 
   return (
-    <div id="contacts" className={classes.root}>
+    <div className={classes.root}>
       <div className={classes.caption}>
         <h1>Contacts</h1>
       </div>

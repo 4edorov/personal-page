@@ -54,7 +54,7 @@ const ContentPortfolioComponent = props => {
   const classes = props.classes;
 
   return (
-    <div id='portfolio' className={classes.root}>
+    <div className={classes.root}>
       <div className={classes.caption}>
         <h1>Portfolio</h1>
       </div>
