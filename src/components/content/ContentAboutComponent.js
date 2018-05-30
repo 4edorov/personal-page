@@ -36,7 +36,7 @@ const styleSheet = theme => ({
 const ContentAboutComponent = props => {
   const classes = props.classes;
   return (
-    <div id="about-me">
+    <div>
       <div className={classes.basePage}>
         <div className="content">
           <div className={classes.baseLayout}>

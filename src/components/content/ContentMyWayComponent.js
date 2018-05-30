@@ -73,7 +73,7 @@ class ContentMyWayComponent extends React.Component {
     const classes = this.props.classes;
 
     return (
-      <div id="my-way" className={classes.root}>
+      <div className={classes.root}>
         <div className={classes.caption}>
           <h1>My Way</h1>
         </div>

@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import * as Scroll from 'react-scroll';
 import { withStyles } from '@material-ui/core/styles';
 import { changeStateApp, toggleSendDrawer, updateGitHubStat } from '../../actions';
 import Avatar from '@material-ui/core/Avatar';
@@ -51,9 +52,6 @@ const styleSheet = theme => ({
   begin: {
     marginTop: 64,
   },
-  navLink: {
-    textDecoration: 'none',
-  },
   activeBtn: {
     background: COLOR_APP.primary[500],
   },
@@ -80,6 +78,8 @@ const formGitHubStat = object => {
   };
 };
 
+const scroller = Scroll.scroller;
+
 class AppDrawerInfoComponent extends React.Component {
   componentDidMount() {
     const requestInit = {
@@ -104,7 +104,17 @@ class AppDrawerInfoComponent extends React.Component {
   }
 
   handleAppState = mode => {
-    this.props.changeStateApp(mode);
+    const elementName = mode.replace(' ', '').toLowerCase() + 'Element';
+    
+    scroller.scrollTo(elementName, {
+      duration: 1500,
+      delay: 50,
+      smooth: true,
+    })
+
+    setTimeout(() => {
+      this.props.changeStateApp(mode);
+    }, 1500);
   }
 
   handleSendForm = mode => {
@@ -143,16 +153,14 @@ class AppDrawerInfoComponent extends React.Component {
           {STATE_APP.map((list, index) => {
             let activeStateApp = list === this.props.stateApp ? classes.activeBtn : '';
             return (
-              <a href={`#${list.replace(' ', '-').toLowerCase()}`} key={index} className={classes.navLink}>
-                <List >
-                  <ListItem button={true} className={activeStateApp} onClick={() => this.handleAppState(list)}>
-                    <ListItemIcon>
-                      {icons[index]}
-                    </ListItemIcon>
-                    <ListItemText primary={list} />
-                  </ListItem>
-                </List>
-              </a>
+              <List key={index}>
+                <ListItem button={true} className={activeStateApp} onClick={() => this.handleAppState(list)}>
+                  <ListItemIcon>
+                    {icons[index]}
+                  </ListItemIcon>
+                  <ListItemText primary={list} />
+                </ListItem>
+              </List>
             );
           })}
           <Divider />
