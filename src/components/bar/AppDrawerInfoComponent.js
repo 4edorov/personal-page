@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import * as Scroll from 'react-scroll';
+import { Link } from 'react-router-dom';
 import { withStyles } from '@material-ui/core/styles';
 import { changeStateApp, toggleSendDrawer, updateGitHubStat } from '../../actions';
 import Avatar from '@material-ui/core/Avatar';
@@ -18,6 +19,8 @@ import ArtTrack from '@material-ui/icons/ArtTrack';
 import Business from '@material-ui/icons/Business';
 import Directions from '@material-ui/icons/Directions';
 import Contacts from '@material-ui/icons/Contacts';
+import Book from '@material-ui/icons/Book';
+import Backspace from '@material-ui/icons/Backspace';
 import { STATE_APP, COLOR_APP, GIT_HUB_QUERY } from '../../config/AppConfig';
 import { GIT_HUB_REQUEST_URL } from '../../config/AppKeysConfig';
 import AppDrawerGitHubStat from './AppDrawerGitHubStat';
@@ -57,15 +60,20 @@ const styleSheet = theme => ({
   },
   infoPanel: {
     maxWidth: 290,
+  },
+  noLink: {
+    textDecoration: 'none',
   }
 });
 
 const icons = [
-  <LightbulbOutline key={1} />,
-  <ArtTrack key={2} />,
-  <Business key={3} />,
-  <Directions key={4} />,
-  <Contacts key={5} />,
+  <LightbulbOutline key={0} />,
+  <ArtTrack key={1} />,
+  <Business key={2} />,
+  <Directions key={3} />,
+  <Contacts key={4} />,
+  <Book key={5} />,
+  <Backspace key={6} />,
 ];
 
 const formGitHubStat = object => {
@@ -104,6 +112,12 @@ class AppDrawerInfoComponent extends React.Component {
   }
 
   handleAppState = mode => {
+    if (mode === 'Articles' || mode === 'Back') {
+      mode = mode === 'Back' ? 'Greeting' : mode;
+      this.props.changeStateApp(mode);
+      return;
+    }
+
     const elementName = mode.replace(' ', '').toLowerCase() + 'Element';
     
     scroller.scrollTo(elementName, {
@@ -122,7 +136,12 @@ class AppDrawerInfoComponent extends React.Component {
   }
 
   render() {
-    const classes = this.props.classes;
+    const {classes, stateApp} = this.props;
+
+    let appLinks = STATE_APP;
+    if (stateApp === 'Articles') {
+      appLinks = ['Back', 'Articles'];
+    }
 
     return (
       <div>
@@ -150,16 +169,21 @@ class AppDrawerInfoComponent extends React.Component {
             </ListItem>
           </List>
           <Divider />
-          {STATE_APP.map((list, index) => {
-            let activeStateApp = list === this.props.stateApp ? classes.activeBtn : '';
+          {appLinks.map((list, index) => {
+            let activeStateApp = list === stateApp ? classes.activeBtn : '';
+            if (list === 'Back') {
+              index = 6;
+            }
             return (
               <List key={index}>
-                <ListItem button={true} className={activeStateApp} onClick={() => this.handleAppState(list)}>
-                  <ListItemIcon>
-                    {icons[index]}
-                  </ListItemIcon>
-                  <ListItemText primary={list} />
-                </ListItem>
+                <Link to={list === 'Articles' ? '/articles' : '/'} className={classes.noLink}>
+                  <ListItem button={true} className={activeStateApp} onClick={() => this.handleAppState(list)}>
+                    <ListItemIcon>
+                      {icons[index]}
+                    </ListItemIcon>
+                    <ListItemText primary={list} />
+                  </ListItem>
+                </Link>
               </List>
             );
           })}
