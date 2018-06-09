@@ -1,11 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import AppBarComponent from './components/bar/AppBarComponent';
 import AppDrawerComponent from './components/bar/AppDrawerComponent';
 import { toggleDrawer, stateDrawer } from './actions';
 import AppButtonComponent from './components/elements/AppButtonComponent';
 import AppContentComponent from './components/content/AppContentComponent';
+import AppArticlesComponent from './components/content/AppArticlesComponent';
 import { STATE_APP } from './config/AppConfig';
 import AppDrawerSendForm from './components/elements/AppDrawerSendForm';
 
@@ -43,13 +45,16 @@ class Root extends React.Component {
 
   render () {
     return (
-      <div>
-        <AppBarComponent />
-        <AppDrawerComponent />
-        {this.props.stateApp === STATE_APP[4] && <AppButtonComponent />}
-        <AppContentComponent />
-        <AppDrawerSendForm />
-      </div>
+      <Router>
+        <div>
+          <AppBarComponent />
+          <AppDrawerComponent />
+          {this.props.stateApp === STATE_APP[4] && <AppButtonComponent />}
+          <Route exact path='/' component={ AppContentComponent } />
+          <Route path='/articles' component={ AppArticlesComponent } />
+          <AppDrawerSendForm />
+        </div>
+      </Router>
     );
   }
 }
