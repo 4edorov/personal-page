@@ -47,7 +47,7 @@ const ContentGreetingComponent = props => {
             </div>
             <div>
               <p className={classes.contentPage}>My Name Is Alexander Fedorov</p>
-              <p className={classes.contentPage}>I&#39;m A Junior Web Developer</p>
+              <p className={classes.contentPage}>I&#39;m A Web Developer</p>
               <p className={classes.contentPage}>This Site About Me</p>
               <p className={classes.contentPage}>& My Favorite Thing</p>
             </div>
