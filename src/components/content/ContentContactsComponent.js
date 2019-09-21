@@ -1,10 +1,10 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
-import Chip from '@material-ui/core/Chip';
-import Avatar from '@material-ui/core/Avatar';
-import Icon from '@material-ui/core/Icon';
-import { CONTACTS } from '../../config/AppConfig';
+import React from 'react'
+import PropTypes from 'prop-types'
+import { withStyles } from '@material-ui/core/styles'
+import Chip from '@material-ui/core/Chip'
+import Avatar from '@material-ui/core/Avatar'
+import Icon from '@material-ui/core/Icon'
+import { CONTACTS } from '../../config/AppConfig'
 
 const styleSheet = theme => ({
   root: {
@@ -15,18 +15,18 @@ const styleSheet = theme => ({
     alignItems: 'center',
     fontFamily: 'monospace',
     minHeight: '100vh',
-    margin: 50,
+    margin: 50
   },
   caption: {
-    marginBottom: 50,
+    marginBottom: 50
   },
   chip: {
     display: 'flex',
     justifyContent: 'flex-start',
     width: 250,
-    margin: '25px 0px',
-  },
-});
+    margin: '25px 0px'
+  }
+})
 
 const ContentContactsComponent = props => {
   const classes = props.classes
@@ -48,11 +48,11 @@ const ContentContactsComponent = props => {
         ))}
       </div>
     </div>
-  );
-};
+  )
+}
 
 ContentContactsComponent.propTypes = {
-  classes: PropTypes.object.isRequired,
-};
+  classes: PropTypes.object.isRequired
+}
 
-export default withStyles(styleSheet)(ContentContactsComponent);
+export default withStyles(styleSheet)(ContentContactsComponent)

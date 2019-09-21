@@ -28,7 +28,7 @@ module.exports = {
     "react/jsx-uses-vars": 1,
     "react/display-name": 1,
     "no-unused-vars": "warn",
-    "no-console": 1,
+    "no-console": 0,
     "no-unexpected-multiline": "warn",
   },
   "settings": {

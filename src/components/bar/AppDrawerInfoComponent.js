@@ -1,70 +1,70 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-import * as Scroll from 'react-scroll';
-import { Link } from 'react-router-dom';
-import { withStyles } from '@material-ui/core/styles';
-import { changeStateApp, toggleSendDrawer, updateGitHubStat } from '../../actions';
-import Avatar from '@material-ui/core/Avatar';
-import weberPhoto from '../../assets/static/images/Avatar.jpg';
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
-import Divider from '@material-ui/core/Divider';
-import Face from '@material-ui/icons/Face';
-import Email from '@material-ui/icons/Email';
-import WbIncandescent from '@material-ui/icons/WbIncandescent';
-import ArtTrack from '@material-ui/icons/ArtTrack';
-import Business from '@material-ui/icons/Business';
-import Directions from '@material-ui/icons/Directions';
-import Contacts from '@material-ui/icons/Contacts';
-import Book from '@material-ui/icons/Book';
-import Backspace from '@material-ui/icons/Backspace';
-import { STATE_APP, COLOR_APP, GIT_HUB_QUERY } from '../../config/AppConfig';
-import { GIT_HUB_REQUEST_URL } from '../../config/AppKeysConfig';
-import AppDrawerGitHubStat from './AppDrawerGitHubStat';
+import React from 'react'
+import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
+import * as Scroll from 'react-scroll'
+import { Link } from 'react-router-dom'
+import { withStyles } from '@material-ui/core/styles'
+import { changeStateApp, toggleSendDrawer, updateGitHubStat } from '../../actions'
+import Avatar from '@material-ui/core/Avatar'
+import weberPhoto from '../../assets/static/images/Avatar.jpg'
+import List from '@material-ui/core/List'
+import ListItem from '@material-ui/core/ListItem'
+import ListItemIcon from '@material-ui/core/ListItemIcon'
+import ListItemText from '@material-ui/core/ListItemText'
+import Divider from '@material-ui/core/Divider'
+import Face from '@material-ui/icons/Face'
+import Email from '@material-ui/icons/Email'
+import WbIncandescent from '@material-ui/icons/WbIncandescent'
+import ArtTrack from '@material-ui/icons/ArtTrack'
+import Business from '@material-ui/icons/Business'
+import Directions from '@material-ui/icons/Directions'
+import Contacts from '@material-ui/icons/Contacts'
+import Book from '@material-ui/icons/Book'
+import Backspace from '@material-ui/icons/Backspace'
+import { STATE_APP, COLOR_APP, GIT_HUB_QUERY } from '../../config/AppConfig'
+import { GIT_HUB_REQUEST_URL } from '../../config/AppKeysConfig'
+import AppDrawerGitHubStat from './AppDrawerGitHubStat'
 
 const mapStateToProps = state => ({
   stateApp: state.stateApp,
-  isSendDrawerOpen: state.isSendDrawerOpen,
-});
+  isSendDrawerOpen: state.isSendDrawerOpen
+})
 
 const mapDispatchToProps = dispatch => ({
-  changeStateApp(mode) {
-    dispatch(changeStateApp(mode));
+  changeStateApp (mode) {
+    dispatch(changeStateApp(mode))
   },
-  toggleSendDrawer(mode) {
-    dispatch(toggleSendDrawer(mode));
+  toggleSendDrawer (mode) {
+    dispatch(toggleSendDrawer(mode))
   },
-  updateGitHubStat(data) {
-    dispatch(updateGitHubStat(data));
-  },
-});
+  updateGitHubStat (data) {
+    dispatch(updateGitHubStat(data))
+  }
+})
 
 const styleSheet = theme => ({
   avatar: {
     width: 250,
     height: 250,
-    margin: 20,
+    margin: 20
   },
   list: {
     width: '100%',
-    background: theme.palette.background.paper,
+    background: theme.palette.background.paper
   },
   begin: {
-    marginTop: 64,
+    marginTop: 64
   },
   activeBtn: {
-    background: COLOR_APP.primary[500],
+    background: COLOR_APP.primary[500]
   },
   infoPanel: {
-    maxWidth: 290,
+    maxWidth: 290
   },
   noLink: {
-    textDecoration: 'none',
+    textDecoration: 'none'
   }
-});
+})
 
 const icons = [
   <WbIncandescent key={0} />,
@@ -73,8 +73,8 @@ const icons = [
   <Directions key={3} />,
   <Contacts key={4} />,
   <Book key={5} />,
-  <Backspace key={6} />,
-];
+  <Backspace key={6} />
+]
 
 const formGitHubStat = object => {
   return {
@@ -82,65 +82,64 @@ const formGitHubStat = object => {
     repositories: object.viewer.repositories.totalCount || '-',
     stars: object.viewer.starredRepositories.totalCount || '-',
     'pull requests': object.viewer.pullRequests.totalCount || '-',
-    'issue comments': object.viewer.issueComments.totalCount || '-',
-  };
-};
+    'issue comments': object.viewer.issueComments.totalCount || '-'
+  }
+}
 
-const scroller = Scroll.scroller;
+const scroller = Scroll.scroller
 
 class AppDrawerInfoComponent extends React.Component {
-  componentDidMount() {
+  componentDidMount () {
     const requestInit = {
       method: 'POST',
       body: GIT_HUB_QUERY
-    };
-    fetch(GIT_HUB_REQUEST_URL, requestInit)
+    }
+    window.fetch(GIT_HUB_REQUEST_URL, requestInit)
       .then(response => {
         if (!response.ok) {
-          throw new Error(response.statusText);
+          throw new Error(response.statusText)
         }
-        return response.json();
+        return response.json()
       })
       .then(result => {
-        const gitHubStat = formGitHubStat(result.result);
-        this.props.updateGitHubStat(gitHubStat);
+        const gitHubStat = formGitHubStat(result.result)
+        this.props.updateGitHubStat(gitHubStat)
       })
       .catch(error => {
-        console.error('webtask error:', error);
-        return;
-      });
+        console.error('webtask error:', error)
+      })
   }
 
   handleAppState = mode => {
     if (mode === 'Articles' || mode === 'Back') {
-      mode = mode === 'Back' ? 'Greeting' : mode;
-      this.props.changeStateApp(mode);
-      return;
+      mode = mode === 'Back' ? 'Greeting' : mode
+      this.props.changeStateApp(mode)
+      return
     }
 
-    const elementName = mode.replace(' ', '').toLowerCase() + 'Element';
-    
+    const elementName = mode.replace(' ', '').toLowerCase() + 'Element'
+
     scroller.scrollTo(elementName, {
       duration: 1500,
       delay: 50,
-      smooth: true,
+      smooth: true
     })
 
     setTimeout(() => {
-      this.props.changeStateApp(mode);
-    }, 1500);
+      this.props.changeStateApp(mode)
+    }, 1500)
   }
 
   handleSendForm = mode => {
-    this.props.toggleSendDrawer(mode);
+    this.props.toggleSendDrawer(mode)
   }
 
-  render() {
-    const {classes, stateApp} = this.props;
+  render () {
+    const { classes, stateApp } = this.props
 
-    let appLinks = STATE_APP;
+    let appLinks = STATE_APP
     if (stateApp === 'Articles') {
-      appLinks = ['Back', 'Articles'];
+      appLinks = ['Back', 'Articles']
     }
 
     return (
@@ -161,7 +160,7 @@ class AppDrawerInfoComponent extends React.Component {
               </ListItemIcon>
               <ListItemText primary='Alexander Fedorov' secondary='Web Developer' />
             </ListItem>
-            <ListItem button={true} onClick={() => this.handleSendForm(!this.props.isSendDrawerOpen)}>
+            <ListItem button onClick={() => this.handleSendForm(!this.props.isSendDrawerOpen)}>
               <ListItemIcon>
                 <Email />
               </ListItemIcon>
@@ -170,22 +169,22 @@ class AppDrawerInfoComponent extends React.Component {
           </List>
           <Divider />
           {appLinks.map((list, index) => {
-            let activeStateApp = list === stateApp ? classes.activeBtn : '';
+            const activeStateApp = list === stateApp ? classes.activeBtn : ''
             if (list === 'Back') {
-              index = 6;
+              index = 6
             }
             const LinkItem = React.forwardRef((props, ref) => <Link to={list === 'Articles' ? '/articles' : '/'} {...props} ref={ref} />)
             LinkItem.displayName = 'LinkItem'
             return (
               <List key={index}>
-                <ListItem button={true} component={LinkItem} className={activeStateApp} onClick={() => this.handleAppState(list)}>
+                <ListItem button component={LinkItem} className={activeStateApp} onClick={() => this.handleAppState(list)}>
                   <ListItemIcon>
                     {icons[index]}
                   </ListItemIcon>
                   <ListItemText primary={list} />
                 </ListItem>
               </List>
-            );
+            )
           })}
           <Divider />
           <div className={classes.infoPanel}>
@@ -193,7 +192,7 @@ class AppDrawerInfoComponent extends React.Component {
           </div>
         </div>
       </div>
-    );
+    )
   }
 }
 
@@ -203,7 +202,7 @@ AppDrawerInfoComponent.propTypes = {
   changeStateApp: PropTypes.func.isRequired,
   toggleSendDrawer: PropTypes.func.isRequired,
   isSendDrawerOpen: PropTypes.bool.isRequired,
-  stateApp: PropTypes.string.isRequired,
-};
+  stateApp: PropTypes.string.isRequired
+}
 
-export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styleSheet)(AppDrawerInfoComponent));
+export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styleSheet)(AppDrawerInfoComponent))

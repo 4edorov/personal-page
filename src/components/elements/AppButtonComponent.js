@@ -1,34 +1,34 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
+import { withStyles } from '@material-ui/core/styles'
 import Fab from '@material-ui/core/Fab'
-import Chat from '@material-ui/icons/Chat';
-import { connect } from 'react-redux';
-import { toggleSendDrawer } from '../../actions';
+import Chat from '@material-ui/icons/Chat'
+import { connect } from 'react-redux'
+import { toggleSendDrawer } from '../../actions'
 
 const styleSheet = theme => ({
   appButton: {
     position: 'fixed',
     right: 40,
     bottom: 40,
-    zIndex: 1000,
+    zIndex: 1000
   },
   mailTo: {
     textDecoration: 'none',
     color: theme.palette.text.primary,
-    fontFamily: theme.typography.fontFamily,
-  },
-});
+    fontFamily: theme.typography.fontFamily
+  }
+})
 
 const mapStateToProps = state => ({
-  isSendDrawerOpen: state.isSendDrawerOpen,
-});
+  isSendDrawerOpen: state.isSendDrawerOpen
+})
 
 const mapDispatchToProps = dispatch => ({
-  toggleSendDrawer(mode) {
-    dispatch(toggleSendDrawer(mode));
-  },
-});
+  toggleSendDrawer (mode) {
+    dispatch(toggleSendDrawer(mode))
+  }
+})
 
 class AppButtonComponent extends Component {
   classes = this.props.classes;
@@ -36,7 +36,7 @@ class AppButtonComponent extends Component {
     this.props.toggleSendDrawer(!this.props.isSendDrawerOpen)
   }
 
-  render() {
+  render () {
     return (
       <Fab
         color='secondary'
@@ -45,14 +45,14 @@ class AppButtonComponent extends Component {
       >
         <Chat />
       </Fab>
-    );
+    )
   }
 }
 
 AppButtonComponent.propTypes = {
   classes: PropTypes.object.isRequired,
   toggleSendDrawer: PropTypes.func.isRequired,
-  isSendDrawerOpen: PropTypes.bool.isRequired,
-};
+  isSendDrawerOpen: PropTypes.bool.isRequired
+}
 
-export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styleSheet)(AppButtonComponent));
+export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styleSheet)(AppButtonComponent))

@@ -1,7 +1,7 @@
-import React from 'react';
-import { withStyles } from '@material-ui/core/styles';
-import PropTypes from 'prop-types';
-import bgAbout from '../../assets/static/images/bg_about.jpg';
+import React from 'react'
+import { withStyles } from '@material-ui/core/styles'
+import PropTypes from 'prop-types'
+import bgAbout from '../../assets/static/images/bg_about.jpg'
 
 const styleSheet = theme => ({
   basePage: {
@@ -16,7 +16,7 @@ const styleSheet = theme => ({
     '-webkit-background-size': 'cover',
     '-moz-background-size': 'cover',
     '-o-background-size': 'cover',
-    backgroundPosition: 'center center',
+    backgroundPosition: 'center center'
   },
   baseLayout: {
     display: 'flex',
@@ -24,21 +24,21 @@ const styleSheet = theme => ({
     justifyContent: 'center',
     width: '100%',
     backgroundColor: theme.palette.common.white,
-    opacity: '0.8',
+    opacity: '0.8'
   },
   contentPage: {
     textAlign: 'center',
     lineHeight: '1.5',
-    color: theme.palette.common.black,
+    color: theme.palette.common.black
   }
-});
+})
 
 const ContentAboutComponent = props => {
-  const classes = props.classes;
+  const classes = props.classes
   return (
     <div>
       <div className={classes.basePage}>
-        <div className="content">
+        <div className='content'>
           <div className={classes.baseLayout}>
             <div className={classes.contentPage}>
               <h1>About Me</h1>
@@ -69,11 +69,11 @@ const ContentAboutComponent = props => {
         </div>
       </div>
     </div>
-  );
+  )
 }
 
 ContentAboutComponent.propTypes = {
-  classes: PropTypes.object.isRequired,
-};
+  classes: PropTypes.object.isRequired
+}
 
-export default withStyles(styleSheet)(ContentAboutComponent);
+export default withStyles(styleSheet)(ContentAboutComponent)
