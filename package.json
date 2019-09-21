@@ -3,29 +3,28 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@material-ui/core": "^1.0.0",
-    "@material-ui/icons": "^1.0.0",
-    "babel-eslint": "^8.2.3",
-    "eslint-plugin-import": "^2.9.0",
-    "eslint-plugin-react": "^7.8.2",
-    "graphql-request": "^1.4.1",
-    "material-components-web": "^0.35.2",
-    "react": "^16.0.0",
-    "react-dom": "^16.0.0",
-    "react-redux": "^5.0.5",
-    "react-router-dom": "^4.2.2",
-    "react-scroll": "^1.7.9",
-    "react-tap-event-plugin": "^3.0.2",
-    "redux": "^4.0.0"
+    "@material-ui/core": "^4.4.2",
+    "@material-ui/icons": "^4.4.1",
+    "babel-eslint": "^10.0.3",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-react": "^7.14.3",
+    "graphql-request": "^1.8.2",
+    "material-components-web": "^3.2.0",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0",
+    "react-redux": "^7.1.1",
+    "react-router-dom": "^5.0.1",
+    "react-scroll": "^1.7.14",
+    "redux": "^4.0.4"
   },
   "devDependencies": {
-    "eslint": "^4.19.1",
-    "eslint-config-standard": "^11.0.0",
-    "eslint-plugin-node": "^6.0.1",
-    "eslint-plugin-promise": "^3.5.0",
-    "eslint-plugin-standard": "^3.0.1",
-    "gh-pages": "^1.0.0",
-    "react-scripts": "1.1.4"
+    "eslint": "^6.4.0",
+    "eslint-config-standard": "^14.1.0",
+    "eslint-plugin-node": "^10.0.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1",
+    "gh-pages": "^2.1.1",
+    "react-scripts": "3.1.2"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -36,5 +35,17 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build -b build"
   },
-  "homepage": "http://4edorov.com"
+  "homepage": "http://4edorov.com",
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
 }

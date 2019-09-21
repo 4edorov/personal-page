@@ -41,7 +41,7 @@ const ContentContactsComponent = props => {
           <Chip
             key={index}
             className={classes.chip}
-            avatar={<Avatar><Icon className={contact.icon} /></Avatar>}
+            avatar={<Avatar style={{ width: 40, height: 40 }}><Icon style={{ height: '1em' }} className={contact.icon} /></Avatar>}
             label={contact.title}
             onClick={() => (window.open(contact.link))}
           />

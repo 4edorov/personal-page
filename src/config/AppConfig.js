@@ -51,8 +51,8 @@ export const PORTFOLIO_WORKS = [
       codepen: 'https://codepen.io/4edorov/full/yVzMLV',
     },
     iconType: {
-      git: 'fa fa-github',
-      codepen: 'fa fa-codepen',
+      git: 'fab fa-github',
+      codepen: 'fab fa-codepen',
     },
   },
   {
@@ -64,8 +64,8 @@ export const PORTFOLIO_WORKS = [
       codepen: 'https://codepen.io/4edorov/full/bgeOMo',
     },
     iconType: {
-      git: 'fa fa-github',
-      codepen: 'fa fa-codepen',
+      git: 'fab fa-github',
+      codepen: 'fab fa-codepen',
     },
   },
   {
@@ -77,8 +77,8 @@ export const PORTFOLIO_WORKS = [
       codepen: 'https://codepen.io/4edorov/full/PWpwLw',
     },
     iconType: {
-      git: 'fa fa-github',
-      codepen: 'fa fa-codepen',
+      git: 'fab fa-github',
+      codepen: 'fab fa-codepen',
     },
   },
   {
@@ -90,8 +90,8 @@ export const PORTFOLIO_WORKS = [
       codepen: 'https://codepen.io/4edorov/full/BpgKyX',
     },
     iconType: {
-      git: 'fa fa-github',
-      codepen: 'fa fa-codepen',
+      git: 'fab fa-github',
+      codepen: 'fab fa-codepen',
     },
   },
   {
@@ -103,8 +103,8 @@ export const PORTFOLIO_WORKS = [
       codepen: 'https://codepen.io/4edorov/full/WpxzaJ',
     },
     iconType: {
-      git: 'fa fa-github',
-      codepen: 'fa fa-codepen',
+      git: 'fab fa-github',
+      codepen: 'fab fa-codepen',
     },
   },
   {
@@ -116,8 +116,8 @@ export const PORTFOLIO_WORKS = [
       codepen: 'https://codepen.io/4edorov/project/full/AkzdLd',
     },
     iconType: {
-      git: 'fa fa-github',
-      codepen: 'fa fa-codepen',
+      git: 'fab fa-github',
+      codepen: 'fab fa-codepen',
     },
   },
   {
@@ -129,8 +129,8 @@ export const PORTFOLIO_WORKS = [
       site: 'https://4edorov.github.io/pomodoro_clock/',
     },
     iconType: {
-      git: 'fa fa-github',
-      link: 'fa fa-link',
+      git: 'fab fa-github',
+      link: 'fas fa-link',
     },
   },
   {
@@ -142,8 +142,8 @@ export const PORTFOLIO_WORKS = [
       site: 'https://4edorov.github.io/tic-tac-game/#/',
     },
     iconType: {
-      git: 'fa fa-github',
-      link: 'fa fa-link',
+      git: 'fab fa-github',
+      link: 'fas fa-link',
     },
   },
   {
@@ -155,8 +155,8 @@ export const PORTFOLIO_WORKS = [
       site: 'https://4edorov.github.io/simon-game/',
     },
     iconType: {
-      git: 'fa fa-github',
-      link: 'fa fa-link',
+      git: 'fab fa-github',
+      link: 'fas fa-link',
     },
   },
 ];
@@ -165,16 +165,16 @@ export const CONTACTS = [
   {
     title: '@github',
     link: 'https://github.com/4edorov',
-    icon: 'fa fa-github',
+    icon: 'fab fa-github',
   },
   {
     title: '@facebook',
     link: 'https://www.facebook.com/alexander.fedorov.948',
-    icon: 'fa fa-facebook',
+    icon: 'fab fa-facebook',
   },
   {
     title: '@google+',
     link: 'https://plus.google.com/u/0/115224100303990911021',
-    icon: 'fa fa-google-plus',
+    icon: 'fab fa-google-plus',
   },
 ];

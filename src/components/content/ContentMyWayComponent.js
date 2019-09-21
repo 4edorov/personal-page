@@ -17,7 +17,7 @@ import MyWayDesignComponent from './lists/MyWayDesignComponent';
 import MyWayCertificatesComponent from './lists/MyWayCertificatesComponent';
 
 const directions = [
-  {label: 'Learning Programms', content: <MyWayProgrammsComponent />,},
+  {label: 'Learning Programs', content: <MyWayProgrammsComponent />,},
   {label: 'Books', content: <MyWayBooksComponent />,},
   {label: 'Articles / Recources', content: <MyWayArticlesComponent />,},
   {label: 'Videos / Channels', content: <MyWayVideosComponent />,},
@@ -82,7 +82,7 @@ class ContentMyWayComponent extends React.Component {
             <Tabs
               value={this.state.indexTechnologies}
               onChange={this.handleChangeTechnologies}
-              scrollable={true}
+              variant='scrollable'
               scrollButtons="on"
             >
               {technologies.map((one, index) =>
@@ -97,7 +97,7 @@ class ContentMyWayComponent extends React.Component {
             <Tabs
               value={this.state.indexDirections}
               onChange={this.handleChangeDirections}
-              scrollable={true}
+              variant='scrollable'
               scrollButtons="on"
             >
               {directions.map((one, index) =>

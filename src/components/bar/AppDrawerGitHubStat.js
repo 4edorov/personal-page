@@ -56,7 +56,7 @@ class AppDrawerGitHubStat extends React.Component {
           }
         </div>
         <IconButton href={URL_GIT_HUB}>
-          <Icon className="fa fa-github" />
+          <Icon className="fab fa-github" />
         </IconButton>
       </div>
     );
