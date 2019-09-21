@@ -19,12 +19,12 @@ export const showResources = content => {
           <ListItem>
             <ListItemIcon>
               <IconButton target='_blank' href={one.link}>
-                <Icon color='secondary' className={one.icon} />
+                <Icon style={{ minWidth: 34 }} color='secondary' className={one.icon} />
               </IconButton>
             </ListItemIcon>
             <ListItemText
               primary={
-                <a style={{textDecoration: 'none', color: 'inherit'}} href={one.link} target="_blank">
+                <a style={{textDecoration: 'none', color: 'inherit'}} href={one.link} target='_blank' rel='noopener noreferrer'>
                   {one.name}
                 </a>
               }
@@ -42,7 +42,7 @@ export const showTechnologies = (content) => {
     <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'space-around', flexWrap: 'wrap'}}>
       {content.map((one, index) =>
         <Card key={index} style={{minWidth: 100, margin: 15}}>
-          <a href={one.link} target='_blank'>
+          <a href={one.link} target='_blank' rel='noopener noreferrer'>
             <CardMedia
               image={one.src}
               title={one.name}
@@ -51,7 +51,7 @@ export const showTechnologies = (content) => {
           </a>
           <Divider />
           <CardContent style={{padding: 5, display: 'flex', justifyContent: 'center'}}>
-            <a style={{textDecoration: 'none'}} href={one.link} target="_blank">
+            <a style={{textDecoration: 'none'}} href={one.link} target='_blank' rel='noopener noreferrer'>
               <Typography color='secondary' >
                 {one.name}
               </Typography>

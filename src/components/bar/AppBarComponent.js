@@ -61,10 +61,10 @@ const AppBarComponent = props => {
         </Typography>
         <div className={classes.barToolIcons}>
           <IconButton href={URL_GIT_HUB}>
-            <Icon className='fa fa-github' />
+            <Icon className='fab fa-github' />
           </IconButton>
           <IconButton href={URL_FACEBOOK}>
-            <Icon className='fa fa-facebook-official' />
+            <Icon className='fab fa-facebook' />
           </IconButton>
         </div>
       </Toolbar>

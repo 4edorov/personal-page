@@ -59,7 +59,7 @@ const ContentPortfolioComponent = props => {
         <h1>Portfolio</h1>
       </div>
       <div>
-        <Grid container spacing={24}>
+        <Grid container spacing={4}>
           {PORTFOLIO_WORKS.map((work, index) => (
             <Grid item xs={12} md={6} lg={4} key={index}>
               <Card className={classes.cards}>

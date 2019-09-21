@@ -6,19 +6,19 @@ const content = [
     name: 'Medium',
     properties: "It's an amazing resource of all what you need",
     link: 'https://medium.com',
-    icon: 'fa fa-medium',
+    icon: 'fab fa-medium',
   },
   {
     name: 'Alligator.io',
     properties: 'A good resource which I use',
     link: 'https://alligator.io',
-    icon: 'fa fa-star-o',
+    icon: 'fas fa-star',
   },
   {
     name: 'The Twelve-Factor App',
     properties: 'About app architecture',
     link: 'https://12factor.net',
-    icon: 'fa fa-sticky-note',
+    icon: 'fas fa-sticky-note',
   },
 ];
 

@@ -14,7 +14,7 @@ import ListItemText from '@material-ui/core/ListItemText';
 import Divider from '@material-ui/core/Divider';
 import Face from '@material-ui/icons/Face';
 import Email from '@material-ui/icons/Email';
-import LightbulbOutline from '@material-ui/icons/LightbulbOutline';
+import WbIncandescent from '@material-ui/icons/WbIncandescent';
 import ArtTrack from '@material-ui/icons/ArtTrack';
 import Business from '@material-ui/icons/Business';
 import Directions from '@material-ui/icons/Directions';
@@ -67,7 +67,7 @@ const styleSheet = theme => ({
 });
 
 const icons = [
-  <LightbulbOutline key={0} />,
+  <WbIncandescent key={0} />,
   <ArtTrack key={1} />,
   <Business key={2} />,
   <Directions key={3} />,
@@ -174,16 +174,16 @@ class AppDrawerInfoComponent extends React.Component {
             if (list === 'Back') {
               index = 6;
             }
+            const LinkItem = React.forwardRef((props, ref) => <Link to={list === 'Articles' ? '/articles' : '/'} {...props} ref={ref} />)
+            LinkItem.displayName = 'LinkItem'
             return (
               <List key={index}>
-                <Link to={list === 'Articles' ? '/articles' : '/'} className={classes.noLink}>
-                  <ListItem button={true} className={activeStateApp} onClick={() => this.handleAppState(list)}>
-                    <ListItemIcon>
-                      {icons[index]}
-                    </ListItemIcon>
-                    <ListItemText primary={list} />
-                  </ListItem>
-                </Link>
+                <ListItem button={true} component={LinkItem} className={activeStateApp} onClick={() => this.handleAppState(list)}>
+                  <ListItemIcon>
+                    {icons[index]}
+                  </ListItemIcon>
+                  <ListItemText primary={list} />
+                </ListItem>
               </List>
             );
           })}

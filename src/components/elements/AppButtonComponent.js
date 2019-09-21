@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
-import Button from '@material-ui/core/Button';
+import Fab from '@material-ui/core/Fab'
 import Chat from '@material-ui/icons/Chat';
 import { connect } from 'react-redux';
 import { toggleSendDrawer } from '../../actions';
@@ -38,14 +38,13 @@ class AppButtonComponent extends Component {
 
   render() {
     return (
-      <Button
-        variant='fab'
+      <Fab
         color='secondary'
         className={this.classes.appButton}
         onClick={this.handleDrawerClose}
       >
         <Chat />
-      </Button>
+      </Fab>
     );
   }
 }
