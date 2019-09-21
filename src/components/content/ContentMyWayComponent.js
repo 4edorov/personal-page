@@ -1,36 +1,36 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
-import Paper from '@material-ui/core/Paper';
-import Tabs from '@material-ui/core/Tabs';
-import Tab from '@material-ui/core/Tab';
-import AppBar from '@material-ui/core/AppBar';
-import MyWayProgrammsComponent from './lists/MyWayProgrammsComponent';
-import MyWayBooksComponent from './lists/MyWayBooksComponent';
-import MyWayArticlesComponent from './lists/MyWayArticlesComponent';
-import MyWayVideosComponent from './lists/MyWayVideosComponent';
-import MyWayLanguagesComponent from './lists/MyWayLanguagesComponent';
-import MyWayFrameworksComponent from './lists/MyWayFrameworksComponent';
-import MyWayToolsComponent from './lists/MyWayToolsComponent';
-import MyWayDataComponent from './lists/MyWayDataComponent';
-import MyWayDesignComponent from './lists/MyWayDesignComponent';
-import MyWayCertificatesComponent from './lists/MyWayCertificatesComponent';
+import React from 'react'
+import PropTypes from 'prop-types'
+import { withStyles } from '@material-ui/core/styles'
+import Paper from '@material-ui/core/Paper'
+import Tabs from '@material-ui/core/Tabs'
+import Tab from '@material-ui/core/Tab'
+import AppBar from '@material-ui/core/AppBar'
+import MyWayProgrammsComponent from './lists/MyWayProgrammsComponent'
+import MyWayBooksComponent from './lists/MyWayBooksComponent'
+import MyWayArticlesComponent from './lists/MyWayArticlesComponent'
+import MyWayVideosComponent from './lists/MyWayVideosComponent'
+import MyWayLanguagesComponent from './lists/MyWayLanguagesComponent'
+import MyWayFrameworksComponent from './lists/MyWayFrameworksComponent'
+import MyWayToolsComponent from './lists/MyWayToolsComponent'
+import MyWayDataComponent from './lists/MyWayDataComponent'
+import MyWayDesignComponent from './lists/MyWayDesignComponent'
+import MyWayCertificatesComponent from './lists/MyWayCertificatesComponent'
 
 const directions = [
-  {label: 'Learning Programs', content: <MyWayProgrammsComponent />,},
-  {label: 'Books', content: <MyWayBooksComponent />,},
-  {label: 'Articles / Recources', content: <MyWayArticlesComponent />,},
-  {label: 'Videos / Channels', content: <MyWayVideosComponent />,},
-];
+  { label: 'Learning Programs', content: <MyWayProgrammsComponent /> },
+  { label: 'Books', content: <MyWayBooksComponent /> },
+  { label: 'Articles / Recources', content: <MyWayArticlesComponent /> },
+  { label: 'Videos / Channels', content: <MyWayVideosComponent /> }
+]
 
 const technologies = [
-  {label: 'Languages', content: <MyWayLanguagesComponent />,},
-  {label: 'Frameworks', content: <MyWayFrameworksComponent />,},
-  {label: 'Tools', content: <MyWayToolsComponent />,},
-  {label: 'Data', content: <MyWayDataComponent />,},
-  {label: 'Design', content: <MyWayDesignComponent />,},
-  {label: 'My Certificates', content: <MyWayCertificatesComponent />,},
-];
+  { label: 'Languages', content: <MyWayLanguagesComponent /> },
+  { label: 'Frameworks', content: <MyWayFrameworksComponent /> },
+  { label: 'Tools', content: <MyWayToolsComponent /> },
+  { label: 'Data', content: <MyWayDataComponent /> },
+  { label: 'Design', content: <MyWayDesignComponent /> },
+  { label: 'My Certificates', content: <MyWayCertificatesComponent /> }
+]
 
 const styleSheet = theme => ({
   root: {
@@ -39,38 +39,38 @@ const styleSheet = theme => ({
     alignItems: 'center',
     minHeight: '100vh',
     fontFamily: 'monospace',
-    magrin: 50,
+    magrin: 50
   },
   main: {
     width: 'calc(100% - 50px)',
-    margin: 50,
+    margin: 50
   },
   caption: {
     marginTop: 128,
-    marginBottom: 50,
+    marginBottom: 50
   },
   appBar: {
     backgroundColor: theme.palette.primary[500],
-    position: 'static',
-  },
-});
+    position: 'static'
+  }
+})
 
 class ContentMyWayComponent extends React.Component {
   state = {
     indexTechnologies: 0,
-    indexDirections: 0,
+    indexDirections: 0
   };
 
   handleChangeTechnologies = (event, indexTechnologies) => {
-    this.setState({ indexTechnologies });
+    this.setState({ indexTechnologies })
   };
 
   handleChangeDirections = (event, indexDirections) => {
-    this.setState({ indexDirections });
+    this.setState({ indexDirections })
   };
 
-  render() {
-    const classes = this.props.classes;
+  render () {
+    const classes = this.props.classes
 
     return (
       <div className={classes.root}>
@@ -83,7 +83,7 @@ class ContentMyWayComponent extends React.Component {
               value={this.state.indexTechnologies}
               onChange={this.handleChangeTechnologies}
               variant='scrollable'
-              scrollButtons="on"
+              scrollButtons='on'
             >
               {technologies.map((one, index) =>
                 <Tab label={one.label} key={index} />
@@ -98,7 +98,7 @@ class ContentMyWayComponent extends React.Component {
               value={this.state.indexDirections}
               onChange={this.handleChangeDirections}
               variant='scrollable'
-              scrollButtons="on"
+              scrollButtons='on'
             >
               {directions.map((one, index) =>
                 <Tab label={one.label} key={index} />
@@ -108,12 +108,12 @@ class ContentMyWayComponent extends React.Component {
           {directions[this.state.indexDirections].content}
         </Paper>
       </div>
-    );
+    )
   }
 }
 
 ContentMyWayComponent.propTypes = {
-  classes: PropTypes.object.isRequired,
-};
+  classes: PropTypes.object.isRequired
+}
 
-export default withStyles(styleSheet)(ContentMyWayComponent);
+export default withStyles(styleSheet)(ContentMyWayComponent)
