@@ -4,6 +4,7 @@ import tsLogo from '../../../assets/static/images/way_ts_logo.png'
 import htmlLogo from '../../../assets/static/images/way_html_logo.png'
 import cssLogo from '../../../assets/static/images/way_css_logo.png'
 import bashLogo from '../../../assets/static/images/way_bash_logo.png'
+import graphLogo from '../../../assets/static/images/way_graph_logo.png'
 import { showTechnologies } from '../../../lib'
 
 const languages = [
@@ -11,7 +12,8 @@ const languages = [
   { name: 'HTML', src: htmlLogo, link: 'https://www.w3.org' },
   { name: 'CSS', src: cssLogo, link: 'https://www.w3.org/Style' },
   { name: 'TypeScript', src: tsLogo, link: 'https://www.typescriptlang.org' },
-  { name: 'Bash', src: bashLogo, link: 'https://www.gnu.org/software/bash/' }
+  { name: 'Bash', src: bashLogo, link: 'https://www.gnu.org/software/bash/' },
+  { name: 'GraphQL', src: graphLogo, link: 'https://graphql.org' }
 ]
 
 const MyWayLanguagesComponent = () => {

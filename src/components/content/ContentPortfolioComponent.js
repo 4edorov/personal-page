@@ -77,9 +77,10 @@ const ContentPortfolioComponent = props => {
                   </Typography>
                 </CardContent>
                 <CardActions>
-                  <IconButton color='secondary' target='_blank' href={work.openLink.git}>
-                    <Icon className={work.iconType.git} />
-                  </IconButton>
+                  {work.iconType.git &&
+                    <IconButton color='secondary' target='_blank' href={work.openLink.git}>
+                      <Icon className={work.iconType.git} />
+                    </IconButton>}
                   {work.iconType.codepen &&
                     <IconButton color='secondary' target='_blank' href={work.openLink.codepen}>
                       <Icon className={work.iconType.codepen} />

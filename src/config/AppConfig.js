@@ -1,14 +1,10 @@
 import lime from '@material-ui/core/colors/lime'
 import deepOrange from '@material-ui/core/colors/deepOrange'
-import screenPage from '../assets/static/images/screen_page.png'
-import screenQuote from '../assets/static/images/screen_quote.png'
-import screenWeather from '../assets/static/images/screen_weather.png'
-import screenSearch from '../assets/static/images/screen_search.png'
-import screenTwitch from '../assets/static/images/screen_twitch.png'
 import screenCalc from '../assets/static/images/screen_calculator.png'
 import screenClock from '../assets/static/images/screen_clock.png'
 import screenTicTac from '../assets/static/images/screenTicTac.png'
 import screenSimon from '../assets/static/images/screenSimon.png'
+import screenSpa from '../assets/static/images/screenSpa.png'
 
 export const GIT_HUB_QUERY = `
 {
@@ -42,71 +38,6 @@ export const COLOR_APP = {
 }
 
 export const PORTFOLIO_WORKS = [
-  {
-    title: 'Tribute Page',
-    description: 'A freeCodeCamp project',
-    imgSrc: screenPage,
-    openLink: {
-      git: 'https://github.com/4edorov/onepage',
-      codepen: 'https://codepen.io/4edorov/full/yVzMLV'
-    },
-    iconType: {
-      git: 'fab fa-github',
-      codepen: 'fab fa-codepen'
-    }
-  },
-  {
-    title: 'Random Quote Machine',
-    description: 'A freeCodeCamp project',
-    imgSrc: screenQuote,
-    openLink: {
-      git: 'https://github.com/4edorov/my-quote-generator',
-      codepen: 'https://codepen.io/4edorov/full/bgeOMo'
-    },
-    iconType: {
-      git: 'fab fa-github',
-      codepen: 'fab fa-codepen'
-    }
-  },
-  {
-    title: 'Local Weather',
-    description: 'A freeCodeCamp project',
-    imgSrc: screenWeather,
-    openLink: {
-      git: 'https://github.com/4edorov/my-local-weather',
-      codepen: 'https://codepen.io/4edorov/full/PWpwLw'
-    },
-    iconType: {
-      git: 'fab fa-github',
-      codepen: 'fab fa-codepen'
-    }
-  },
-  {
-    title: 'Wiki Search',
-    description: 'A freeCodeCamp project',
-    imgSrc: screenSearch,
-    openLink: {
-      git: 'https://github.com/4edorov/wiki_query',
-      codepen: 'https://codepen.io/4edorov/full/BpgKyX'
-    },
-    iconType: {
-      git: 'fab fa-github',
-      codepen: 'fab fa-codepen'
-    }
-  },
-  {
-    title: 'Twitch Streamers',
-    description: 'A freeCodeCamp project',
-    imgSrc: screenTwitch,
-    openLink: {
-      git: 'https://github.com/4edorov/stream_twitchtv',
-      codepen: 'https://codepen.io/4edorov/full/WpxzaJ'
-    },
-    iconType: {
-      git: 'fab fa-github',
-      codepen: 'fab fa-codepen'
-    }
-  },
   {
     title: 'Caclulator',
     description: 'A freeCodeCamp project',
@@ -158,6 +89,17 @@ export const PORTFOLIO_WORKS = [
       git: 'fab fa-github',
       link: 'fas fa-link'
     }
+  },
+  {
+    title: 'Portfolio SPA',
+    description: 'A personal page',
+    imgSrc: screenSpa,
+    openLink: {
+      site: 'https://magicinwords.club'
+    },
+    iconType: {
+      link: 'fas fa-link'
+    }
   }
 ]
 
@@ -176,5 +118,10 @@ export const CONTACTS = [
     title: '@google+',
     link: 'https://plus.google.com/u/0/115224100303990911021',
     icon: 'fab fa-google-plus'
+  },
+  {
+    title: '@upwork',
+    link: 'https://www.upwork.com/o/profiles/users/_~01ab4d63f68eb71bbf',
+    icon: 'fas fa-briefcase'
   }
 ]
