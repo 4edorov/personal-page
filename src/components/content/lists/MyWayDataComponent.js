@@ -5,7 +5,7 @@ import { showTechnologies } from '../../../lib'
 
 const data = [
   { name: 'MongoDB', src: mongoLogo, link: 'https://www.mongodb.com' },
-  { name: 'PostgresSQL', src: pgLogo, link: 'https://www.postgresql.org' }
+  { name: 'PostgreSQL', src: pgLogo, link: 'https://www.postgresql.org' }
 ]
 
 const MyWayDataComponent = () => {
