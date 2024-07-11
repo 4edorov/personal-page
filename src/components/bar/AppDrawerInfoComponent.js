@@ -22,7 +22,6 @@ import Contacts from '@material-ui/icons/Contacts'
 import Book from '@material-ui/icons/Book'
 import Backspace from '@material-ui/icons/Backspace'
 import { STATE_APP, COLOR_APP, GIT_HUB_QUERY } from '../../config/AppConfig'
-import { GIT_HUB_REQUEST_URL } from '../../config/AppKeysConfig'
 import AppDrawerGitHubStat from './AppDrawerGitHubStat'
 
 const mapStateToProps = state => ({
@@ -94,7 +93,7 @@ class AppDrawerInfoComponent extends React.Component {
       method: 'POST',
       body: GIT_HUB_QUERY
     }
-    window.fetch(GIT_HUB_REQUEST_URL, requestInit)
+    window.fetch('', requestInit)
       .then(response => {
         if (!response.ok) {
           throw new Error(response.statusText)
@@ -158,7 +157,7 @@ class AppDrawerInfoComponent extends React.Component {
               <ListItemIcon>
                 <Face />
               </ListItemIcon>
-              <ListItemText primary='Alexander Fedorov' secondary='Web Developer' />
+              <ListItemText primary='Alexander Fedorov' secondary='Software Engineer' />
             </ListItem>
             <ListItem button onClick={() => this.handleSendForm(!this.props.isSendDrawerOpen)}>
               <ListItemIcon>

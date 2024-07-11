@@ -45,12 +45,12 @@ const ContentAboutComponent = props => {
             </div>
             <div>
               <p className='about-2'>
-                I&#39;m a Master of Economics and Bachelor of Laws. I have nine years
+                I&#39;m ex Master of Economics and Bachelor of Laws. I have nine years
                 experience in these industries and I worked both in a Public Office and
-                a Private company.
+                a Private Company.
               </p>
               <p className='about-2'>
-                But a few years ago I felt the need for changes, my friend advised me
+                But one day I felt the need for changes, my friend advised me
                 to try programming. Well, I recalled myself at high school and at university, it
                 was funny to learn to program in Turbo Pascal 7.0 and I was an &#39;A&#39;
                 student in mathematics. Why not?!
@@ -60,7 +60,7 @@ const ContentAboutComponent = props => {
                 the joining to the freeCodeCamp community in November 2016.
               </p>
               <p className='about-2'>
-                Currently, I&#39;m working as a Full-stack Web Developer.
+                Currently, I&#39;m working as a Full Stack Software Engineer.
                 I like it very much and I&#39;m continuously studying new things.
                 All actions yield results. It&#39;s awesome!
               </p>
