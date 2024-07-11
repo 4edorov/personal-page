@@ -63,9 +63,6 @@ const AppBarComponent = props => {
           <IconButton href={URL_GIT_HUB}>
             <Icon className='fab fa-github' />
           </IconButton>
-          <IconButton href={URL_FACEBOOK}>
-            <Icon className='fab fa-facebook' />
-          </IconButton>
         </div>
       </Toolbar>
     </AppBar>

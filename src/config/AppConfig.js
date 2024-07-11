@@ -109,19 +109,4 @@ export const CONTACTS = [
     link: 'https://github.com/4edorov',
     icon: 'fab fa-github'
   },
-  {
-    title: '@facebook',
-    link: 'https://www.facebook.com/alexander.fedorov.948',
-    icon: 'fab fa-facebook'
-  },
-  {
-    title: '@google+',
-    link: 'https://plus.google.com/u/0/115224100303990911021',
-    icon: 'fab fa-google-plus'
-  },
-  {
-    title: '@upwork',
-    link: 'https://www.upwork.com/o/profiles/users/_~01ab4d63f68eb71bbf',
-    icon: 'fas fa-briefcase'
-  }
 ]

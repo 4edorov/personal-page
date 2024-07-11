@@ -56,7 +56,7 @@ const ContentPortfolioComponent = props => {
   return (
     <div className={classes.root}>
       <div className={classes.caption}>
-        <h1>Portfolio</h1>
+        <h1>Portfolio (freeCodeCamp)</h1>
       </div>
       <div>
         <Grid container spacing={4}>
