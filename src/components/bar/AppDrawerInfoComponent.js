@@ -14,6 +14,7 @@ import ListItemText from '@material-ui/core/ListItemText'
 import Divider from '@material-ui/core/Divider'
 import Face from '@material-ui/icons/Face'
 import Email from '@material-ui/icons/Email'
+import AssignmentInd from '@material-ui/icons/AssignmentInd'
 import WbIncandescent from '@material-ui/icons/WbIncandescent'
 import ArtTrack from '@material-ui/icons/ArtTrack'
 import Business from '@material-ui/icons/Business'
@@ -61,8 +62,9 @@ const styleSheet = theme => ({
     maxWidth: 290
   },
   noLink: {
-    textDecoration: 'none'
-  }
+    textDecoration: 'none',
+    color: 'inherit',
+  },
 })
 
 const icons = [
@@ -165,6 +167,20 @@ class AppDrawerInfoComponent extends React.Component {
               </ListItemIcon>
               <ListItemText primary='4edorov@gmail.com' />
             </ListItem>
+            <a
+              href="/resume.pdf"
+              download="CV_2024-07-12_Alexander_Fedorov"
+              target="_blank"
+              rel="noreferrer"
+              className={classes.noLink}
+            >
+              <ListItem button>
+                <ListItemIcon>
+                  <AssignmentInd />
+                </ListItemIcon>
+                <ListItemText primary='Resume' secondary='Download' />
+              </ListItem>
+            </a>
           </List>
           <Divider />
           {appLinks.map((list, index) => {
