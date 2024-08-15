@@ -2,15 +2,17 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import * as Scroll from 'react-scroll'
-import { Link } from 'react-router-dom'
+import { Link as RouterLink } from 'react-router-dom'
 import { withStyles } from '@material-ui/core/styles'
 import { changeStateApp, toggleSendDrawer, updateGitHubStat } from '../../actions'
 import Avatar from '@material-ui/core/Avatar'
 import weberPhoto from '../../assets/static/images/Avatar.jpg'
+import Box from '@material-ui/core/Box'
 import List from '@material-ui/core/List'
 import ListItem from '@material-ui/core/ListItem'
 import ListItemIcon from '@material-ui/core/ListItemIcon'
 import ListItemText from '@material-ui/core/ListItemText'
+import Link from '@material-ui/core/Link'
 import Divider from '@material-ui/core/Divider'
 import Face from '@material-ui/icons/Face'
 import Email from '@material-ui/icons/Email'
@@ -88,6 +90,19 @@ const formGitHubStat = object => {
 }
 
 const scroller = Scroll.scroller
+
+const resumeLinks = [
+  {
+    path: '/resume-en.pdf',
+    name: 'resume-software-engineer-Alexander-Fedorov-en',
+    title: 'EN'
+  },
+  {
+    path: '/resume-ru.pdf',
+    name: 'resume-software-engineer-Alexander-Fedorov-ru',
+    title: 'RU'
+  },
+]
 
 class AppDrawerInfoComponent extends React.Component {
   componentDidMount () {
@@ -167,20 +182,15 @@ class AppDrawerInfoComponent extends React.Component {
               </ListItemIcon>
               <ListItemText primary='4edorov@gmail.com' />
             </ListItem>
-            <a
-              href="/resume.pdf"
-              download="CV_2024-07-12_Alexander_Fedorov"
-              target="_blank"
-              rel="noreferrer"
-              className={classes.noLink}
-            >
-              <ListItem button>
-                <ListItemIcon>
-                  <AssignmentInd />
-                </ListItemIcon>
-                <ListItemText primary='Resume' secondary='Download' />
-              </ListItem>
-            </a>
+            <ListItem>
+              <ListItemIcon>
+                <AssignmentInd />
+              </ListItemIcon>
+              <ListItemText primary='Resume' secondary={<Box>Download {resumeLinks.map((link, i) => <Box component='span' px={1} key={i}><Link href={link.path}
+                download={link.name}
+                target="_blank"
+                rel="noreferrer">{link.title}</Link></Box>)}</Box>} />
+            </ListItem>
           </List>
           <Divider />
           {appLinks.map((list, index) => {
@@ -188,7 +198,7 @@ class AppDrawerInfoComponent extends React.Component {
             if (list === 'Back') {
               index = 6
             }
-            const LinkItem = React.forwardRef((props, ref) => <Link to={list === 'Articles' ? '/articles' : '/'} {...props} ref={ref} />)
+            const LinkItem = React.forwardRef((props, ref) => <RouterLink to={list === 'Articles' ? '/articles' : '/'} {...props} ref={ref} />)
             LinkItem.displayName = 'LinkItem'
             return (
               <List key={index}>
